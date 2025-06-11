@@ -1,0 +1,267 @@
+/* Pour un scroll fluide */
+html {
+  scroll-behavior: smooth;
+}
+/* Variables CSS pour le thème */
+:root {
+  --bg-color: #f8f9ff;
+  --text-color: #2a2e35;
+  --section-bg: rgba(255, 255, 255, 0.8);
+  --hero-gradient-start: #3a7bef;
+  --hero-gradient-end: #00c897;
+  --highlight-color: #00c897;
+  --primary-color: #3a7bef;
+  --secondary-bg: rgba(244, 246, 255, 0.8);
+  --skill-bg: rgba(232, 244, 255, 0.8);
+  --box-shadow: rgba(0, 0, 0, 0.05);
+}
+/* Variables pour le thème sombre */
+.dark-theme {
+  --bg-color: #1e1e1e;
+  --text-color: #e0e0e0;
+  --section-bg: rgba(42, 46, 53, 0.8);
+  --hero-gradient-start: #141e30;
+  --hero-gradient-end: #243b55;
+  --highlight-color: #00c897;
+  --primary-color: #00c897;
+  --secondary-bg: rgba(51, 56, 66, 0.8);
+  --skill-bg: rgba(68, 76, 86, 0.8);
+  --box-shadow: rgba(0, 0, 0, 0.3);
+}
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+/* Bouton de changement de thème */
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+/* En-tête */
+.hero {
+  background: linear-gradient(135deg, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%);
+  padding: 4rem 0 2rem;
+  color: white;
+  text-align: center;
+  /* Utilisation d'un clip-path pour un effet moderne */
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  margin-bottom: 2rem;
+  position: relative;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.contacts {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+/* Menu de navigation avec micro-interactions */
+.nav-menu {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.nav-menu a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  background: var(--highlight-color);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.3s;
+}
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s;
+}
+.nav-menu a:hover {
+  background: var(--primary-color);
+  transform: scale(1.03);
+}
+.nav-menu a:hover::after {
+  width: 100%;
+}
+/* Sections avec effet de glassmorphism et animations au scroll */
+.section {
+  background: var(--section-bg);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px var(--box-shadow);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  backdrop-filter: blur(10px);
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--box-shadow);
+}
+/* Titres de section avec icônes */
+.section-title {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 2.5rem;
+  font-size: 1.8rem;
+}
+.section-title i {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: var(--highlight-color);
+}
+/* Timeline (Expérience, Formations, Projets) */
+.timeline-item {
+  border-left: 3px solid var(--primary-color);
+  padding-left: 2rem;
+  margin-left: 1rem;
+  position: relative;
+  margin-bottom: 3rem;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--highlight-color);
+  border-radius: 50%;
+  border: 3px solid var(--section-bg);
+}
+.timeline-item ul {
+  list-style-type: none;
+  margin-top: 1rem;
+}
+.timeline-item li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+.timeline-item li::before {
+  content: "•";
+  color: var(--highlight-color);
+  position: absolute;
+  left: 0;
+}
+.location {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.date {
+  color: var(--highlight-color);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+/* Compétences - refonte */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.skill-category {
+  background: var(--secondary-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-color);
+  transition: transform 0.3s;
+}
+.skill-category:hover {
+  transform: scale(1.02);
+}
+.skill-category h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+.skill-category h3 i {
+  margin-right: 0.5rem;
+  color: var(--highlight-color);
+}
+.skill-tag {
+  display: inline-block;
+  background: var(--skill-bg);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.2s, background-color 0.2s;
+  cursor: default;
+}
+.skill-tag:hover {
+  transform: scale(1.05);
+  background-color: var(--highlight-color);
+  color: #fff;
+}
+/* Pour les drapeaux dans la section Langues */
+.flag-icon {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+    font-size: 2.5rem;
+    }
+    .section {
+    padding: 1.5rem;
+    }
+    .section-title {
+    padding-left: 2rem;
+    }
+}
