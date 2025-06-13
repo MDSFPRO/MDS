@@ -3,483 +3,655 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marc Da Silva - Chef de Projet IT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Lien vers la bibliothèque de drapeaux -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+  <title>Marc Da Silva – Consultant IT</title>
+  <meta name="author" content="Marc Da Silva" />
+  <meta name="description" content="Portfolio Marc Da Silva – Consultant IT, Chef de projet, Expert Modern Workplace" />
+  <!-- OpenGraph pour partage sur réseaux sociaux -->
+  <meta property="og:title" content="Marc Da Silva – Consultant IT" />
+  <meta property="og:description" content="Consultant IT, Chef de projet, expert Modern Workplace. Découvrez mon parcours, mes compétences et réalisations." />
+  <meta property="og:image" content="https://tondomaine.com/public/logo.png" /> <!-- adapte le lien si tu veux un aperçu -->
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="public/logo.png" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Flag Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css"/>
+
   <style>
-    /* Pour un scroll fluide */
-    html {
-      scroll-behavior: smooth;
-    }
-    /* Variables CSS pour le thème */
-    :root {
-      --bg-color: #f8f9ff;
-      --text-color: #2a2e35;
-      --section-bg: rgba(255, 255, 255, 0.8);
-      --hero-gradient-start: #3a7bef;
-      --hero-gradient-end: #00c897;
-      --highlight-color: #00c897;
-      --primary-color: #3a7bef;
-      --secondary-bg: rgba(244, 246, 255, 0.8);
-      --skill-bg: rgba(232, 244, 255, 0.8);
-      --box-shadow: rgba(0, 0, 0, 0.05);
-    }
-    /* Variables pour le thème sombre */
-    .dark-theme {
-      --bg-color: #1e1e1e;
-      --text-color: #e0e0e0;
-      --section-bg: rgba(42, 46, 53, 0.8);
-      --hero-gradient-start: #141e30;
-      --hero-gradient-end: #243b55;
-      --highlight-color: #00c897;
-      --primary-color: #00c897;
-      --secondary-bg: rgba(51, 56, 66, 0.8);
-      --skill-bg: rgba(68, 76, 86, 0.8);
-      --box-shadow: rgba(0, 0, 0, 0.3);
-    }
-    /* Reset et styles de base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: "Poppins", sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-    }
-    /* Bouton de changement de thème */
-    #theme-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: transparent;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-color);
-      transition: color 0.3s;
-    }
-    /* En-tête */
-    .hero {
-      background: linear-gradient(135deg, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%);
-      padding: 4rem 0 2rem;
-      color: white;
-      text-align: center;
-      /* Utilisation d'un clip-path pour un effet moderne */
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-      margin-bottom: 2rem;
-      position: relative;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-    .tagline {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-    .contacts {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-    }
-    /* Menu de navigation avec micro-interactions */
-    .nav-menu {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .nav-menu a {
-      position: relative;
-      text-decoration: none;
-      color: white;
-      background: var(--highlight-color);
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .nav-menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0%;
-      height: 2px;
-      background: var(--primary-color);
-      transition: width 0.3s;
-    }
-    .nav-menu a:hover {
-      background: var(--primary-color);
-      transform: scale(1.03);
-    }
-    .nav-menu a:hover::after {
-      width: 100%;
-    }
-    /* Sections avec effet de glassmorphism et animations au scroll */
-    .section {
-      background: var(--section-bg);
-      padding: 2.5rem;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px var(--box-shadow);
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+    html { scroll-behavior: smooth; }
+
+    /* Animation apparition progressive au scroll */
+    .fade {
       opacity: 0;
-      transform: translateY(20px);
-      backdrop-filter: blur(10px);
+      transform: translateY(40px);
+      transition: opacity .8s cubic-bezier(.19,1,.22,1), transform .8s cubic-bezier(.19,1,.22,1);
     }
-    .section.visible {
+    .fade.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
-    .section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px var(--box-shadow);
-    }
-    /* Titres de section avec icônes */
-    .section-title {
-      color: var(--primary-color);
-      margin-bottom: 2rem;
-      position: relative;
-      padding-left: 2.5rem;
-      font-size: 1.8rem;
-    }
-    .section-title i {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
-      color: var(--highlight-color);
-    }
-    /* Timeline (Expérience, Formations, Projets) */
-    .timeline-item {
-      border-left: 3px solid var(--primary-color);
-      padding-left: 2rem;
-      margin-left: 1rem;
-      position: relative;
-      margin-bottom: 3rem;
-    }
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -10px;
-      top: 0;
-      width: 20px;
-      height: 20px;
-      background: var(--highlight-color);
-      border-radius: 50%;
-      border: 3px solid var(--section-bg);
-    }
-    .timeline-item ul {
-      list-style-type: none;
-      margin-top: 1rem;
-    }
-    .timeline-item li {
-      margin-bottom: 0.5rem;
-      position: relative;
-      padding-left: 1.5rem;
-    }
-    .timeline-item li::before {
-      content: "•";
-      color: var(--highlight-color);
-      position: absolute;
-      left: 0;
-    }
-    .location {
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-    .date {
-      color: var(--highlight-color);
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-    /* Compétences - refonte */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .skill-category {
-      background: var(--secondary-bg);
-      padding: 1.5rem;
-      border-radius: 10px;
-      border-left: 4px solid var(--primary-color);
-      transition: transform 0.3s;
-    }
-    .skill-category:hover {
-      transform: scale(1.02);
-    }
-    .skill-category h3 {
-      margin-bottom: 1rem;
-      color: var(--primary-color);
-      font-size: 1.2rem;
-    }
-    .skill-category h3 i {
-      margin-right: 0.5rem;
-      color: var(--highlight-color);
-    }
-    .skill-tag {
-      display: inline-block;
-      background: var(--skill-bg);
-      color: var(--primary-color);
-      padding: 0.5rem 1rem;
-      margin: 0.3rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: transform 0.2s, background-color 0.2s;
-      cursor: default;
-    }
-    .skill-tag:hover {
-      transform: scale(1.05);
-      background-color: var(--highlight-color);
-      color: #fff;
-    }
-    /* Pour les drapeaux dans la section Langues */
-    .flag-icon {
-      margin-right: 0.5rem;
+
+    /* Icônes Lucide, alignement vertical */
+    .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       vertical-align: middle;
     }
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      .section {
-        padding: 1.5rem;
-      }
-      .section-title {
-        padding-left: 2rem;
-      }
+
+    /* Badges compétences */
+    .skill-badge {
+      display: inline-block;
+      background: rgba(20,184,166,0.12);
+      color: #14b8a6;
+      border-radius: 9999px;
+      padding: 0.15em 0.8em;
+      font-size: 0.95em;
+      font-weight: 600;
+      margin-right: 0.5em;
     }
+    .level-badge {
+      display: inline-block;
+      background: rgba(59,130,246,0.14);
+      color: #3b82f6;
+      border-radius: 9999px;
+      padding: 0.1em 0.7em;
+      font-size: 0.85em;
+      font-weight: 500;
+      margin-left: 0.5em;
+    }
+
+    /* Highlight section active (effet "Apple section visible") */
+    .section-anim {
+      transition: box-shadow .5s, transform .5s, background .5s;
+    }
+    .section-anim.active {
+      box-shadow: 0 8px 40px 0 rgba(20,184,166,0.15);
+      transform: scale(1.0125);
+      background: linear-gradient(90deg,rgba(20,184,166,0.06) 0%,rgba(0,0,0,0.08) 100%);
+      border-radius: 2rem;
+    }
+
+    /* Effet hover premium sur toutes les "cards" du portfolio */
+    .card-hover {
+      transition: box-shadow .3s, transform .3s, background .3s, border-color .3s;
+    }
+    .card-hover:hover {
+      box-shadow: 0 8px 36px 0 rgba(20,184,166,0.15);
+      transform: scale(1.05);
+      background: #222228;
+      border-color: #14b8a6;
+    }
+
+    .logo-link {
+      position: relative;
+      display: inline-block;
+      outline: none;
+    }
+    .logo-link .tooltip {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -2.2rem;
+      background: rgba(20,184,166,0.95);
+      color: #fff;
+      padding: 0.35em 0.9em;
+      font-size: 0.92em;
+      border-radius: 9999px;
+      white-space: nowrap;
+      z-index: 10;
+      font-weight: 500;
+      box-shadow: 0 6px 24px 0 rgba(20,184,166,0.13);
+    }
+    .logo-link:hover .tooltip,
+    .logo-link:focus .tooltip {
+      opacity: 1;
+    }
+
+    /* Carrousel */
+    #marquee-track {
+      will-change: transform;
+      transition: none;
+    }
+    .marquee-band {
+      /* Effet hover premium pour la bande du carrousel */
+      transition: box-shadow .3s, transform .3s, background .3s, border-color .3s;
+    }
+    .marquee-band:hover {
+      box-shadow: 0 8px 36px 0 rgba(20,184,166,0.15);
+      background: #222228;
+      border-color: #14b8a6;
+    }
+
+    /* Optimisation image responsive */
+    img[alt^="Logo"], img[alt^="AXA"], img[alt^="Asigma"], img[alt^="CRET"], img[alt^="Biogroup"], img[alt^="McDonald"] {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 24s linear infinite;
+  }
   </style>
 </head>
-<body>
-  <header class="hero">
-    <div class="container">
-      <!-- Bouton de changement de thème -->
-      <button id="theme-toggle" aria-label="Toggle theme">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-      <h1>Marc Da Silva</h1>
-      <p class="tagline">
-        Chef de Projet IT | Transformation Digitale | Stratégie et Innovation
-      </p>
-      <div class="contacts">
-        <div class="contact-item">
-          <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:dsf.marc@gmail.com">dsf.marc@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <i class="fa-solid fa-phone"></i>
-          +33 6 29 47 08 39
-        </div>
-        <div class="contact-item">
-          <i class="fa-brands fa-linkedin"></i>
-          <a href="https://linkedin.com/in/marc-da-silva-f4u" target="_blank">linkedin.com/in/marc-da-silva-f4u</a>
-        </div>
-        <div class="contact-item">
-          <i class="fa-solid fa-location-dot"></i>
-          Montreuil, Ile-de-France, France
-        </div>
-      </div>
-      <!-- Menu de navigation -->
-      <nav class="nav-menu">
-        <a href="#profil">Profil</a>
-        <a href="#competences">Compétences</a>
-        <a href="#experience">Expérience</a>
-        <a href="#formations">Formations</a>
-        <a href="#projets">Projets</a>
+<body class="bg-black text-white min-h-screen font-sans">
+
+  <!-- NAVIGATION -->
+  <header class="fixed inset-x-0 top-0 z-50 bg-black/90 border-b border-white/10 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-5">
+      <a href="#hero" class="focus:outline-none" aria-label="Remonter en haut">
+        <img src="public/logo.png" alt="Logo Marc Da Silva" class="h-10 w-10 rounded-full" />
+      </a>
+      <!-- Desktop NAV -->
+      <nav class="hidden md:flex gap-10 text-lg font-medium items-center" aria-label="Navigation principale">
+        <a href="#experiences" class="hover:text-teal-400 transition">Expériences</a>
+        <a href="#formations" class="hover:text-teal-400 transition">Formations</a>
+        <a href="#certifications" class="hover:text-teal-400 transition">Certifications</a>
+        <a href="#competences" class="hover:text-teal-400 transition">Compétences</a>
+        <a href="#interet" class="hover:text-teal-400 transition">Intérêt</a>
+        <a href="#contact" class="hover:text-teal-400 transition">Contact</a>
+        <a href="articles/article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition" target="_blank" rel="noopener noreferrer">Articles</a>
       </nav>
+      <!-- Burger Icon (Mobile) -->
+      <button id="burger-btn" class="md:hidden flex items-center justify-center p-2 rounded text-white focus:outline-none focus:ring-2 focus:ring-teal-400" aria-label="Menu">
+        <i data-lucide="menu" class="w-9 h-9"></i>
+      </button>
     </div>
+    <!-- Mobile NAV -->
+    <nav id="mobile-nav" class="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex-col items-center justify-center gap-8 text-2xl font-semibold text-white hidden" aria-label="Navigation mobile">
+      <button id="close-nav" class="absolute top-6 right-8 p-2 rounded hover:bg-white/10" aria-label="Fermer le menu">
+        <i data-lucide="x" class="w-9 h-9"></i>
+      </button>
+      <div class="flex flex-col gap-8 items-center mt-24">
+        <a href="#experiences" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Expériences</a>
+        <a href="#formations" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Formations</a>
+        <a href="#certifications" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Certifications</a>
+        <a href="#competences" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Compétences</a>
+        <a href="#interet" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Intérêt</a>
+        <a href="#contact" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Contact</a>
+        <a href="articles/article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition" target="_blank" rel="noopener noreferrer" onclick="closeMobileNav()">Articles</a>
+      </div>
+    </nav>
   </header>
 
-  <main class="container">
-    <!-- Profil Professionnel -->
-    <section id="profil" class="section">
-      <h2 class="section-title"><i class="fa-solid fa-user"></i> Profil Professionnel</h2>
-      <p>
-        Chef de Projet IT expérimenté, spécialisé dans la transformation digitale et l'optimisation des infrastructures technologiques. Expert en gestion de projets complexes, alliant méthodes Agile et Waterfall pour garantir la réussite des initiatives stratégiques. Passionné par l'innovation, j'accompagne les entreprises dans leur évolution numérique en mettant l'accent sur l'efficacité opérationnelle et la satisfaction client.
-      </p>
-    </section>
-
-    <!-- Compétences -->
-    <section id="competences" class="section">
-      <h2 class="section-title"><i class="fa-solid fa-tools"></i> Compétences</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3><i class="fa-solid fa-rocket"></i> Techniques métier</h3>
-          <div class="skill-tag">Gestion de projet</div>
-          <div class="skill-tag">Agile / Scrum</div>
-          <div class="skill-tag">Kanban</div>
-          <div class="skill-tag">Waterfall</div>
-          <div class="skill-tag">Virtualisation</div>
-          <div class="skill-tag">Cloud Computing</div>
-          <div class="skill-tag">Cybersécurité</div>
-          <div class="skill-tag">Architecture SI</div>
-          <div class="skill-tag">IA & Data</div>
-          <div class="skill-tag">IoT</div>
-          <div class="skill-tag">Notion</div>
-          <div class="skill-tag">Trello</div>
-          <div class="skill-tag">M365</div>
-          <div class="skill-tag">PowerBI</div>
-          <div class="skill-tag">ServiceNow</div>
-          <div class="skill-tag">Centreon</div>
-        </div>
-        <div class="skill-category">
-          <h3><i class="fa-solid fa-users"></i> Qualités personnelles</h3>
-          <div class="skill-tag">Leadership</div>
-          <div class="skill-tag">Communication</div>
-          <div class="skill-tag">Esprit d'équipe</div>
-          <div class="skill-tag">Analyse stratégique</div>
-          <div class="skill-tag">Adaptabilité</div>
-          <div class="skill-tag">Résolution de problèmes</div>
-          <div class="skill-tag">Orientation client</div>
-          <div class="skill-tag">Gestion du stress</div>
-        </div>
-        <div class="skill-category">
-          <h3><i class="fa-solid fa-language"></i> Langues</h3>
-          <div class="skill-tag"><span class="flag-icon flag-icon-fr"></span> Français (natif)</div>
-          <div class="skill-tag"><span class="flag-icon flag-icon-us"></span> Anglais (TOEIC 790)</div>
-          <div class="skill-tag"><span class="flag-icon flag-icon-es"></span> Espagnol (intermédiaire)</div>
-          <div class="skill-tag"><span class="flag-icon flag-icon-pt"></span> Portugais (notions)</div>
-        </div>
-        <div class="skill-category">
-          <h3><i class="fa-solid fa-certificate"></i> Certifications</h3>
-          <div class="skill-tag">Harvard - Leadership</div>
-          <div class="skill-tag">IBM - IA & Agile</div>
-          <div class="skill-tag">Microsoft - Chef de projet</div>
-          <div class="skill-tag">Cisco - Cybersécurité</div>
-          <div class="skill-tag">Ethical Hacker</div>
+  <!-- HERO -->
+  <section id="hero" class="w-full min-h-screen fade section-anim bg-[#101014] flex flex-col justify-center">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-16">
+      <!-- IMAGE/LOGO À GAUCHE -->
+      <div class="md:w-1/2 flex justify-center items-center">
+        <img src="public/logo.png" alt="Logo Marc Da Silva" class="rounded-3xl shadow-xl w-full max-w-[180px] md:max-w-[300px] object-contain" />
+      </div>
+      <!-- TEXTE À DROITE -->
+      <div class="md:w-1/2 flex flex-col justify-center">
+        <span class="uppercase text-teal-400 font-medium tracking-wider text-sm mb-6">À propos</span>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">Un accompagnement IT <br>qui met l'humain & le résultat au centre</h2>
+        <hr class="border-white/20 mb-6 w-16">
+        <p class="text-lg md:text-xl text-white/90 mb-5 leading-relaxed">
+          <strong>Consultant IT & Chef de Projet,</strong> j’aide les entreprises à sécuriser, moderniser et piloter leur transformation digitale.<br>
+          Passionné de technologie, je traduis les enjeux SI en solutions concrètes, avec un focus sur la pédagogie, la conformité et la réussite collective.
+        </p>
+        <p class="text-md text-white/70 mb-8">Pilotage de projet IT, conduite du changement, gestion d'équipe et support utilisateurs : j’apporte une vision 360° sur l'ensemble d'un SI/Workplace.</p>
+        <div class="flex flex-col md:flex-row gap-4">
+          <a href="#contact" class="inline-block bg-teal-500 hover:bg-teal-400 px-10 py-4 rounded-xl font-semibold text-black text-lg shadow-lg transition">Me contacter</a>
+          <a href="public/Dossier de compétences - Marc Da Silva 2025.pdf" download class="inline-block border-2 border-teal-400 text-teal-400 font-bold rounded-xl px-10 py-4 text-lg hover:bg-teal-400 hover:text-black transition shadow-lg">Télécharger mon dossier</a>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <!-- EXPERIENCES - chaque section-anim a son texte impact et synthèse -->
+  <section id="experiences" class="py-32 px-4 fade section-anim bg-[#16171b]">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-5xl font-bold mb-20 tracking-tight text-center">Expériences professionnelles</h2>
+      <div class="grid md:grid-cols-2 gap-16">
+        <!-- Asigma -->
+        <div class="flex flex-col p-10 rounded-3xl border border-white/10 bg-white/5 card-hover text-left">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="icon bg-teal-600/10 rounded-full p-3"><i data-lucide="server-cog" class="w-8 h-8 text-teal-400"></i></span>
+            <div>
+              <h3 class="text-2xl font-semibold">Consultant IT</h3>
+              <span class="text-white/60 text-lg">Asigma - Rainbow Partners, Neuilly-sur-Seine</span>
+            </div>
+          </div>
+          <div class="mb-4 text-base text-teal-300">Mars 2025 – Juin 2025</div>
+          <p class="mb-3 text-white/90 font-medium">En bref : Administration sys, sécurité et conformité IT.</p>
+          <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
+            <li><i data-lucide="bar-chart-2" class="w-6 h-6 text-teal-400 inline mr-2"></i>Conformité des postes : 75 % ➜ 98 % (automation Intune, Winget, scripts)</li>
+            <li><i data-lucide="shield-check" class="w-6 h-6 text-teal-400 inline mr-2"></i>+9 % sécurité endpoints (MDE, MFA, ASR, DLP), 15 recommandations validées</li>
+            <li><i data-lucide="file-lock" class="w-6 h-6 text-teal-400 inline mr-2"></i>Protection avancée 100Go de données sensibles, +70% contrôle d’accès</li>
+            <li><i data-lucide="users" class="w-6 h-6 text-teal-400 inline mr-2"></i>100+ utilisateurs formés sécurité/MFA, documentation complète, conformité RGPD/ISO</li>
+          </ul>
+          <div class="mt-2 text-white/60 text-sm">Valeur ajoutée : Standardisation, sécurité renforcée, accompagnement, documentation process.<br>
+            <span class="italic">Soft skills : pédagogie, esprit d’équipe, rigueur, agilité, documentation.</span>
+          </div>
+        </div>
+
+        <!-- AXA -->
+        <div class="flex flex-col p-10 rounded-3xl border border-white/10 bg-white/5 card-hover text-left">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="icon bg-blue-600/10 rounded-full p-3"><i data-lucide="Kanban" class="w-8 h-8 text-blue-400"></i></span>
+            <div>
+              <h3 class="text-2xl font-semibold">Chef de projet IT Workplace</h3>
+              <span class="text-white/60 text-lg">AXA Group Operations, Paris</span>
+            </div>
+          </div>
+          <div class="mb-4 text-base text-blue-300">Sept 2023 – Oct 2024</div>
+          <p class="mb-3 text-white/90 font-medium">En bref : Pilotage projets internationaux Windows 11, Teams, push solution eSIM, optimisation Sharepoint.</p>
+          <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
+            <li><i data-lucide="monitor-up" class="w-6 h-6 text-blue-400 inline mr-2"></i>Migration Windows 11 : 2 500 users, 95 % dans les délais, 37 machines remplacées</li>
+            <li><i data-lucide="users-2" class="w-6 h-6 text-blue-400 inline mr-2"></i>Teams : 8 000 users, 100 % migration en 8 entités, roadmap & suivi Excel/PowerBI</li>
+            <li><i data-lucide="credit-card" class="w-6 h-6 text-blue-400 inline mr-2"></i>eSIM : -30x délais, +10 000 € d’économies, guides utilisateurs FR/EN</li>
+            <li><i data-lucide="activity" class="w-6 h-6 text-blue-400 inline mr-2"></i>+25 % d’engagement interne (SharePoint, articles, guides onboarding)</li>
+          </ul>
+          <div class="mt-2 text-white/60 text-sm">Valeur ajoutée : Organisation, ROI, communication, pilotage conduite du changement.<br>
+            <span class="italic">Soft skills : coordination, synthèse, gestion d’équipe, orientation résultat.</span>
+          </div>
+        </div>
+
+        <!-- CRET Ingénieur -->
+        <div class="flex flex-col p-10 rounded-3xl border border-white/10 bg-white/5 card-hover text-left">         
+          <div class="flex items-center gap-3 mb-6">
+            <span class="icon bg-yellow-500/10 rounded-full p-3"><i data-lucide="network" class="w-8 h-8 text-yellow-400"></i></span>
+            <div>
+              <h3 class="text-2xl font-semibold">Ingénieur Réseaux & Télécoms</h3>
+              <span class="text-white/60 text-lg">CRET, Saint-Denis</span>
+            </div>
+          </div>
+          <div class="mb-4 text-base text-yellow-300">Sept 2021 - Août 2023</div>
+          <p class="mb-3 text-white/90 font-medium">En bref : Modernisation WAN/VoIP, infra hôtels/labos/cabinets, cloud et support IT intégral.</p>
+          <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
+            <li><i data-lucide="wifi" class="w-6 h-6 text-yellow-400 inline mr-2"></i>Refonte WAN hôtel : +60 % couverture, 90 % satisfaction, 0 interruption</li>
+            <li><i data-lucide="phone-forwarded" class="w-6 h-6 text-yellow-400 inline mr-2"></i>Migration VoIP (70 labos), -40 % interruptions, +25 % satisfaction user</li>
+            <li><i data-lucide="cloud" class="w-6 h-6 text-yellow-400 inline mr-2"></i>Déploiement cloud/IT médical : 100 % dispo, zéro incident, guides utilisateurs</li>
+          </ul>
+          <div class="mt-2 text-white/60 text-sm">Valeur ajoutée : gestion multi-projets, accompagnement utilisateurs, anticipation risques.<br>
+            <span class="italic">Soft skills : adaptabilité, pédagogie, gestion de crise.</span>
+          </div>
+        </div>
+
+        <!-- CRET Technicien -->
+        <div class="flex flex-col p-10 rounded-3xl border border-white/10 bg-white/5 card-hover text-left">        
+            <div class="flex items-center gap-3 mb-6">
+            <span class="icon bg-gray-400/10 rounded-full p-3"><i data-lucide="laptop" class="w-8 h-8 text-gray-300"></i></span>
+            <div>
+              <h3 class="text-2xl font-semibold">Technicien Systèmes & Réseaux</h3>
+              <span class="text-white/60 text-lg">CRET, Saint-Denis</span>
+            </div>
+          </div>
+          <div class="mb-4 text-base text-gray-300">Sept 2020 - Août 2021</div>
+          <p class="mb-3 text-white/90 font-medium">En bref : Digitalisation, support IT, maintenance, formation, gestion incidents.</p>
+          <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
+            <li><i data-lucide="folder-input" class="w-6 h-6 text-gray-300 inline mr-2"></i>Numérisation 100% dossiers clients, +40 % productivité</li>
+            <li><i data-lucide="headset" class="w-6 h-6 text-gray-300 inline mr-2"></i>Déploiement softphone : +99 % dispo lignes, -30 % attente</li>
+            <li><i data-lucide="wrench" class="w-6 h-6 text-gray-300 inline mr-2"></i>Maintenance proactive, doc technique, support N1/N2, incidents anticipés</li>
+          </ul>
+          <div class="mt-2 text-white/60 text-sm">Valeur ajoutée : digitalisation, réactivité, documentation technique.<br>
+            <span class="italic">Soft skills : autonomie, pédagogie, curiosité, fiabilité.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Carrousel centré, fluide, aligné -->
+  <div class="mt-16 flex justify-center w-full">
+    <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 marquee-band shadow-xl transition-all duration-300"
+        style="max-width:1150px; width:100%;">
+      <div id="marquee-track"
+          class="flex gap-10 items-end justify-center whitespace-nowrap py-6 px-2 transition-all duration-300 animate-marquee">
+        
+        <!-- Les 5 logos -->
+        <div class="flex flex-col items-center min-w-[130px]">
+          <div class="flex items-center justify-center h-16 w-full flex-grow">
+            <a href="https://www.asigma.fr/" target="_blank" rel="noopener" aria-label="Asigma - Employeur" class="logo-link block">
+              <img src="public/asigma.png" alt="Logo Asigma" class="h-16 w-32 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            </a>
+          </div>
+          <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
+        </div>
+        <div class="flex flex-col items-center min-w-[130px]">
+          <div class="flex items-center justify-center h-16 w-full flex-grow">
+            <a href="https://www.axa.com/" target="_blank" rel="noopener" aria-label="AXA - Employeur" class="logo-link block">
+              <img src="public/axa.png" alt="Logo AXA" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            </a>
+          </div>
+          <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
+        </div>
+        <div class="flex flex-col items-center min-w-[130px]">
+          <div class="flex items-center justify-center h-16 w-full flex-grow">
+            <a href="https://www.cret.fr/" target="_blank" rel="noopener" aria-label="CRET - Employeur" class="logo-link block">
+              <img src="public/cret.png" alt="Logo CRET" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            </a>
+          </div>
+          <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
+        </div>
+        <div class="flex flex-col items-center min-w-[130px]">
+          <div class="flex items-center justify-center h-16 w-full flex-grow">
+            <a href="https://www.biogroup.fr/" target="_blank" rel="noopener" aria-label="Biogroup - Client final" class="logo-link block">
+              <img src="public/biogroup.png" alt="Logo Biogroup" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            </a>
+          </div>
+          <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
+        </div>
+        <div class="flex flex-col items-center min-w-[130px]">
+          <div class="flex items-center justify-center h-16 w-full flex-grow">
+            <a href="https://www.mcdonalds.fr/" target="_blank" rel="noopener" aria-label="McDonald's - Client final" class="logo-link block">
+              <img src="public/mcdo.png" alt="Logo McDonald's" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            </a>
+          </div>
+          <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
+        </div>
+        
+        <!-- DUPLIQUE LES 5 LOGOS EN SUIVANT -->
+        <div class="flex flex-col items-center min-w-[130px]">
+          <div class="flex items-center justify-center h-16 w-full flex-grow">
+            <a href="https://www.asigma.fr/" target="_blank" rel="noopener" aria-label="Asigma - Employeur" class="logo-link block">
+              <img src="public/asigma.png" alt="Logo Asigma" class="h-16 w-32 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            </a>
+          </div>
+          <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
+        </div>
+        <div class="flex flex-col items-center min-w-[130px]">
+          <div class="flex items-center justify-center h-16 w-full flex-grow">
+            <a href="https://www.axa.com/" target="_blank" rel="noopener" aria-label="AXA - Employeur" class="logo-link block">
+              <img src="public/axa.png" alt="Logo AXA" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            </a>
+          </div>
+          <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
+        </div>
+        <div class="flex flex-col items-center min-w-[130px]">
+          <div class="flex items-center justify-center h-16 w-full flex-grow">
+            <a href="https://www.cret.fr/" target="_blank" rel="noopener" aria-label="CRET - Employeur" class="logo-link block">
+              <img src="public/cret.png" alt="Logo CRET" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            </a>
+          </div>
+          <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
+        </div>
+        <div class="flex flex-col items-center min-w-[130px]">
+          <div class="flex items-center justify-center h-16 w-full flex-grow">
+            <a href="https://www.biogroup.fr/" target="_blank" rel="noopener" aria-label="Biogroup - Client final" class="logo-link block">
+              <img src="public/biogroup.png" alt="Logo Biogroup" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            </a>
+          </div>
+          <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
+        </div>
+        <div class="flex flex-col items-center min-w-[130px]">
+          <div class="flex items-center justify-center h-16 w-full flex-grow">
+            <a href="https://www.mcdonalds.fr/" target="_blank" rel="noopener" aria-label="McDonald's - Client final" class="logo-link block">
+              <img src="public/mcdo.png" alt="Logo McDonald's" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            </a>
+          </div>
+          <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
+        </div>
+      </div>
+    </div>
+  </div>
     </section>
 
-    <!-- Expérience Professionnelle -->
-    <section id="experience" class="section">
-      <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Expérience Professionnelle</h2>
-      <div class="timeline-item">
-        <h3>Chef de projet IT Workplace - AXA Group Operations</h3>
-        <p class="location">Paris, France</p>
-        <p class="date">Sept 2023 - Sept 2024</p>
-        <ul>
-          <li>Mise en place d'une solution eSIM internationale, réduisant les coûts de roaming de 40% et accélérant la livraison des cartes eSIM de 1 mois à 1 jour.</li>
-          <li>Gestion d'un projet de migration vers Windows 11, impliquant une équipe internationale et 2 500 collaborateurs, avec 37 postes modernisés.</li>
-          <li>Conduite du changement pour l'adoption d'un nouvel outil de communication, déployé avec succès auprès de 8 000 collaborateurs.</li>
-          <li>Administration de la plateforme SharePoint, augmentant l'engagement des collaborateurs de 25%.</li>
-        </ul>
-      </div>
-      <div class="timeline-item">
-        <h3>Ingénieur systèmes et réseaux - CRET</h3>
-        <p class="location">Saint-Denis, France</p>
-        <p class="date">Sept 2021 - Août 2023</p>
-        <ul>
-          <li>Refonte de l'infrastructure WAN avec un taux de satisfaction client de 90%.</li>
-          <li>Déploiement de solutions VoIP dans 70 laboratoires en respectant les délais impartis.</li>
-          <li>Conception d'architectures SI adaptées, optimisant performances et sécurité.</li>
-          <li>Négociation et mise en place de partenariats stratégiques avec trois acteurs majeurs.</li>
-        </ul>
-      </div>
-      <div class="timeline-item">
-        <h3>Technicien systèmes, réseaux et télécoms - CRET</h3>
-        <p class="location">Saint-Denis, France</p>
-        <p class="date">Sept 2020 - Août 2021</p>
-        <ul>
-          <li>Transformation numérique : numérisation complète des fiches clients.</li>
-          <li>Mise en place d'outils de cybersécurité pour renforcer la protection des données.</li>
-          <li>Maintenance proactive et mises à jour régulières des infrastructures SI.</li>
-        </ul>
+
+    <!-- FORMATIONS -->
+    <section id="formations" class="py-32 px-4 fade section-anim bg-[#101014]">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-5xl font-bold mb-20 tracking-tight text-center">Formations</h2>
+        <div class="grid md:grid-cols-3 gap-14">
+          <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+            <div class="icon mb-5 bg-white/10 rounded-full p-4"><i data-lucide="graduation-cap" class="w-10 h-10 text-teal-300"></i></div>
+            <h3 class="text-xl font-semibold mb-2">3il Ingénieur</h3>
+            <p class="text-lg text-white/80 mb-2">Master Réseaux, Infra & Sécurité<br><span class="skill-badge">Mention Bien</span></p>
+            <span class="text-teal-300">2022 – 2024</span>
+          </div>
+          <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+            <div class="icon mb-5 bg-white/10 rounded-full p-4"><i data-lucide="graduation-cap" class="w-10 h-10 text-teal-300"></i></div>
+            <h3 class="text-xl font-semibold mb-2">3il Ingénieur</h3>
+            <p class="text-lg text-white/80 mb-2">Bachelor Conception Système Information<br><span class="skill-badge">Mention Bien</span></p>
+            <span class="text-teal-300">2021 – 2022</span>
+          </div>
+          <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+            <div class="icon mb-5 bg-white/10 rounded-full p-4"><i data-lucide="graduation-cap" class="w-10 h-10 text-teal-300"></i></div>
+            <h3 class="text-xl font-semibold mb-2">Ort Montreuil</h3>
+            <p class="text-lg text-white/80 mb-2">BTS Services Informatiques aux Organisations option SiSR<br></p>
+            <span class="text-teal-300">2019 – 2021</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Formations -->
-    <section id="formations" class="section">
-      <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Formations</h2>
-      <div class="timeline-item">
-        <h3>3il Ingénieur - Master Expert Réseaux, Infrastructure et Sécurité</h3>
-        <p class="date">Sept 2022 - Oct 2024</p>
-      </div>
-      <div class="timeline-item">
-        <h3>3il Ingénieur - Bachelor Conception de Systèmes d'Information</h3>
-        <p class="date">Sept 2021 - Août 2022</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Ort Montreuil - BTS Services Informatiques aux Organisations</h3>
-        <p class="date">Sept 2019 - Août 2021</p>
+    
+    <!-- CERTIFICATIONS / AWARDS -->
+    <section id="certifications" class="py-32 px-4 fade section-anim bg-[#16171b]">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-5xl font-bold mb-20 tracking-tight text-center">Certifications & Distinctions</h2>
+        <div class="grid md:grid-cols-3 gap-14">
+          <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+            <div class="icon mb-5 bg-green-400/10 rounded-full p-4"><i data-lucide="award" class="w-10 h-10 text-green-400"></i></div>
+            <h3 class="text-xl font-semibold mb-2">IBM</h3>
+            <p class="text-lg text-white/80 mb-2">Fondamental IA | Agile Fundamentals</p>
+            <span class="level-badge">2024</span>
+          </div>
+          <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+            <div class="icon mb-5 bg-blue-400/10 rounded-full p-4"><i data-lucide="award" class="w-10 h-10 text-blue-400"></i></div>
+            <h3 class="text-xl font-semibold mb-2">Microsoft</h3>
+            <p class="text-lg text-white/80 mb-2">Se préparer au métier de chef de projet</p>
+            <span class="level-badge">2023</span>
+          </div>
+          <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+            <div class="icon mb-5 bg-yellow-400/10 rounded-full p-4"><i data-lucide="award" class="w-10 h-10 text-yellow-400"></i></div>
+            <h3 class="text-xl font-semibold mb-2">Cisco</h3>
+            <p class="text-lg text-white/80 mb-2">Essentiel de la Cybersécurité | Ethical Hacker</p>
+            <span class="level-badge">2023</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Projets personnels -->
-    <section id="projets" class="section">
-      <h2 class="section-title"><i class="fa-solid fa-lightbulb"></i> Projets Personnels</h2>
-      <div class="timeline-item">
-        <h3>Mémoire de recherche</h3>
-        <p class="date">Sept 2023 - Août 2024</p>
-        <p>Étude sur l'impact de la transformation numérique dans le secteur de l'assurance.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Projet BotSup'</h3>
-        <p class="date">Janv 2022 - Juin 2022</p>
-        <p>Développement d'un chatbot en méthodologie agile pour une école supérieure.</p>
-      </div>
-    </section>
-  </main>
+    <!-- COMPÉTENCES (4 blocs, fonds alternés) -->
+    <section id="competences" class="py-32 px-4 fade section-anim bg-[#191a1f]">
+      <div class="max-w-6xl mx-auto space-y-20">
+        <h2 class="text-5xl font-bold mb-20 tracking-tight text-center">Compétences</h2>
+        <div class="grid md:grid-cols-2 gap-14">
+          <!-- Bloc gestion projet IT -->
+          <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+            <div class="icon mb-4 bg-blue-500/10 rounded-full p-3"><i data-lucide="settings" class="w-8 h-8 text-blue-400"></i></div>
+            <h3 class="text-xl font-semibold mb-2">Gestion de projet IT</h3>
+            <ul class="text-lg text-white/80 space-y-1 list-none">
+              <li>Agile, Scrum, Kanban, Waterfall, Cycle en V <span class="level-badge">Expert</span></li>
+              <li>Changement, Animation, Reporting, KPIs <span class="level-badge">Avancé</span></li>
+              <li>Leadership, Coordination, Pédagogie <span class="level-badge">Avancé</span></li>
+            </ul>
+          </div>
+          <!-- Bloc Outils/Techniques -->
+          <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+            <div class="icon mb-4 bg-green-500/10 rounded-full p-3"><i data-lucide="cpu" class="w-8 h-8 text-green-400"></i></div>
+            <h3 class="text-xl font-semibold mb-2">Techniques / Outils</h3>
+            <ul class="text-lg text-white/80 space-y-1 list-none">
+              <li>M365, Intune, Ms Project, Power Platform (bi, Automate, Pages), Jira, Confluence, Notion <span class="level-badge">Expert</span></li>
+              <li>Docker, VMWare, Linux, Windows, VoIP <span class="level-badge">Avancé</span></li>
+              <li>Sécurité, Cloud, VoIP, IA <span class="level-badge">Avancé</span></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Bloc Soft Skills (fond distinct) -->
+        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 mx-auto w-full md:w-2/3 card-hover">
+          <div class="icon mb-4 bg-purple-500/10 rounded-full p-3"><i data-lucide="users" class="w-8 h-8 text-purple-400"></i></div>
+          <h3 class="text-xl font-semibold mb-2">Soft Skills</h3>
+          <ul class="text-lg text-white/80 space-y-1 list-none">
+            <li>Communication, Leadership <span class="level-badge">Expert</span></li>
+            <li>Esprit d’équipe, Adaptabilité, Analyse <span class="level-badge">Expert</span></li>
+            <li>Pédagogie, Organisation, Force de proposition <span class="level-badge">Avancé</span></li>
+          </ul>
+        </div>
+        <!-- Bloc Langues (autre fond) -->
+        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 mx-auto w-full md:w-2/3 card-hover">
+          <div class="icon mb-4 bg-yellow-500/10 rounded-full p-3"><i data-lucide="languages" class="w-8 h-8 text-yellow-400"></i></div>
+          <h3 class="text-xl font-semibold mb-2">Langues</h3>
+          <ul class="text-lg text-white/80 space-y-1 list-none">
+            <li><span class="fi fi-fr mr-2 align-middle"></span>Français <span class="level-badge">Natif</span></li>
+            <li><span class="fi fi-gb mr-2 align-middle"></span>Anglais (TOEIC 790) <span class="level-badge">Intermédiaire supérieur</span></li>
+            <li><span class="fi fi-es mr-2 align-middle"></span>Espagnol <span class="level-badge">Intermédiaire</span></li>
+            <li><span class="fi fi-pt mr-2 align-middle"></span>Portugais <span class="level-badge">Débutant</span></li>
+          </ul>
 
+          </ul>
+        </div>
+      </div>
+  </section>
+
+  <!-- CENTRES D’INTÉRÊT, VERSION PROPRE + HOVER -->
+  <section id="interet" class="w-full py-20 fade section-anim bg-[#101014]">
+    <div class="max-w-4xl mx-auto flex flex-col items-center">
+      <h2 class="text-5xl font-bold mb-20 tracking-tight text-center">Centres d’intérêt</h2>
+      <div class="text-teal-400 text-base font-medium mb-10 text-center tracking-widest">Le quotidien</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
+        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+          <i data-lucide="server" class="w-8 h-8 text-blue-400 mb-2"></i>
+          <div class="text-lg font-bold text-white mb-1 text-center">Informatique</div>
+          <div class="text-white/80 text-base text-center">Systèmes & Réseaux</div>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+          <i data-lucide="zap" class="w-8 h-8 text-yellow-400 mb-2"></i>
+          <div class="text-lg font-bold text-white mb-1 text-center">Nouvelles technologies</div>
+          <div class="text-white/80 text-base text-center">IA, automatisation</div>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+          <i data-lucide="dollar-sign" class="w-8 h-8 text-green-400 mb-2"></i>
+          <div class="text-lg font-bold text-white mb-1 text-center">Finance</div>
+          <div class="text-white/80 text-base text-center">Investissement, veille marchés</div>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+          <i data-lucide="trophy" class="w-8 h-8 text-yellow-400 mb-2"></i>
+          <div class="text-lg font-bold text-white mb-1 text-center">Sport</div>
+          <div class="text-white/80 text-base text-center">Football (FC PORTO <span class="inline-block align-middle">🔵⚪</span>)</div>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+          <i data-lucide="gamepad-2" class="w-8 h-8 text-purple-400 mb-2"></i>
+          <div class="text-lg font-bold text-white mb-1 text-center">E-sport</div>
+          <div class="text-white/80 text-base text-center">Karmine Corp (KCORP)</div>
+        </div>
+        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-white/10 bg-white/5 card-hover">
+          <i data-lucide="joystick" class="w-8 h-8 text-pink-400 mb-2"></i>
+          <div class="text-lg font-bold text-white mb-1 text-center">Jeux vidéo</div>
+          <div class="text-white/80 text-base text-center">Final Fantasy VII</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-32 px-4 fade section-anim bg-[#16171b]">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-5xl font-bold mb-20 tracking-tight text-center">Contact</h2>
+      <div class="bg-white/5 rounded-3xl p-10 shadow border border-white/10 flex flex-col gap-6 items-center card-hover">
+        <p class="text-white/60 mb-3 text-center">
+          Je réponds sous 24 h.<br>
+          Ouvert à toute demande de mission (CDI), conseil ou sur des sujets technologiques.<br>
+          <span class="text-teal-400">Contactez-moi directement par mail ou sur LinkedIn.</span>
+        </p>
+        <div class="flex items-center gap-4 text-lg">
+          <i data-lucide="mail" class="w-7 h-7 text-teal-400"></i>
+          <a href="mailto:dsf.marc@gmail.com?subject=Contact%20via%20le%20portfolio%20Marc%20Da%20Silva" class="underline text-teal-400 text-xl">dsf.marc@gmail.com</a>
+        </div>
+        <div class="flex items-center gap-4 text-lg">
+          <i data-lucide="linkedin" class="w-7 h-7 text-teal-400"></i>
+          <a href="https://www.linkedin.com/in/marc-da-silva-f4u/" class="underline text-teal-400 text-xl" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 text-center text-white/40 text-base bg-black">
+    &copy; 2025 Marc Da Silva. Portfolio.<br>
+    <span class="text-xs text-white/20">Ce site ne collecte aucune donnée, ne dépose aucun cookie, et ne réalise aucun suivi statistique.</span>
+  </footer>
+
+ <!-- JS : Lucide Icons + Animations + Marquee -->
   <script>
-    // Bouton de changement de thème
-    const themeToggle = document.getElementById("theme-toggle");
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-theme");
-      // Changement d'icône selon le thème
-      if (document.body.classList.contains("dark-theme")) {
-        themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-      } else {
-        themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    document.addEventListener('DOMContentLoaded', function() {
+      // Lucide icons
+      lucide.createIcons();
+
+      // Fade in on scroll
+      function handleFade() {
+        document.querySelectorAll('.fade').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if(rect.top < window.innerHeight - 120) el.classList.add('visible');
+        });
       }
-    });
+      function handleActiveSection() {
+        const sections = document.querySelectorAll('.section-anim');
+        let found = false;
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if(!found && rect.top < window.innerHeight/2 && rect.bottom > window.innerHeight/3) {
+            section.classList.add('active');
+            found = true;
+          } else {
+            section.classList.remove('active');
+          }
+        });
+      }
+      window.addEventListener('scroll', () => { handleFade(); handleActiveSection(); });
+      handleFade();
+      handleActiveSection();
 
-    // Intersection Observer pour afficher/cache les sections selon le scroll
-    const sections = document.querySelectorAll(".section");
-    const observerOptions = { threshold: 0.2 };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        } else {
-          entry.target.classList.remove("visible");
-        }
+      // Burger menu
+      const burgerBtn = document.getElementById('burger-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      const closeNavBtn = document.getElementById('close-nav');
+
+      function openMobileNav() {
+        mobileNav.classList.remove('hidden');
+        document.body.style.overflow = "hidden";
+        lucide.createIcons();
+      }
+      function closeMobileNav() {
+        mobileNav.classList.add('hidden');
+        document.body.style.overflow = "";
+      }
+      burgerBtn.addEventListener('click', openMobileNav);
+      closeNavBtn.addEventListener('click', closeMobileNav);
+      document.querySelectorAll('#mobile-nav a').forEach(link => {
+        link.addEventListener('click', closeMobileNav);
       });
-    }, observerOptions);
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
 
-    // Désactiver le menu contextuel (clic droit)
-    document.addEventListener("contextmenu", event => event.preventDefault());
+      // MARQUEE LOGO (infinite, smooth, pause on hover)
+      const marquee = document.getElementById('marquee-track');
+      const logoCount = marquee.children.length;
+      let speed = 0.6; // pixel/frame
+      // Duplication propre (évite bug sur hot reload)
+      for (let i = 0; i < logoCount; i++) {
+        marquee.appendChild(marquee.children[i].cloneNode(true));
+      }
+      let px = 0;
+      let animationId;
+      let paused = false;
+      function animate() {
+        if (!paused) {
+          px -= speed;
+          if (Math.abs(px) >= marquee.scrollWidth / 2) {
+            px = 0;
+            marquee.style.transform = `translateX(${px}px)`;
+          } else {
+            marquee.style.transform = `translateX(${px}px)`;
+          }
+        }
+        animationId = requestAnimationFrame(animate);
+      }
+      marquee.parentElement.addEventListener('mouseenter', () => { paused = true; });
+      marquee.parentElement.addEventListener('mouseleave', () => { paused = false; });
+      animate();
+    });
   </script>
+
 </body>
 </html>
