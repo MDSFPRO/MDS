@@ -169,18 +169,24 @@
       </button>
     </div>
     <!-- Mobile NAV -->
-    <nav id="mobile-nav" class="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex-col items-center justify-center gap-8 text-2xl font-semibold text-white hidden" aria-label="Navigation mobile">
+    <nav id="mobile-nav"
+        class="fixed inset-0 min-h-screen w-screen bg-black z-50 flex flex-col items-center justify-center gap-6 text-xl font-semibold text-white hidden overflow-y-auto"
+        aria-label="Navigation mobile">
       <button id="close-nav" class="absolute top-6 right-8 p-2 rounded hover:bg-white/10" aria-label="Fermer le menu">
         <i data-lucide="x" class="w-9 h-9"></i>
       </button>
-      <div class="flex flex-col gap-8 items-center mt-24">
-        <a href="#experiences" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Expériences</a>
-        <a href="#formations" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Formations</a>
-        <a href="#certifications" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Certifications</a>
-        <a href="#competences" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Compétences</a>
-        <a href="#interet" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Intérêt</a>
-        <a href="#contact" class="hover:text-teal-400 transition" onclick="closeMobileNav()">Contact</a>
-        <a href="articles/article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition" target="_blank" rel="noopener noreferrer" onclick="closeMobileNav()">Articles</a>
+      <div class="flex flex-col gap-6 items-center mt-12 w-full px-4">
+        <a href="#experiences" class="hover:text-teal-400 transition">Expériences</a>
+        <a href="#formations" class="hover:text-teal-400 transition">Formations</a>
+        <a href="#certifications" class="hover:text-teal-400 transition">Certifications</a>
+        <a href="#competences" class="hover:text-teal-400 transition">Compétences</a>
+        <a href="#interet" class="hover:text-teal-400 transition">Intérêt</a>
+        <a href="#contact" class="hover:text-teal-400 transition">Contact</a>
+        <a href="articles/article-index.html"
+          class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition"
+          target="_blank" rel="noopener noreferrer">
+          Articles
+        </a>
       </div>
     </nav>
   </header>
@@ -195,7 +201,7 @@
       <!-- TEXTE À DROITE -->
       <div class="md:w-1/2 flex flex-col justify-center">
         <span class="uppercase text-teal-400 font-medium tracking-wider text-sm mb-6">À propos</span>
-        <h2 class="text-4xl md:text-5xl font-bold mb-6">Un accompagnement IT <br>qui met l'humain & le résultat au centre</h2>
+        <h2 class="text-3xl sm:text-3xl md:text-5xl font-bold mb-6 text-left">Un accompagnement IT <br>qui met l'humain & le résultat au centre</h2>
         <hr class="border-white/20 mb-6 w-16">
         <p class="text-lg md:text-xl text-white/90 mb-5 leading-relaxed">
           <strong>Consultant IT & Chef de Projet,</strong> j’aide les entreprises à sécuriser, moderniser et piloter leur transformation digitale.<br>
