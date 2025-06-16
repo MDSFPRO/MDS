@@ -1,6 +1,12 @@
 /* === Base === */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Adapte la valeur selon la hauteur réelle de ton header sur mobile */
+}
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 80px; /* un peu moins si le header est plus petit */
+  }
 }
 
 html, body {
