@@ -235,3 +235,11 @@ img[alt^="McDonald"] {
   text-shadow: 0 1px 4px rgba(255, 255, 255, 0.1);
   letter-spacing: 0.02em;
 }
+
+/* === Style contact === */
+.link-glow:hover {
+  text-shadow: 0 0 8px #14b8a6, 0 0 2px #14b8a6;
+  color: #22d3ee !important;
+}
+
+

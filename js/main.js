@@ -2,14 +2,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init Lucide icons
   lucide.createIcons();
 
-  // === Scroll Animations ===
+  // === Transition delay automatique (stagger effect sur les .fade) ===
+  document.querySelectorAll('.section-anim').forEach(section => {
+    section.querySelectorAll('.fade').forEach((el, i) => {
+      el.style.transitionDelay = (i * 80) + 'ms';
+    });
+  });
+
+  // === Cascade anim sur toutes les cards d'une section quand la section entre dans la vue ===
+  document.querySelectorAll('.section-anim').forEach(section => {
+    const fades = section.querySelectorAll('.fade');
+    let hasAnimated = false;
+    function checkAndAnimate() {
+      const rect = section.getBoundingClientRect();
+      if (!hasAnimated && rect.top < window.innerHeight - 120) {
+        fades.forEach((el, i) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, i * 80);
+        });
+        hasAnimated = true;
+      }
+    }
+    window.addEventListener('scroll', checkAndAnimate);
+    // Pour déclencher si la section est déjà visible au load :
+    checkAndAnimate();
+  });
+
+  // === Scroll Animations classiques (pour les titres, etc) ===
   const handleFade = () => {
     document.querySelectorAll('.fade').forEach(el => {
       const rect = el.getBoundingClientRect();
+      // On ne retire plus visible ici pour éviter de "casser" la cascade sur les cards
       if (rect.top < window.innerHeight - 120) {
-        setTimeout(() => {
-          el.classList.add('visible');
-        }, parseInt(el.style.transitionDelay || 0));
+        el.classList.add('visible');
       }
     });
   };
