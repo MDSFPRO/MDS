@@ -126,6 +126,57 @@ document.addEventListener('DOMContentLoaded', () => {
     animate();
   }
 
+  // === Compteur animé pour les chiffres (activation uniquement quand visible) ===
+  function animateCounter(counter, target, duration = 1500) {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    function update() {
+      current += increment;
+      if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
+        counter.textContent = target.toLocaleString('fr-FR');
+      } else {
+        counter.textContent = Math.round(current).toLocaleString('fr-FR');
+        requestAnimationFrame(update);
+      }
+    }
+    update();
+  }
+
+  function initCountersWhenVisible() {
+    const counters = document.querySelectorAll('.counter');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !entry.target.dataset.animated) {
+            const target = parseInt(entry.target.dataset.target, 10);
+            if (!isNaN(target)) {
+              animateCounter(entry.target, target);
+              entry.target.dataset.animated = "true";
+              obs.unobserve(entry.target); // plus besoin d'observer après animation
+            }
+          }
+        });
+      }, {
+        threshold: 0.4 // Commence quand 40% du chiffre est visible
+      });
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
+    } else {
+      // Fallback pour vieux navigateurs : lance direct
+      counters.forEach(counter => {
+        const target = parseInt(counter.dataset.target, 10);
+        if (!isNaN(target)) {
+          animateCounter(counter, target);
+          counter.dataset.animated = "true";
+        }
+      });
+    }
+  }
+
+  initCountersWhenVisible();
+
   // === Hero Section Animation (staggered) ===
   setTimeout(() => document.getElementById('hero-logo')?.classList.add('opacity-100', 'scale-100'), 100);
   setTimeout(() => document.getElementById('hero-txt1')?.classList.add('opacity-100', 'translate-y-0'), 300);

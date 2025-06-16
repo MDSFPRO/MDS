@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Sécurité MFA : Pourquoi l’activer en 2025",
+    "date": "2024-06-15",
+    "category": "Conseil IT",
+    "summary": "Découvrez pourquoi la double authentification est incontournable dans le SI moderne.",
+    "image": "images/articles/Codex OpenAI.png",
+    "slug": "2024-06-conseil-securite-mfa"
+  },
+  {
+    "title": "L’IA Générative : révolution ou buzzword ?",
+    "date": "2024-06-11",
+    "category": "Actualité",
+    "summary": "Décryptage de l’impact réel de l’IA dans les entreprises françaises.",
+    "image": "images/articles/workplace.png",
+    "slug": "2024-06-actualite-ia"
+  }
+]
