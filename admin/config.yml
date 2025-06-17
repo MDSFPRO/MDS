@@ -2,8 +2,8 @@ backend:
   name: github
   repo: MDSFPRO/MDS
   branch: main
-  base_url: https://mds-oauth-proxy.vercel.app/auth/github/callback    # URL de ton Proxy OAuth Vercel
-  auth_endpoint: /auth/github                   # Endpoint standard OAuth Proxy Decap
+  base_url: https://mds-oauth-proxy.vercel.app
+  auth_endpoint: /auth
 
 media_folder: "images/articles"
 public_folder: "/images/articles"
