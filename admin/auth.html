@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      if (window.opener) {
+        window.opener.postMessage(window.location.href, window.location.origin);
+        window.close();
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
