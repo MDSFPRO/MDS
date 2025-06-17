@@ -8,7 +8,7 @@ public_folder: "/images/articles"  # Chemin public utilisé dans le site
 collections:
   - name: "conseil"
     label: "Conseils IT"
-    folder: "articles/conseil"
+    folder: "articles/Conseil"
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
     extension: "md"
@@ -23,7 +23,7 @@ collections:
 
   - name: "actu"
     label: "Actualités"
-    folder: "articles/actu"
+    folder: "articles/Actu"
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
     extension: "md"
