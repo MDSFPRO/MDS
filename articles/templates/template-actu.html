@@ -113,35 +113,5 @@
 
 <script src="../../js/main.js" defer></script>
 <script src="../../js/articles-suggestions.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
-<script>
-async function loadArticle() {
-  // Récupérer le slug depuis l'URL (ex : 2025-06-19-mon-actu.html)
-  const slug = window.location.pathname.split('/').pop().replace('.html', '');
-  const mdUrl = `../actu/${slug}.md`;
-  try {
-    const response = await fetch(mdUrl);
-    const mdText = await response.text();
-    const match = /^---\n([^\0]+?)\n---\n([\s\S]*)$/m.exec(mdText);
-    if (!match) throw new Error("Format markdown invalide");
-    const front = jsyaml.load(match[1]);
-    const bodyMd = match[2];
-    // Injection dynamique du contenu
-    document.title = `${front.title} – Marc Da Silva`;
-    document.getElementById('page-title').textContent = `${front.title} – Marc Da Silva`;
-    document.getElementById('meta-desc').setAttribute('content', front.summary || '');
-    document.getElementById('article-title').textContent = front.title || '';
-    document.getElementById('article-date').textContent = (front.date || '').split('T')[0];
-    document.getElementById('article-summary').textContent = front.summary || '';
-    document.getElementById('article-image').src = front.image || '../../images/articles/actu-image.png';
-    document.getElementById('article-body').innerHTML = marked.parse(bodyMd);
-    lucide.createIcons();
-  } catch(e) {
-    document.getElementById('article-body').innerHTML = '<p class="text-red-400">Impossible de charger l’actualité.</p>';
-  }
-}
-window.addEventListener('DOMContentLoaded', loadArticle);
-</script>
 </body>
 </html>
