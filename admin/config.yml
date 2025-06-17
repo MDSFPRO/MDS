@@ -5,7 +5,7 @@ backend:
   auth_scope: repo
   client_id: Ov23liwhmOiAU2pbnIb8
   base_url: https://mdsfpro.github.io/MDS
-  auth_endpoint: admin/auth.html
+  auth_endpoint: /admin/auth.html
 
 media_folder: "images/articles"
 public_folder: "/images/articles"
