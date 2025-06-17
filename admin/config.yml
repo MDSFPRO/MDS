@@ -4,6 +4,7 @@ backend:
   branch: main
   auth_scope: repo
   client_id: Ov23liwhmOiAU2pbnIb8
+  site_domain: mdsfpro.github.io
 
 
 media_folder: "images/articles"
