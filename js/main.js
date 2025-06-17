@@ -1,12 +1,3 @@
-// main.js, tout en haut
-if (
-  window.location.hash &&
-  (window.location.hash.includes('invite_token=') || window.location.hash.includes('recovery_token='))
-) {
-  const hash = window.location.hash;
-  window.location.href = '/admin/' + hash;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   // Init Lucide icons
   lucide.createIcons();

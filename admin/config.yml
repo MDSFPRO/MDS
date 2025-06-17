@@ -1,14 +1,17 @@
 backend:
-  name: git-gateway
-  branch: main  # ici ta branche principale ("main" ou "master")
+  name: github
+  repo: MDSFPRO/MDS  # Remplace par ton user/repo exact
+  branch: main
+  auth_scope: repo
+  client_id: TON_CLIENT_ID  # Copie ici le Client ID de ton App OAuth
 
-media_folder: "images/articles"    # Chemin de stockage dans le repo (pour l'upload d'image)
-public_folder: "/images/articles"  # Chemin public utilisé dans le site
+media_folder: "images/articles"
+public_folder: "/images/articles"
 
 collections:
   - name: "conseil"
     label: "Conseils IT"
-    folder: "articles/Conseil"
+    folder: "articles/conseil"
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
     extension: "md"
@@ -20,10 +23,9 @@ collections:
       - { label: "Image d’illustration", name: "image", widget: "image" }
       - { label: "Contenu", name: "body", widget: "markdown" }
       - { label: "Catégorie", name: "category", widget: "hidden", default: "Conseil IT" }
-
   - name: "actu"
     label: "Actualités"
-    folder: "articles/Actu"
+    folder: "articles/actu"
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
     extension: "md"
