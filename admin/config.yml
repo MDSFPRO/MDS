@@ -14,12 +14,12 @@ collections:
     extension: "md"
     format: "frontmatter"
     fields:
-      - {label: "Titre", name: "title", widget: "string"}
-      - {label: "Résumé", name: "summary", widget: "text"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Image d’illustration", name: "image", widget: "image"}
-      - {label: "Contenu", name: "body", widget: "markdown"}
-      - {label: "Catégorie", name: "category", widget: "hidden", default: "Conseil IT"}
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Résumé", name: "summary", widget: "text" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Image d’illustration", name: "image", widget: "image" }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+      - { label: "Catégorie", name: "category", widget: "hidden", default: "Conseil IT" }
 
   - name: "actu"
     label: "Actualités"
@@ -29,9 +29,9 @@ collections:
     extension: "md"
     format: "frontmatter"
     fields:
-      - {label: "Titre", name: "title", widget: "string"}
-      - {label: "Résumé", name: "summary", widget: "text"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Image d’illustration", name: "image", widget: "image"}
-      - {label: "Contenu", name: "body", widget: "markdown"}
-      - {label: "Catégorie", name: "category", widget: "hidden", default: "Actualité"}
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Résumé", name: "summary", widget: "text" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Image d’illustration", name: "image", widget: "image" }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+      - { label: "Catégorie", name: "category", widget: "hidden", default: "Actualité" }
