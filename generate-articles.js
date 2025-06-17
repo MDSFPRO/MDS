@@ -45,11 +45,11 @@ fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file =>
   );
 });
 
-// Génère pour tous les conseil
-fs.readdirSync("./articles/conseil").filter(f => f.endsWith(".md")).forEach(file => {
+// Génère pour tous les Conseil (majuscule !)
+fs.readdirSync("./articles/Conseil").filter(f => f.endsWith(".md")).forEach(file => {
   generateHtml(
-    `./articles/conseil/${file}`,
+    `./articles/Conseil/${file}`,
     "./articles/templates/template-conseil.html",
-    "./articles/conseil"
+    "./articles/Conseil"
   );
 });
