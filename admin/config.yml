@@ -1,9 +1,11 @@
 backend:
   name: github
-  repo: MDSFPRO/MDS  # Remplace par ton user/repo exact
+  repo: MDSFPRO/MDS
   branch: main
   auth_scope: repo
-  client_id: Ov23liwhmOiAU2pbnIb8  # Copie ici le Client ID de ton App OAuth
+  client_id: Ov23liwhmOiAU2pbnIb8
+  base_url: https://mdsfpro.github.io/MDS/admin
+  auth_endpoint: auth.html
 
 media_folder: "images/articles"
 public_folder: "/images/articles"
