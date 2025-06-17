@@ -9,9 +9,9 @@ media_folder: "images/articles"
 public_folder: "/images/articles"
 
 collections:
-  - name: "Conseil"
+  - name: "conseil"
     label: "Conseils IT"
-    folder: "articles/Conseil"
+    folder: "articles/conseil"
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
     extension: "md"
