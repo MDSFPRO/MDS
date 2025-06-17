@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const yaml = require("js-yaml");
 const marked = require("marked");
+const { JSDOM } = require("jsdom");
 
-// Helper pour générer le HTML à partir d'un .md + template
 function generateHtml(mdPath, templatePath, destDir) {
   const mdText = fs.readFileSync(mdPath, "utf-8");
   const template = fs.readFileSync(templatePath, "utf-8");
@@ -13,27 +13,24 @@ function generateHtml(mdPath, templatePath, destDir) {
   const front = yaml.load(match[1]);
   const bodyMd = match[2];
 
-  let html = template;
-  // Injection frontmatter
-  html = html.replace(/id="article-title">.*?</, `id="article-title">${front.title || ""}<`);
-  
-  // Correction ici : gestion date string ou object
-  let dateStr = "";
-  if (front.date) {
-    dateStr = typeof front.date === "string"
-      ? front.date.split('T')[0]
-      : new Date(front.date).toISOString().split('T')[0];
-  }
-  html = html.replace(/id="article-date">.*?</, `id="article-date">${dateStr}<`);
+  // Utilise jsdom pour manipuler le HTML du template
+  const dom = new JSDOM(template);
+  const document = dom.window.document;
 
-  html = html.replace(/id="article-summary">.*?</, `id="article-summary">${front.summary || ""}<`);
-  // Image : toujours chemin absolu MDS
-  html = html.replace(/id="article-image" src=".*?"/, `id="article-image" src="${front.image ? `/MDS/${front.image.replace(/^\/|MDS\//, "")}` : "/MDS/images/articles/default.jpg"}"`);
-  // Contenu markdown
-  html = html.replace(/id="article-body">[\s\S]*?<\/article>/, `id="article-body">${marked.parse(bodyMd)}</article>`);
+  // Injection frontmatter
+  document.title = `${front.title} – Marc Da Silva`;
+  document.getElementById("page-title").textContent = `${front.title} – Marc Da Silva`;
+  document.getElementById("meta-desc").setAttribute('content', front.summary || "");
+  document.getElementById("article-title").textContent = front.title || "";
+  document.getElementById("article-date").textContent = front.date
+    ? (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0])
+    : "";
+  document.getElementById("article-summary").textContent = front.summary || "";
+  document.getElementById("article-image").src = front.image ? `/MDS/${front.image.replace(/^\/|MDS\//, "")}` : "/MDS/images/articles/default.jpg";
+  document.getElementById("article-body").innerHTML = marked.parse(bodyMd);
 
   const destName = path.basename(mdPath, ".md") + ".html";
-  fs.writeFileSync(path.join(destDir, destName), html);
+  fs.writeFileSync(path.join(destDir, destName), dom.serialize());
 }
 
 // Génère pour tous les actu
@@ -45,7 +42,7 @@ fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file =>
   );
 });
 
-// Génère pour tous les Conseil (majuscule !)
+// Génère pour tous les Conseil
 fs.readdirSync("./articles/Conseil").filter(f => f.endsWith(".md")).forEach(file => {
   generateHtml(
     `./articles/Conseil/${file}`,
