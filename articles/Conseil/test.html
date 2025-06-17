@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sécurité MFA : Pourquoi l’activer en 2025 – Marc Da Silva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Découvrez pourquoi la double authentification MFA est un must-have en 2025 pour la sécurité IT. Conseils, bonnes pratiques et erreurs à éviter." />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" type="image/png" href="/MDS/images/favicon.png" />
+  <link rel="shortcut icon" href="/MDS/images/favicon.png" />
+</head>
+<body class="bg-black text-white min-h-screen font-sans">
+
+  <!-- HEADER (identique au portail article) -->
+  <header class="w-full flex justify-center pt-5 pb-2 z-50 fixed top-0 left-0 bg-transparent">
+    <div class="w-full max-w-6xl flex items-center px-6 py-3 rounded-3xl glass-card shadow-2xl">
+      <a href="../../index.html#hero" aria-label="Retour à l'accueil">
+        <img src="../../images/Logo.png" alt="Logo Marc Da Silva" class="h-10 w-10 rounded-full" />
+      </a>
+      <nav class="hidden lg:flex flex-1 justify-center gap-10 text-base font-semibold items-center text-white/90" aria-label="Navigation principale">
+        <a href="../../index.html#experiences" class="hover:text-teal-400 transition">Expériences</a>
+        <a href="../../index.html#formations" class="hover:text-teal-400 transition">Formations</a>
+        <a href="../../index.html#certifications" class="hover:text-teal-400 transition">Certifications</a>
+        <a href="../../index.html#competences" class="hover:text-teal-400 transition">Compétences</a>
+        <a href="../../index.html#interet" class="hover:text-teal-400 transition">Intérêt</a>
+        <a href="../../index.html#contact" class="hover:text-teal-400 transition">Contact</a>
+        <a href="../article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-base shadow-lg hover:bg-teal-400 transition">Articles</a>
+      </nav>
+      <div class="flex-1 lg:hidden"></div>
+      <button id="burger-btn"
+        class="lg:hidden flex flex-col justify-center items-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 transition relative"
+        aria-label="Menu">
+        <span class="burger-bar-2 bar-top absolute left-0 right-0"></span>
+        <span class="burger-bar-2 bar-bottom absolute left-0 right-0"></span>
+      </button>
+    </div>
+
+    <!-- NAV MOBILE -->
+    <nav id="mobile-nav"
+      class="fixed inset-0 min-h-screen w-screen bg-black z-50 flex flex-col items-center justify-start text-xl font-semibold text-white hidden overflow-y-auto pt-20 pb-12 px-4"
+      aria-label="Navigation mobile">
+      <button id="close-nav"
+        class="absolute top-6 right-6 p-2 z-[9999] text-white hover:bg-white/10 transition"
+        aria-label="Fermer le menu">
+        <i data-lucide="x" class="w-8 h-8"></i>
+      </button>
+      <div class="flex flex-col gap-6 items-center w-full mt-12">
+        <a href="../../index.html#hero" class="hover:text-teal-400 transition">À propos</a>
+        <a href="../../index.html#experiences" class="hover:text-teal-400 transition">Expériences</a>
+        <a href="../../index.html#formations" class="hover:text-teal-400 transition">Formations</a>
+        <a href="../../index.html#certifications" class="hover:text-teal-400 transition">Certifications</a>
+        <a href="../../index.html#competences" class="hover:text-teal-400 transition">Compétences</a>
+        <a href="../../index.html#interet" class="hover:text-teal-400 transition">Intérêt</a>
+        <a href="../../index.html#contact" class="hover:text-teal-400 transition">Contact</a>
+        <a href="../article-index.html"
+          class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition"
+          target="_blank" rel="noopener noreferrer">
+          Articles
+        </a>
+      </div>
+    </nav>
+  </header>
+
+<main class="pt-[160px] max-w-3xl mx-auto px-4">
+
+    <!-- Hero Image + Overlay + Badge + Titre + Date -->
+    <section class="relative mb-10 fade">
+      <img src="../../images/articles/Codex-OpenAI.png" alt="Codex OpenAI" class="w-full h-64 object-cover rounded-2xl shadow-lg" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/100 rounded-2xl"></div>
+      <div class="absolute bottom-6 left-6">
+        <span class="bg-teal-400/90 text-black text-xs font-bold px-3 py-1 rounded-xl mr-3 shadow">Conseil IT</span>
+        <h1 class="text-3xl sm:text-4xl font-bold glass-title mt-2 text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+          Codex enfin disponible pour GPTPLUS
+        </h1>
+        <span class="text-white/70 text-xs">Publié le 15/06/2024</span>
+      </div>
+    </section>
+
+    <!-- Auteur (juste sous l'image, avant le résumé) -->
+    <div class="flex items-center gap-3 mb-6 fade">
+      <img src="../../images/Logo.png" alt="Auteur Marc Da Silva" class="w-10 h-10 rounded-full border border-white/10 shadow" />
+      <div>
+        <span class="block font-semibold text-base text-white/90">Marc Da Silva</span>
+        <span class="block text-xs text-white/60">Consultant IT & Sécurité</span>
+      </div>
+    </div>
+
+    <!-- Résumé (intro) -->
+    <section class="mb-10 fade">
+      <p class="text-lg text-white/80 leading-relaxed font-semibold">
+        La double authentification (MFA) est aujourd’hui indispensable pour sécuriser ses accès IT. Comment la mettre en place efficacement, éviter les pièges courants et garantir l’adhésion des utilisateurs ? Réponse dans cet article.
+      </p>
+    </section>
+
+    <!-- Contenu principal -->
+    <article class="fade space-y-8">
+      <h2 class="text-2xl font-bold text-teal-400">Qu’est-ce que le MFA ?</h2>
+      <p>
+        Le MFA (Multi-Factor Authentication) consiste à demander deux preuves d’identité : par exemple un mot de passe et un code unique reçu par SMS ou généré par une appli mobile. C’est le meilleur moyen de bloquer la majorité des cyberattaques.
+      </p>
+
+      <h2 class="text-xl font-bold text-white/90 mt-8">Pourquoi l’adopter en 2025 ?</h2>
+      <ul class="list-disc list-inside text-white/80 mb-4">
+        <li>80 % des attaques exploitent des mots de passe faibles ou volés</li>
+        <li>MFA = blocage quasi-total du phishing classique</li>
+        <li>Respect des normes (RGPD, ISO 27001…)</li>
+      </ul>
+
+      <h2 class="text-xl font-bold text-white/90 mt-8">Bonnes pratiques pour déployer</h2>
+      <ol class="list-decimal list-inside text-white/80 mb-4">
+        <li>Sensibiliser les utilisateurs à la sécurité</li>
+        <li>Choisir la méthode adaptée à l’usage (SMS, app, clé physique…)</li>
+        <li>Accompagner les utilisateurs lors de la mise en place</li>
+      </ol>
+
+      <blockquote class="border-l-4 border-teal-400 pl-4 italic text-white/60 bg-white/5 py-3 rounded-xl shadow">
+        “L’humain est la clé de voûte d’une sécurité efficace : sans pédagogie, pas d’adhésion !”
+      </blockquote>
+      <p>
+        Besoin d’un audit sécurité ? Contactez-moi pour une mission conseil ou une intervention express.
+      </p>
+    </article>
+
+  <section class="flex items-center gap-5 mt-14 mb-8 fade">
+    <img src="../../images/Logo.png" alt="Marc Da Silva" class="w-12 h-12 rounded-full glass-card border border-white/10" />
+    <div>
+      <span class="block text-base text-white/90 font-semibold">Marc Da Silva</span>
+      <span class="block text-xs text-white/50 mb-1">Consultant IT & Sécurité</span>
+      <!-- Bouton LinkedIn -->
+      <a href="https://www.linkedin.com/in/marc-da-silva-f4u/" target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#0094f5] text-white px-4 py-2 rounded-xl font-semibold shadow transition text-sm mt-2">
+        <i data-lucide="linkedin" class="w-5 h-5"></i>
+        Me suivre sur LinkedIn
+      </a>
+    </div>
+  </section>
+
+<!-- Suggestions d’articles -->
+<section class="mt-20 mb-8 fade">
+    <h2 class="text-2xl font-bold mb-8 text-white">Découvrir aussi</h2>
+    <div id="last-articles" class="grid gap-7 sm:grid-cols-3"></div>
+  </section>
+</main>
+
+<footer class="py-12 text-center text-white/40 text-base bg-black mt-20">
+  &copy; 2025 Marc Da Silva. Portfolio.<br>
+  <span class="text-xs text-white/20">Site personnel. Aucun cookie ni tracking.</span>
+</footer>
+
+<script src="../../js/main.js" defer></script>
+<script src="../../js/articles-suggestions.js" defer></script>
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.fade').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 120);
+    });
+    lucide.createIcons();
+  }, 200);
+</script>
+</body>
+</html>
