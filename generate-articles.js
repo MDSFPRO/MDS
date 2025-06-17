@@ -14,10 +14,13 @@ function generateHtml(mdPath, templatePath, destDir) {
   const bodyMd = match[2];
 
   let html = template;
+  // Injection frontmatter
   html = html.replace(/id="article-title">.*?</, `id="article-title">${front.title || ""}<`);
   html = html.replace(/id="article-date">.*?</, `id="article-date">${(front.date || "").split('T')[0]}<`);
   html = html.replace(/id="article-summary">.*?</, `id="article-summary">${front.summary || ""}<`);
-  html = html.replace(/id="article-image" src=".*?"/, `id="article-image" src="${front.image || "../../images/articles/default.jpg"}"`);
+  // Image : toujours chemin absolu MDS
+  html = html.replace(/id="article-image" src=".*?"/, `id="article-image" src="${front.image ? `/MDS/${front.image.replace(/^\/|MDS\//, "")}` : "/MDS/images/articles/default.jpg"}"`);
+  // Contenu markdown
   html = html.replace(/id="article-body">[\s\S]*?<\/article>/, `id="article-body">${marked.parse(bodyMd)}</article>`);
 
   const destName = path.basename(mdPath, ".md") + ".html";
@@ -28,7 +31,7 @@ function generateHtml(mdPath, templatePath, destDir) {
 fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file => {
   generateHtml(
     `./articles/actu/${file}`,
-    "./templates/template-actu.html",
+    "./articles/templates/template-actu.html",
     "./articles/actu"
   );
 });
@@ -37,7 +40,8 @@ fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file =>
 fs.readdirSync("./articles/conseil").filter(f => f.endsWith(".md")).forEach(file => {
   generateHtml(
     `./articles/conseil/${file}`,
-    "./templates/template-conseil.html",
+    "./articles/templates/template-conseil.html",
     "./articles/conseil"
   );
 });
+

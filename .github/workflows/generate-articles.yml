@@ -1,0 +1,36 @@
+name: Génération Articles HTML
+
+on:
+  push:
+    paths:
+      - 'articles/actu/*.md'
+      - 'articles/conseil/*.md'
+      - 'articles/templates/*'
+      - 'generate-articles.js'
+      - 'package.json'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Générer les articles
+        run: node generate-articles.js
+
+      - name: Commit and push
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add articles/actu/*.html articles/conseil/*.html
+          git commit -m "MAJ auto des articles HTML"
+          git push || echo "No changes to commit"
