@@ -3,7 +3,7 @@ backend:
   repo: MDSFPRO/MDS  # Remplace par ton user/repo exact
   branch: main
   auth_scope: repo
-  client_id: TON_CLIENT_ID  # Copie ici le Client ID de ton App OAuth
+  client_id: Ov23liwhmOiAU2pbnIb8  # Copie ici le Client ID de ton App OAuth
 
 media_folder: "images/articles"
 public_folder: "/images/articles"
