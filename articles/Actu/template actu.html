@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>[Titre de l’actualité] – Marc Da Silva</title>
+  <title id="page-title">[Titre de l’actualité] – Marc Da Silva</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="[Résumé de l’actu]" />
+  <meta name="description" id="meta-desc" content="[Résumé de l’actu]" />
   <link rel="stylesheet" href="../../css/style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -13,7 +13,7 @@
 </head>
 <body class="bg-black text-white min-h-screen font-sans">
 
-  <!-- HEADER (identique au portail article) -->
+  <!-- HEADER -->
   <header class="w-full flex justify-center pt-5 pb-2 z-50 fixed top-0 left-0 bg-transparent">
     <div class="w-full max-w-6xl flex items-center px-6 py-3 rounded-3xl glass-card shadow-2xl">
       <a href="../../index.html#hero" aria-label="Retour à l'accueil">
@@ -36,45 +36,19 @@
         <span class="burger-bar-2 bar-bottom absolute left-0 right-0"></span>
       </button>
     </div>
-
-    <!-- NAV MOBILE -->
-    <nav id="mobile-nav"
-      class="fixed inset-0 min-h-screen w-screen bg-black z-50 flex flex-col items-center justify-start text-xl font-semibold text-white hidden overflow-y-auto pt-20 pb-12 px-4"
-      aria-label="Navigation mobile">
-      <button id="close-nav"
-        class="absolute top-6 right-6 p-2 z-[9999] text-white hover:bg-white/10 transition"
-        aria-label="Fermer le menu">
-        <i data-lucide="x" class="w-8 h-8"></i>
-      </button>
-      <div class="flex flex-col gap-6 items-center w-full mt-12">
-        <a href="../../index.html#hero" class="hover:text-teal-400 transition">À propos</a>
-        <a href="../../index.html#experiences" class="hover:text-teal-400 transition">Expériences</a>
-        <a href="../../index.html#formations" class="hover:text-teal-400 transition">Formations</a>
-        <a href="../../index.html#certifications" class="hover:text-teal-400 transition">Certifications</a>
-        <a href="../../index.html#competences" class="hover:text-teal-400 transition">Compétences</a>
-        <a href="../../index.html#interet" class="hover:text-teal-400 transition">Intérêt</a>
-        <a href="../../index.html#contact" class="hover:text-teal-400 transition">Contact</a>
-        <a href="../article-index.html"
-          class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition"
-          target="_blank" rel="noopener noreferrer">
-          Articles
-        </a>
-      </div>
-    </nav>
+    <!-- NAV MOBILE identique à ton modèle... -->
   </header>
 
 <main class="pt-[160px] max-w-3xl mx-auto px-4">
 
   <!-- Hero Image + Overlay + Badge + Titre + Date -->
   <section class="relative mb-10 fade">
-    <img src="../../images/articles/actu-image.png" alt="[Titre Actu]" class="w-full h-64 object-cover rounded-2xl shadow-lg" />
+    <img id="article-image" src="" alt="Image d’actu" class="w-full h-64 object-cover rounded-2xl shadow-lg" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/100 rounded-2xl"></div>
     <div class="absolute bottom-6 left-6">
       <span class="bg-teal-300/90 text-black text-xs font-bold px-3 py-1 rounded-xl mr-3 shadow">Actualité</span>
-      <h1 class="text-3xl sm:text-4xl font-bold glass-title mt-2 text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
-        [Titre de l’actu]
-      </h1>
-      <span class="text-white/70 text-xs">Publié le [date]</span>
+      <h1 id="article-title" class="text-3xl sm:text-4xl font-bold glass-title mt-2 text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]"></h1>
+      <span id="article-date" class="text-white/70 text-xs"></span>
     </div>
   </section>
 
@@ -95,22 +69,16 @@
 
   <!-- Résumé (intro) -->
   <section class="mb-10 fade">
-    <p class="text-lg text-white/80 leading-relaxed font-semibold">
-      [Résumé de l’actualité, pour capter l’attention du lecteur.]
-    </p>
+    <p id="article-summary" class="text-lg text-white/80 leading-relaxed font-semibold"></p>
   </section>
 
   <!-- Contenu principal -->
-  <article class="fade space-y-8">
-    <h2 class="text-2xl font-bold text-teal-400">[Sous-titre]</h2>
-    <p>
-      [Premier paragraphe de l’actu…]
-    </p>
-    <!-- Ajoute ici listes, citations, visuels, etc. -->
+  <article id="article-body" class="fade space-y-8">
+    <!-- Le contenu markdown converti en HTML sera injecté ici -->
   </article>
 
   <!-- Suggestions d’articles -->
- <section class="mt-20 mb-8 fade">
+  <section class="mt-20 mb-8 fade">
     <h2 class="text-2xl font-bold mb-8 text-white">Découvrir aussi</h2>
     <div id="last-articles" class="grid gap-7 sm:grid-cols-3"></div>
   </section>
@@ -123,13 +91,39 @@
 
 <script src="../../js/main.js" defer></script>
 <script src="../../js/articles-suggestions.js" defer></script>
+
+<!-- Librairies markdown + yaml -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
+
+<!-- Script d’injection dynamique -->
 <script>
-  setTimeout(() => {
-    document.querySelectorAll('.fade').forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), i * 120);
-    });
+async function loadArticle() {
+  // Déduire le slug depuis l’URL (ex: 2024-06-17-mon-article.html)
+  const slug = window.location.pathname.split('/').pop().replace('.html', '');
+  const mdUrl = `../actu/${slug}.md`;
+  try {
+    const response = await fetch(mdUrl);
+    const mdText = await response.text();
+    const match = /^---\n([^\0]+?)\n---\n([\s\S]*)$/m.exec(mdText);
+    if (!match) throw new Error("Format markdown invalide");
+    const front = jsyaml.load(match[1]);
+    const bodyMd = match[2];
+    // Injection
+    document.title = `${front.title} – Marc Da Silva`;
+    document.getElementById('page-title').textContent = `${front.title} – Marc Da Silva`;
+    document.getElementById('meta-desc').setAttribute('content', front.summary || '');
+    document.getElementById('article-title').textContent = front.title || '';
+    document.getElementById('article-date').textContent = (front.date || '').split('T')[0];
+    document.getElementById('article-summary').textContent = front.summary || '';
+    document.getElementById('article-image').src = front.image || '../../images/articles/default.jpg';
+    document.getElementById('article-body').innerHTML = marked.parse(bodyMd);
     lucide.createIcons();
-  }, 200);
+  } catch(e) {
+    document.getElementById('article-body').innerHTML = '<p class="text-red-400">Impossible de charger l’article.</p>';
+  }
+}
+window.addEventListener('DOMContentLoaded', loadArticle);
 </script>
 </body>
 </html>

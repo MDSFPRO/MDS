@@ -9,9 +9,9 @@ media_folder: "images/articles"
 public_folder: "/images/articles"
 
 collections:
-  - name: "conseil"
+  - name: "Conseil"
     label: "Conseils IT"
-    folder: "articles/conseil"
+    folder: "articles/Conseil"
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
     extension: "md"
@@ -21,8 +21,24 @@ collections:
       - { label: "Résumé", name: "summary", widget: "text" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Image d’illustration", name: "image", widget: "image" }
-      - { label: "Contenu", name: "body", widget: "markdown" }
+      - label: "Contenu"
+        name: "body"
+        widget: "markdown"
+        default: |
+          ## Introduction
+
+          [Décris brièvement le contexte du conseil]
+
+          ## Étapes détaillées
+
+          [Détaille ici chaque étape du conseil IT, avec explications, listes, exemples...]
+
+          ## Astuce Bonus
+
+          [Ajoute ici une astuce, un outil ou une recommandation liée au conseil]
+
       - { label: "Catégorie", name: "category", widget: "hidden", default: "Conseil IT" }
+
   - name: "actu"
     label: "Actualités"
     folder: "articles/actu"
@@ -35,5 +51,20 @@ collections:
       - { label: "Résumé", name: "summary", widget: "text" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Image d’illustration", name: "image", widget: "image" }
-      - { label: "Contenu", name: "body", widget: "markdown" }
+      - label: "Contenu"
+        name: "body"
+        widget: "markdown"
+        default: |
+          ## Résumé
+
+          [Résumé de l’actualité ici]
+
+          ## Contexte
+
+          [Contexte, explications...]
+
+          ## Détails
+
+          [Développe ici l’actualité : faits, analyse, citations, images...]
+
       - { label: "Catégorie", name: "category", widget: "hidden", default: "Actualité" }
