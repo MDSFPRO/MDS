@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  branch: main  # ici ta branche principale ("main" ou "master")
+
+media_folder: "images/articles"    # Chemin de stockage dans le repo (pour l'upload d'image)
+public_folder: "/images/articles"  # Chemin public utilisé dans le site
+
+collections:
+  - name: "conseil"
+    label: "Conseils IT"
+    folder: "articles/conseil"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Résumé", name: "summary", widget: "text"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Image d’illustration", name: "image", widget: "image"}
+      - {label: "Contenu", name: "body", widget: "markdown"}
+      - {label: "Catégorie", name: "category", widget: "hidden", default: "Conseil IT"}
+
+  - name: "actu"
+    label: "Actualités"
+    folder: "articles/actu"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Résumé", name: "summary", widget: "text"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Image d’illustration", name: "image", widget: "image"}
+      - {label: "Contenu", name: "body", widget: "markdown"}
+      - {label: "Catégorie", name: "category", widget: "hidden", default: "Actualité"}
