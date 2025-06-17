@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>[Titre du Conseil IT] – Marc Da Silva</title>
+  <title id="page-title">[Titre de l’actualité] – Marc Da Silva</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="[Résumé du conseil]" />
+  <meta name="description" id="meta-desc" content="[Résumé de l’actu]" />
   <link rel="stylesheet" href="../../css/style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -36,8 +36,7 @@
         <span class="burger-bar-2 bar-bottom absolute left-0 right-0"></span>
       </button>
     </div>
-
-    <!-- NAV MOBILE -->
+    <!-- NAV MOBILE : inchangé -->
     <nav id="mobile-nav"
       class="fixed inset-0 min-h-screen w-screen bg-black z-50 flex flex-col items-center justify-start text-xl font-semibold text-white hidden overflow-y-auto pt-20 pb-12 px-4"
       aria-label="Navigation mobile">
@@ -67,14 +66,12 @@
 
   <!-- Hero Image + Overlay + Badge + Titre + Date -->
   <section class="relative mb-10 fade">
-    <img src="../../images/articles/conseil-image.png" alt="[Titre Conseil]" class="w-full h-64 object-cover rounded-2xl shadow-lg" />
+    <img id="article-image" src="" alt="[Titre Actu]" class="w-full h-64 object-cover rounded-2xl shadow-lg" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/100 rounded-2xl"></div>
     <div class="absolute bottom-6 left-6">
-      <span class="bg-teal-400/90 text-black text-xs font-bold px-3 py-1 rounded-xl mr-3 shadow">Conseil IT</span>
-      <h1 class="text-3xl sm:text-4xl font-bold glass-title mt-2 text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
-        [Titre du conseil IT]
-      </h1>
-      <span class="text-white/70 text-xs">Publié le [date]</span>
+      <span class="bg-teal-300/90 text-black text-xs font-bold px-3 py-1 rounded-xl mr-3 shadow">Actualité</span>
+      <h1 id="article-title" class="text-3xl sm:text-4xl font-bold glass-title mt-2 text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]"></h1>
+      <span id="article-date" class="text-white/70 text-xs"></span>
     </div>
   </section>
 
@@ -83,9 +80,8 @@
     <img src="../../images/Logo.png" alt="Marc Da Silva" class="w-10 h-10 rounded-full border border-white/10 shadow" />
     <div>
       <span class="block font-semibold text-base text-white/90">Marc Da Silva</span>
-      <span class="block text-xs text-white/60">Consultant IT & Sécurité</span>
-      <!-- Bouton LinkedIn -->
-      <a href="https://www.linkedin.com/in/ton-nom-utilisateur/" target="_blank" rel="noopener noreferrer"
+      <span class="block text-xs text-white/60">Consultant IT & Veille technologique</span>
+      <a href="https://www.linkedin.com/in/marc-da-silva-f4u/" target="_blank" rel="noopener noreferrer"
         class="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#0094f5] text-white px-4 py-2 rounded-xl font-semibold shadow transition text-sm mt-2">
         <i data-lucide="linkedin" class="w-5 h-5"></i>
         Me suivre sur LinkedIn
@@ -95,18 +91,12 @@
 
   <!-- Résumé (intro) -->
   <section class="mb-10 fade">
-    <p class="text-lg text-white/80 leading-relaxed font-semibold">
-      [Résumé du conseil, 2-3 lignes pour teaser.]
-    </p>
+    <p id="article-summary" class="text-lg text-white/80 leading-relaxed font-semibold"></p>
   </section>
 
   <!-- Contenu principal -->
-  <article class="fade space-y-8">
-    <h2 class="text-2xl font-bold text-teal-400">[Sous-titre]</h2>
-    <p>
-      [Premier paragraphe du conseil…]
-    </p>
-    <!-- Ajoute ici listes, citations, visuels, etc. -->
+  <article id="article-body" class="fade space-y-8">
+    <!-- Le contenu markdown converti en HTML sera injecté ici -->
   </article>
 
   <!-- Suggestions d’articles -->
@@ -123,13 +113,35 @@
 
 <script src="../../js/main.js" defer></script>
 <script src="../../js/articles-suggestions.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
 <script>
-  setTimeout(() => {
-    document.querySelectorAll('.fade').forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), i * 120);
-    });
+async function loadArticle() {
+  // Récupérer le slug depuis l'URL (ex : 2025-06-19-mon-actu.html)
+  const slug = window.location.pathname.split('/').pop().replace('.html', '');
+  const mdUrl = `../actu/${slug}.md`;
+  try {
+    const response = await fetch(mdUrl);
+    const mdText = await response.text();
+    const match = /^---\n([^\0]+?)\n---\n([\s\S]*)$/m.exec(mdText);
+    if (!match) throw new Error("Format markdown invalide");
+    const front = jsyaml.load(match[1]);
+    const bodyMd = match[2];
+    // Injection dynamique du contenu
+    document.title = `${front.title} – Marc Da Silva`;
+    document.getElementById('page-title').textContent = `${front.title} – Marc Da Silva`;
+    document.getElementById('meta-desc').setAttribute('content', front.summary || '');
+    document.getElementById('article-title').textContent = front.title || '';
+    document.getElementById('article-date').textContent = (front.date || '').split('T')[0];
+    document.getElementById('article-summary').textContent = front.summary || '';
+    document.getElementById('article-image').src = front.image || '../../images/articles/actu-image.png';
+    document.getElementById('article-body').innerHTML = marked.parse(bodyMd);
     lucide.createIcons();
-  }, 200);
+  } catch(e) {
+    document.getElementById('article-body').innerHTML = '<p class="text-red-400">Impossible de charger l’actualité.</p>';
+  }
+}
+window.addEventListener('DOMContentLoaded', loadArticle);
 </script>
 </body>
 </html>
