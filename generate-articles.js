@@ -16,7 +16,16 @@ function generateHtml(mdPath, templatePath, destDir) {
   let html = template;
   // Injection frontmatter
   html = html.replace(/id="article-title">.*?</, `id="article-title">${front.title || ""}<`);
-  html = html.replace(/id="article-date">.*?</, `id="article-date">${(front.date || "").split('T')[0]}<`);
+  
+  // Correction ici : gestion date string ou object
+  let dateStr = "";
+  if (front.date) {
+    dateStr = typeof front.date === "string"
+      ? front.date.split('T')[0]
+      : new Date(front.date).toISOString().split('T')[0];
+  }
+  html = html.replace(/id="article-date">.*?</, `id="article-date">${dateStr}<`);
+
   html = html.replace(/id="article-summary">.*?</, `id="article-summary">${front.summary || ""}<`);
   // Image : toujours chemin absolu MDS
   html = html.replace(/id="article-image" src=".*?"/, `id="article-image" src="${front.image ? `/MDS/${front.image.replace(/^\/|MDS\//, "")}` : "/MDS/images/articles/default.jpg"}"`);
@@ -44,4 +53,3 @@ fs.readdirSync("./articles/conseil").filter(f => f.endsWith(".md")).forEach(file
     "./articles/conseil"
   );
 });
-
