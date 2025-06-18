@@ -1,5 +1,13 @@
 [
   {
+    "title": "TESTTTT",
+    "date": "2025-06-18T13:43",
+    "category": "Actualité",
+    "summary": "TEST",
+    "image": "/images/articles/workplace.png",
+    "slug": "actu/2025-06-testttt"
+  },
+  {
     "title": "Intégration de IA dans les process métiers",
     "date": "2025-06-18T12:26",
     "category": "Conseil IT",
