@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   header.classList.add('header-show');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > lastScrollY + 10 && window.scrollY > 10) {
+    if (window.scrollY > lastScrollY + 10 && window.scrollY > 100) {
       header.classList.remove('header-show');
       header.classList.add('header-hide');
-    } else if (window.scrollY < lastScrollY - 5) {
+    } else if (window.scrollY < lastScrollY - 10) {
       header.classList.remove('header-hide');
       header.classList.add('header-show');
     }
@@ -118,7 +118,7 @@ function lockBodyScroll(lock) {
   }
 
   // === Compteur animé pour les chiffres ===
-  function animateCounter(counter, target, duration = 1500) {
+  function animateCounter(counter, target, duration = 3000) {
     const start = 0;
     const increment = target / (duration / 16);
     let current = start;
