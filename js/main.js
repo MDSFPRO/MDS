@@ -2,6 +2,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init Lucide icons
   lucide.createIcons();
 
+let lastScrollY = window.scrollY;
+const header = document.querySelector('header'); // cible le premier header de la page
+
+// Initialise l'état (header visible)
+header.classList.add('header-show');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > lastScrollY + 10 && window.scrollY > 100) {
+    // On scroll vers le bas + on n'est pas tout en haut
+    header.classList.remove('header-show');
+    header.classList.add('header-hide');
+  } else if (window.scrollY < lastScrollY - 10) {
+    // On scroll vers le haut
+    header.classList.remove('header-hide');
+    header.classList.add('header-show');
+  }
+  lastScrollY = window.scrollY;
+});
+
+
   // === Transition delay automatique (stagger effect sur les .fade) ===
   document.querySelectorAll('.section-anim').forEach(section => {
     section.querySelectorAll('.fade').forEach((el, i) => {

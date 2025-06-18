@@ -50,3 +50,51 @@ fs.readdirSync("./articles/Conseil").filter(f => f.endsWith(".md")).forEach(file
     "./articles/Conseil"
   );
 });
+
+// Après la génération des .html...
+
+function slugFromFilename(folder, file) {
+  return `${folder}/${path.basename(file, '.md')}`;
+}
+
+function extractFrontmatter(mdPath) {
+  const mdText = fs.readFileSync(mdPath, "utf-8");
+  const match = /^---\n([\s\S]+?)\n---/m.exec(mdText);
+  if (!match) throw new Error(`Frontmatter invalide dans ${mdPath}`);
+  return yaml.load(match[1]);
+}
+
+let articles = [];
+
+// Pour Conseil
+fs.readdirSync("./articles/Conseil").filter(f => f.endsWith(".md")).forEach(file => {
+  const front = extractFrontmatter(`./articles/Conseil/${file}`);
+  articles.push({
+    title: front.title || "",
+    date: (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0]) || "",
+    category: front.category || "Conseil IT",
+    summary: front.summary || "",
+    image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
+    slug: slugFromFilename("Conseil", file)
+  });
+});
+
+// Pour Actu
+fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file => {
+  const front = extractFrontmatter(`./articles/actu/${file}`);
+  articles.push({
+    title: front.title || "",
+    date: (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0]) || "",
+    category: front.category || "Actualité",
+    summary: front.summary || "",
+    image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
+    slug: slugFromFilename("actu", file)
+  });
+});
+
+// Trie par date décroissante (plus récent en premier)
+articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+// Génère le fichier articles.json
+fs.writeFileSync("./articles/articles.json", JSON.stringify(articles, null, 2), "utf-8");
+

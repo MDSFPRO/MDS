@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adopter Copilot au quotidien – Article | Marc Da Silva</title>
+  <meta name="description" content="Retour d'expérience sur l'intégration de Copilot par Marc Da Silva." />
+  <link rel="icon" href="../public/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .prose-custom h2 { @apply text-3xl md:text-4xl font-bold mt-12 mb-6 text-white; }
+    .prose-custom h3 { @apply text-2xl md:text-3xl font-bold mt-10 mb-4 text-white; }
+    .prose-custom p { @apply text-white/90 text-lg mb-6 leading-relaxed; }
+    .prose-custom ul { @apply list-disc pl-6 mb-6 text-white/90 text-lg; }
+    .prose-custom li { @apply mb-2;}
+    .prose-custom a { @apply text-teal-400 underline hover:text-teal-300; }
+    .prose-custom strong { @apply text-white font-semibold; }
+    @media (max-width: 600px) {
+      .article-img { max-height: 220px !important;}
+    }
+  </style>
+</head>
+<body class="bg-[#101014] text-white min-h-screen font-sans">
+  <main class="max-w-3xl mx-auto pt-20 pb-16 px-5">
+    <!-- Retour -->
+    <div class="mb-10">
+      <a href="article-index.html" class="inline-flex items-center gap-2 text-white/50 hover:text-teal-400 underline transition font-semibold text-lg">
+        <i data-lucide="arrow-left" class="w-5 h-5"></i> Retour aux articles
+      </a>
+    </div>
+    <!-- Titre -->
+    <h1 class="text-4xl md:text-5xl font-bold mb-3 text-white text-center tracking-tight leading-tight">
+      Adopter Copilot au quotidien&nbsp;: retour d’expérience
+    </h1>
+    <!-- Date -->
+    <div class="text-white/40 text-center mb-6 text-base">Publié le 15 juin 2025</div>
+    <!-- Image à la une -->
+    <div class="flex justify-center mb-10">
+      <img src="../public/copilot-article.jpg" alt="Copilot en action" class="rounded-3xl shadow-xl w-full max-w-2xl object-cover object-center article-img" style="max-height:320px;" />
+    </div>
+    <!-- Contenu -->
+    <article class="prose-custom">
+      <p>
+        Depuis quelques mois, j’intègre <strong>Copilot</strong> dans mon quotidien de consultant IT pour accélérer la documentation, la veille technologique et même l’automatisation de tâches répétitives.<br>
+        Voici mes retours, conseils, et limites constatées.
+      </p>
+
+      <h2>Pourquoi j’ai choisi Copilot ?</h2>
+      <p>
+        La rapidité d’accès aux réponses et l’assistance à la rédaction font gagner un temps fou. Sur des missions multi-outils (Power Platform, M365, Intune), ça aide à formaliser des process et sécuriser les scripts.
+      </p>
+
+      <h2>Ce que ça m’apporte concrètement</h2>
+      <ul>
+        <li>Documentation plus rapide et homogène : Copilot aide à synthétiser les étapes clé</li>
+        <li>Détection d’erreurs ou d’oublis dans les scripts PowerShell</li>
+        <li>Veille accélérée : suggestions de sources et de ressources fiables</li>
+        <li>Échange avec l’IA pour challenger mes choix techniques (sans jamais remplacer la validation humaine)</li>
+      </ul>
+
+      <h2>Points de vigilance</h2>
+      <ul>
+        <li>Ne jamais copier-coller sans relecture</li>
+        <li>L’IA n’a pas le contexte complet : toujours vérifier sur la doc officielle</li>
+        <li>Le gain de temps dépend de l’expertise initiale : Copilot reste un assistant, pas un expert</li>
+      </ul>
+
+      <h3>En résumé</h3>
+      <p>
+        Copilot est aujourd’hui un vrai plus dans la boîte à outils IT, tant pour la productivité que pour le partage de connaissance. Mais l’esprit critique et l’expertise humaine restent irremplaçables.<br>
+        <strong>À tester sans hésiter !</strong>
+      </p>
+      <div class="mt-14 text-center">
+        <a href="article-index.html" class="inline-flex items-center gap-2 text-white/50 hover:text-teal-400 underline transition font-semibold text-lg">
+          <i data-lucide="arrow-left" class="w-5 h-5"></i> Retour aux articles
+        </a>
+      </div>
+    </article>
+  </main>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

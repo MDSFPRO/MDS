@@ -15,6 +15,17 @@ html, body {
   overflow-x: hidden !important;
 }
 
+/* Animation d'entrée/sortie du header */
+.header-hide {
+  transform: translateY(-100%);
+  transition: transform 0.55s cubic-bezier(.5, .1, .15, 1);
+}
+.header-show {
+  transform: translateY(0);
+  transition: transform 0.55s cubic-bezier(.5, .1, .15, 1);
+}
+
+
 * {
   box-sizing: border-box;
 }

@@ -1,34 +1,33 @@
-// /js/articles-portal.js
-
 let articles = [];
 let currentFilter = "all";
+let currentPage = 1;
+const articlesPerPage = 9; // Modifie ici le nombre d'articles par page
 const list = document.getElementById('articles-list');
+const pagination = document.createElement('div');
+pagination.className = "flex gap-2 justify-center my-8";
+list.parentNode.appendChild(pagination);
 
 // Charger la liste d’articles depuis articles.json
-fetch('articles.json')
+fetch('../articles/articles.json')
   .then(res => res.json())
   .then(data => {
-    articles = data;
-    // Trier du plus récent au plus ancien
-    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+    articles = data.sort((a, b) => new Date(b.date) - new Date(a.date));
     displayArticles();
     // Init filtre dynamique
     const btns = document.querySelectorAll('.filter-btn');
     btns.forEach(btn => {
       btn.addEventListener('click', () => {
         currentFilter = btn.dataset.category;
+        currentPage = 1; // Reset à la première page quand on filtre
         displayArticles();
-        // Réinitialise TOUS les boutons en gris
         btns.forEach(b => {
           b.classList.remove('bg-teal-500', 'text-black');
           b.classList.add('bg-white/10', 'text-white');
         });
-        // Passe le bouton cliqué en teal
         btn.classList.remove('bg-white/10', 'text-white');
         btn.classList.add('bg-teal-500', 'text-black');
       });
     });
-    // Par défaut : bouton "Tous" en teal, les autres restent gris
     btns[0].classList.remove('bg-white/10', 'text-white');
     btns[0].classList.add('bg-teal-500', 'text-black');
   });
@@ -38,10 +37,18 @@ function displayArticles() {
   let filtered = currentFilter === "all"
     ? articles
     : articles.filter(a => a.category === currentFilter);
-  if (filtered.length === 0) {
+
+  // Pagination
+  const totalPages = Math.ceil(filtered.length / articlesPerPage);
+  const start = (currentPage - 1) * articlesPerPage;
+  const end = start + articlesPerPage;
+  const toShow = filtered.slice(start, end);
+
+  if (toShow.length === 0) {
     list.innerHTML = '<div class="text-white/70 text-lg text-center">Aucun article pour cette catégorie.</div>';
+    pagination.innerHTML = '';
   } else {
-    filtered.forEach(article => {
+    toShow.forEach(article => {
       const card = document.createElement('a');
       card.href = article.slug + '.html';
       card.className =
@@ -57,10 +64,33 @@ function displayArticles() {
       `;
       list.appendChild(card);
     });
+    renderPagination(totalPages);
   }
-  // Animation .fade sur les cards
   setTimeout(() => {
     document.querySelectorAll('.fade').forEach(el => el.classList.add('visible'));
   }, 100);
   lucide.createIcons();
 }
+
+function renderPagination(totalPages) {
+  if (totalPages <= 1) {
+    pagination.innerHTML = '';
+    return;
+  }
+  let html = '';
+  if (currentPage > 1) {
+    html += `<button class="px-3 py-1 rounded-xl bg-white/10 text-white hover:bg-teal-400 hover:text-black transition" onclick="goToPage(${currentPage - 1})">←</button>`;
+  }
+  for (let i = 1; i <= totalPages; i++) {
+    html += `<button class="px-3 py-1 mx-1 rounded-xl ${i === currentPage ? 'bg-teal-500 text-black' : 'bg-white/10 text-white hover:bg-teal-400 hover:text-black'} transition" onclick="goToPage(${i})">${i}</button>`;
+  }
+  if (currentPage < totalPages) {
+    html += `<button class="px-3 py-1 rounded-xl bg-white/10 text-white hover:bg-teal-400 hover:text-black transition" onclick="goToPage(${currentPage + 1})">→</button>`;
+  }
+  pagination.innerHTML = html;
+}
+
+window.goToPage = function(page) {
+  currentPage = page;
+  displayArticles();
+};
