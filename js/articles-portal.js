@@ -1,15 +1,20 @@
 let articles = [];
 let currentFilter = "all";
 let currentPage = 1;
-const articlesPerPage = 9; // Modifie ici le nombre d'articles par page
+const articlesPerPage = 9; // Nombre d'articles par page
+
 const list = document.getElementById('articles-list');
 const pagination = document.createElement('div');
 pagination.className = "flex gap-2 justify-center my-8";
 list.parentNode.appendChild(pagination);
 
-// Charger la liste d’articles depuis articles.json
-fetch('../articles/articles.json')
-  .then(res => res.json())
+// === CHEMIN CORRIGÉ ===
+// Doit être 'articles.json' (car page HTML et JSON sont dans /articles/)
+fetch('articles.json')
+  .then(res => {
+    if (!res.ok) throw new Error("Erreur de chargement articles.json : " + res.statusText);
+    return res.json();
+  })
   .then(data => {
     articles = data.sort((a, b) => new Date(b.date) - new Date(a.date));
     displayArticles();
@@ -30,6 +35,11 @@ fetch('../articles/articles.json')
     });
     btns[0].classList.remove('bg-white/10', 'text-white');
     btns[0].classList.add('bg-teal-500', 'text-black');
+  })
+  .catch(e => {
+    console.error("Erreur chargement ou parsing articles.json :", e);
+    list.innerHTML = `<div class="text-red-500 text-lg text-center">Impossible de charger les articles.<br>${e.message}</div>`;
+    pagination.innerHTML = '';
   });
 
 function displayArticles() {
@@ -39,7 +49,7 @@ function displayArticles() {
     : articles.filter(a => a.category === currentFilter);
 
   // Pagination
-  const totalPages = Math.ceil(filtered.length / articlesPerPage);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / articlesPerPage));
   const start = (currentPage - 1) * articlesPerPage;
   const end = start + articlesPerPage;
   const toShow = filtered.slice(start, end);
@@ -50,6 +60,7 @@ function displayArticles() {
   } else {
     toShow.forEach(article => {
       const card = document.createElement('a');
+      // Le href doit pointer vers le bon sous-dossier (slug = Conseil/xxxx ou actu/xxxx)
       card.href = article.slug + '.html';
       card.className =
         'glass-card card-hover flex flex-col gap-4 p-7 rounded-3xl shadow-lg transition hover:bg-teal-900/10 fade';
@@ -69,7 +80,7 @@ function displayArticles() {
   setTimeout(() => {
     document.querySelectorAll('.fade').forEach(el => el.classList.add('visible'));
   }, 100);
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 }
 
 function renderPagination(totalPages) {
