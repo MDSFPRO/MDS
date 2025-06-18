@@ -46,7 +46,7 @@ function generateHtml(mdPath, templatePath, destDir) {
 }
 
 // Debug : affiche les fichiers trouvés
-console.log("Fichiers Conseil :", fs.readdirSync("./articles/Conseil"));
+console.log("Fichiers Conseil :", fs.readdirSync("./articles/conseil"));
 console.log("Fichiers Actu :", fs.readdirSync("./articles/actu"));
 
 // Génère pour tous les actu
@@ -63,12 +63,12 @@ fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file =>
 });
 
 // Génère pour tous les Conseil
-fs.readdirSync("./articles/Conseil").filter(f => f.endsWith(".md")).forEach(file => {
+fs.readdirSync("./articles/conseil").filter(f => f.endsWith(".md")).forEach(file => {
   try {
     generateHtml(
-      `./articles/Conseil/${file}`,
+      `./articles/conseil/${file}`,
       "./articles/templates/template-conseil.html",
-      "./articles/Conseil"
+      "./articles/conseil"
     );
   } catch (e) {
     console.log("Erreur de génération HTML (conseil):", file, e.message);
@@ -83,9 +83,9 @@ function slugFromFilename(folder, file) {
 let articles = [];
 
 // Remplissage JSON - Conseil
-fs.readdirSync("./articles/Conseil").filter(f => f.endsWith(".md")).forEach(file => {
+fs.readdirSync("./articles/conseil").filter(f => f.endsWith(".md")).forEach(file => {
   try {
-    const front = extractFrontmatter(`./articles/Conseil/${file}`);
+    const front = extractFrontmatter(`./articles/conseil/${file}`);
     articles.push({
       title: front.title || "",
       date: (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0]) || "",
