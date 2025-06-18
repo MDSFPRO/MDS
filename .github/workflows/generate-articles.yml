@@ -31,6 +31,6 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git add articles/actu/*.html articles/conseil/*.html articles/articles.json
-          git commit -m "MAJ auto des articles HTML"
-          git push || echo "No changes to commit"
+          git add -A articles/
+          git commit -m "MAJ auto des articles HTML" || echo "No changes to commit"
+          git push || echo "No changes to push"
