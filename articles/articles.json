@@ -1,0 +1,26 @@
+[
+  {
+    "title": "true",
+    "date": "2025-06-18",
+    "category": "Conseil IT",
+    "summary": "tre",
+    "image": "/images/articles/Codex-OpenAI.png",
+    "slug": "Conseil/2025-06-true"
+  },
+  {
+    "title": "HEEHHEHEHEHEHEHEHEHE",
+    "date": "2025-06-18",
+    "category": "Actualité",
+    "summary": "Hop un changement hehe ",
+    "image": "/images/articles/Codex-OpenAI.png",
+    "slug": "actu/2025-06-la-santé-heheeh"
+  },
+  {
+    "title": "Test",
+    "date": "2025-06-17",
+    "category": "Actualité",
+    "summary": "Testest",
+    "image": "/images/articles/workplace.png",
+    "slug": "actu/2025-06-test"
+  }
+]
