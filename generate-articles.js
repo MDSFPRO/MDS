@@ -46,8 +46,8 @@ function generateHtml(mdPath, templatePath, destDir) {
 }
 
 // Debug : affiche les fichiers trouvés
-console.log("Fichiers Conseil :", fs.readdirSync("./articles/conseil"));
-console.log("Fichiers Actu :", fs.readdirSync("./articles/actu"));
+console.log("Fichiers conseil :", fs.readdirSync("./articles/conseil"));
+console.log("Fichiers actu :", fs.readdirSync("./articles/actu"));
 
 // Génère pour tous les actu
 fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file => {
@@ -62,7 +62,7 @@ fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file =>
   }
 });
 
-// Génère pour tous les Conseil
+// Génère pour tous les conseil
 fs.readdirSync("./articles/conseil").filter(f => f.endsWith(".md")).forEach(file => {
   try {
     generateHtml(
@@ -88,7 +88,8 @@ fs.readdirSync("./articles/conseil").filter(f => f.endsWith(".md")).forEach(file
     const front = extractFrontmatter(`./articles/conseil/${file}`);
     articles.push({
       title: front.title || "",
-      date: (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0]) || "",
+      // ⚡️ Ici on garde la date complète (avec l'heure)
+      date: (typeof front.date === "string" ? front.date : new Date(front.date).toISOString()) || "",
       category: front.category || "Conseil IT",
       summary: front.summary || "",
       image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
@@ -105,7 +106,8 @@ fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file =>
     const front = extractFrontmatter(`./articles/actu/${file}`);
     articles.push({
       title: front.title || "",
-      date: (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0]) || "",
+      // ⚡️ Idem ici, date complète (avec l'heure)
+      date: (typeof front.date === "string" ? front.date : new Date(front.date).toISOString()) || "",
       category: front.category || "Actualité",
       summary: front.summary || "",
       image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
@@ -116,12 +118,12 @@ fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file =>
   }
 });
 
-// Trie par date décroissante
+// Trie par date décroissante (fonctionne maintenant à la seconde près)
 articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 // Génère le fichier articles.json
 fs.writeFileSync("./articles/articles.json", JSON.stringify(articles, null, 2), "utf-8");
 
-// Pour debug : affiche la taille finale du tableau JSON généré
-console.log("Nombre d'articles dans le JSON :", articles.length);
+// Pour debug : affiche la taille finale du tableau JSON généré
+console.log("Nombre d'articles dans le JSON :", articles.length);
 
