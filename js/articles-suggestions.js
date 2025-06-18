@@ -1,9 +1,7 @@
-// /js/article-suggestions.js
-
 const pathParts = window.location.pathname.split('/');
-const slug = pathParts.slice(-2).join('/').replace('.html', '');
+const slug = pathParts.slice(-2).join('/').replace('.html', ''); // ex: 'conseil/2025-06-la-resistance-au-changement-it'
 
-// Slugification : tout en minuscule, pas d'extension, pas d'accent, pas de slash au début
+// Slugify tout, dossier inclus :
 const slugify = s =>
   s
     .toLowerCase()
@@ -18,11 +16,11 @@ fetch('../../articles/articles.json')
   .then(articles => {
     articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    // DEBUG pour comprendre pourquoi ça bug parfois
+    // DEBUG : affiche vraiment tout pour vérifier !
     console.log('slug courant:', currentSlug);
-    console.log('slugs du JSON:', articles.map(a => slugify(a.slug)));
+    console.log('slugs JSON:', articles.map(a => slugify(a.slug)));
 
-    // Exclut l'article courant de manière 100% fiable
+    // La comparaison 100% fiable sur tout le chemin
     const suggestions = articles
       .filter(a => slugify(a.slug) !== currentSlug)
       .slice(0, 3);
