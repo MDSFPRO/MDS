@@ -10,7 +10,7 @@ list.parentNode.appendChild(pagination);
 
 // === CHEMIN CORRIGÉ ===
 // Doit être 'articles.json' (car page HTML et JSON sont dans /articles/)
-fetch('articles.json')
+fetch('articles.json?v=' + Date.now())
   .then(res => {
     if (!res.ok) throw new Error("Erreur de chargement articles.json : " + res.statusText);
     return res.json();
