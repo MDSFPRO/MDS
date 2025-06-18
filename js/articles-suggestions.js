@@ -1,24 +1,30 @@
 // /js/article-suggestions.js
 
-// Trouve le slug courant à exclure des suggestions (gère conseil/actu)
 const pathParts = window.location.pathname.split('/');
-const slug = pathParts.slice(-2).join('/').replace('.html', ''); // ex: 'actu/2024-06-test'
+const slug = pathParts.slice(-2).join('/').replace('.html', '');
 
-// Fonction de normalisation (basse casse, sans .html final)
-const normalize = s => s.toLowerCase().replace(/\.html$/, '');
+// Slugification : tout en minuscule, pas d'extension, pas d'accent, pas de slash au début
+const slugify = s =>
+  s
+    .toLowerCase()
+    .replace(/^\/+/, '')         // enlève un slash éventuel au début
+    .replace(/\.html$/, '')      // enlève .html si jamais
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // enlève accents
 
-// Le JSON est deux dossiers au-dessus d'un article (ex: /articles/actu/xxx.html)
+const currentSlug = slugify(slug);
+
 fetch('../../articles/articles.json')
-  .then(res => {
-    if (!res.ok) throw new Error("Erreur de chargement articles.json : " + res.statusText);
-    return res.json();
-  })
+  .then(res => res.json())
   .then(articles => {
     articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-    const currentSlug = normalize(slug);
-    // Exclut l'article courant
+
+    // DEBUG pour comprendre pourquoi ça bug parfois
+    console.log('slug courant:', currentSlug);
+    console.log('slugs du JSON:', articles.map(a => slugify(a.slug)));
+
+    // Exclut l'article courant de manière 100% fiable
     const suggestions = articles
-      .filter(a => normalize(a.slug) !== currentSlug)
+      .filter(a => slugify(a.slug) !== currentSlug)
       .slice(0, 3);
 
     const container = document.getElementById('last-articles');
