@@ -4,11 +4,23 @@ const yaml = require("js-yaml");
 const marked = require("marked");
 const { JSDOM } = require("jsdom");
 
+// Fonction robuste d'extraction frontmatter (supporte \n et \r\n)
+function extractFrontmatter(mdPath) {
+  const mdText = fs.readFileSync(mdPath, "utf-8");
+  const match = /^---\r?\n([\s\S]+?)\r?\n---/m.exec(mdText);
+  if (!match) {
+    console.log('Frontmatter invalide dans', mdPath);
+    console.log(mdText.slice(0, 120)); // Affiche début du fichier pour debug
+    throw new Error(`Frontmatter invalide dans ${mdPath}`);
+  }
+  return yaml.load(match[1]);
+}
+
+// Génération d'un article HTML à partir d'un .md
 function generateHtml(mdPath, templatePath, destDir) {
   const mdText = fs.readFileSync(mdPath, "utf-8");
   const template = fs.readFileSync(templatePath, "utf-8");
-
-  const match = /^---\n([\s\S]+?)\n---\n([\s\S]*)$/m.exec(mdText);
+  const match = /^---\r?\n([\s\S]+?)\r?\n---\r?\n([\s\S]*)$/m.exec(mdText);
   if (!match) throw new Error(`Frontmatter invalide dans ${mdPath}`);
   const front = yaml.load(match[1]);
   const bodyMd = match[2];
@@ -33,68 +45,83 @@ function generateHtml(mdPath, templatePath, destDir) {
   fs.writeFileSync(path.join(destDir, destName), dom.serialize());
 }
 
+// Debug : affiche les fichiers trouvés
+console.log("Fichiers Conseil :", fs.readdirSync("./articles/Conseil"));
+console.log("Fichiers Actu :", fs.readdirSync("./articles/actu"));
+
 // Génère pour tous les actu
 fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file => {
-  generateHtml(
-    `./articles/actu/${file}`,
-    "./articles/templates/template-actu.html",
-    "./articles/actu"
-  );
+  try {
+    generateHtml(
+      `./articles/actu/${file}`,
+      "./articles/templates/template-actu.html",
+      "./articles/actu"
+    );
+  } catch (e) {
+    console.log("Erreur de génération HTML (actu):", file, e.message);
+  }
 });
 
 // Génère pour tous les Conseil
 fs.readdirSync("./articles/Conseil").filter(f => f.endsWith(".md")).forEach(file => {
-  generateHtml(
-    `./articles/Conseil/${file}`,
-    "./articles/templates/template-conseil.html",
-    "./articles/Conseil"
-  );
+  try {
+    generateHtml(
+      `./articles/Conseil/${file}`,
+      "./articles/templates/template-conseil.html",
+      "./articles/Conseil"
+    );
+  } catch (e) {
+    console.log("Erreur de génération HTML (conseil):", file, e.message);
+  }
 });
 
-// Après la génération des .html...
-
+// Fonction pour générer le slug
 function slugFromFilename(folder, file) {
   return `${folder}/${path.basename(file, '.md')}`;
 }
 
-function extractFrontmatter(mdPath) {
-  const mdText = fs.readFileSync(mdPath, "utf-8");
-  const match = /^---\n([\s\S]+?)\n---/m.exec(mdText);
-  if (!match) throw new Error(`Frontmatter invalide dans ${mdPath}`);
-  return yaml.load(match[1]);
-}
-
 let articles = [];
 
-// Pour Conseil
+// Remplissage JSON - Conseil
 fs.readdirSync("./articles/Conseil").filter(f => f.endsWith(".md")).forEach(file => {
-  const front = extractFrontmatter(`./articles/Conseil/${file}`);
-  articles.push({
-    title: front.title || "",
-    date: (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0]) || "",
-    category: front.category || "Conseil IT",
-    summary: front.summary || "",
-    image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
-    slug: slugFromFilename("Conseil", file)
-  });
+  try {
+    const front = extractFrontmatter(`./articles/Conseil/${file}`);
+    articles.push({
+      title: front.title || "",
+      date: (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0]) || "",
+      category: front.category || "Conseil IT",
+      summary: front.summary || "",
+      image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
+      slug: slugFromFilename("Conseil", file)
+    });
+  } catch (e) {
+    console.log("Erreur de frontmatter (conseil):", file, e.message);
+  }
 });
 
-// Pour Actu
+// Remplissage JSON - Actu
 fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file => {
-  const front = extractFrontmatter(`./articles/actu/${file}`);
-  articles.push({
-    title: front.title || "",
-    date: (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0]) || "",
-    category: front.category || "Actualité",
-    summary: front.summary || "",
-    image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
-    slug: slugFromFilename("actu", file)
-  });
+  try {
+    const front = extractFrontmatter(`./articles/actu/${file}`);
+    articles.push({
+      title: front.title || "",
+      date: (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0]) || "",
+      category: front.category || "Actualité",
+      summary: front.summary || "",
+      image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
+      slug: slugFromFilename("actu", file)
+    });
+  } catch (e) {
+    console.log("Erreur de frontmatter (actu):", file, e.message);
+  }
 });
 
-// Trie par date décroissante (plus récent en premier)
+// Trie par date décroissante
 articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 // Génère le fichier articles.json
 fs.writeFileSync("./articles/articles.json", JSON.stringify(articles, null, 2), "utf-8");
+
+// Pour debug : affiche la taille finale du tableau JSON généré
+console.log("Nombre d'articles dans le JSON :", articles.length);
 
