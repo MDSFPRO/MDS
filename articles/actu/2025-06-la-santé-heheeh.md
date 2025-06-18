@@ -5,7 +5,7 @@ date: 2025-06-18T01:29:00.000Z
 image: /images/articles/Codex-OpenAI.png
 category: Actualité
 ---
-## <span style="color:#2dd4bf">Titre principal teal (text-teal-400)</span>
+## <h1><<span style="color:#2dd4bf">Titre principal teal (text-teal-400)</span></h1>
 
 Voici un texte normal.
 
