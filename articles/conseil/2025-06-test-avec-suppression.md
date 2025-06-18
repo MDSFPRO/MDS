@@ -2,7 +2,7 @@
 title: Test avec suppression
 summary: suppression
 date: 2025-06-18T13:13:00.000Z
-image: https://www.cril.univ-artois.fr/pyxai/assets/figures/github.png
+image: /images/articles/workplace.png
 category: Conseil IT
 ---
 ## Introduction
