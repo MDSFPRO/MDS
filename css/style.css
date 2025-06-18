@@ -67,6 +67,31 @@ html, body {
   box-shadow: 0 0 0 rgba(0,0,0,0);
   transition: box-shadow 0.8s, transform 0.6s, background 1s;
 }
+
+/* --- MODIF CLS HERO --- */
+#hero.section-anim {
+  min-height: 560px; /* adapte selon le design */
+}
+@media (max-width: 640px) {
+  #hero.section-anim {
+    min-height: 440px;
+  }
+}
+#hero.section-anim::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 320px; /* adapte à la hauteur du décor */
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  z-index: 1;
+}
+/* --- FIN MODIF CLS HERO --- */
+
 .section-anim::before {
   content: "";
   position: absolute;
@@ -142,7 +167,6 @@ html, body {
 #marquee-track > * {
   flex-shrink: 0;
 }
-
 @media (max-width: 1024px) {
   #marquee-track {
     gap: 1.7rem;
@@ -155,7 +179,6 @@ html, body {
     animation-duration: 10s;
   }
 }
-
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
