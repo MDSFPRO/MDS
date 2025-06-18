@@ -2,34 +2,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init Lucide icons
   lucide.createIcons();
 
-let lastScrollY = window.scrollY;
-const header = document.querySelector('header'); // cible le premier header de la page
+  // === Header hide/show on scroll ===
+  let lastScrollY = window.scrollY;
+  const header = document.querySelector('header');
+  header.classList.add('header-show');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > lastScrollY + 10 && window.scrollY > 10) {
+      header.classList.remove('header-show');
+      header.classList.add('header-hide');
+    } else if (window.scrollY < lastScrollY - 5) {
+      header.classList.remove('header-hide');
+      header.classList.add('header-show');
+    }
+    lastScrollY = window.scrollY;
+  });
 
-// Initialise l'état (header visible)
-header.classList.add('header-show');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > lastScrollY + 10 && window.scrollY > 100) {
-    // On scroll vers le bas + on n'est pas tout en haut
-    header.classList.remove('header-show');
-    header.classList.add('header-hide');
-  } else if (window.scrollY < lastScrollY - 10) {
-    // On scroll vers le haut
-    header.classList.remove('header-hide');
-    header.classList.add('header-show');
-  }
-  lastScrollY = window.scrollY;
-});
-
-
-  // === Transition delay automatique (stagger effect sur les .fade) ===
+  // === Animations .fade stagger ===
   document.querySelectorAll('.section-anim').forEach(section => {
     section.querySelectorAll('.fade').forEach((el, i) => {
       el.style.transitionDelay = (i * 80) + 'ms';
     });
   });
 
-  // === Cascade anim sur toutes les cards d'une section quand la section entre dans la vue ===
+  // === Cascade anim des .fade à l'entrée en vue ===
   document.querySelectorAll('.section-anim').forEach(section => {
     const fades = section.querySelectorAll('.fade');
     let hasAnimated = false;
@@ -37,29 +32,24 @@ window.addEventListener('scroll', () => {
       const rect = section.getBoundingClientRect();
       if (!hasAnimated && rect.top < window.innerHeight - 120) {
         fades.forEach((el, i) => {
-          setTimeout(() => {
-            el.classList.add('visible');
-          }, i * 80);
+          setTimeout(() => { el.classList.add('visible'); }, i * 80);
         });
         hasAnimated = true;
       }
     }
     window.addEventListener('scroll', checkAndAnimate);
-    // Pour déclencher si la section est déjà visible au load :
     checkAndAnimate();
   });
 
-  // === Scroll Animations classiques (pour les titres, etc) ===
+  // === Scroll Animations classiques ===
   const handleFade = () => {
     document.querySelectorAll('.fade').forEach(el => {
       const rect = el.getBoundingClientRect();
-      // On ne retire plus visible ici pour éviter de "casser" la cascade sur les cards
       if (rect.top < window.innerHeight - 120) {
         el.classList.add('visible');
       }
     });
   };
-
   const handleActiveSection = () => {
     const sections = document.querySelectorAll('.section-anim');
     let found = false;
@@ -73,80 +63,61 @@ window.addEventListener('scroll', () => {
       }
     });
   };
-
   window.addEventListener('scroll', () => {
     handleFade();
     handleActiveSection();
   });
-
   handleFade();
   handleActiveSection();
+
+// Remplace toute la fonction par :
+function lockBodyScroll(lock) {
+  if (lock) {
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+  }
+}
 
   // === Burger Menu ===
   const burgerBtn = document.getElementById('burger-btn');
   const mobileNav = document.getElementById('mobile-nav');
   const closeBtn = document.getElementById('close-nav');
   const menuAnimationDelay = 250;
-
   const openMobileNav = () => {
     burgerBtn.classList.add('open');
     mobileNav.classList.remove('hidden');
     setTimeout(() => {
       mobileNav.classList.add('show');
-      document.body.style.overflow = 'hidden';
-      lucide.createIcons(); // IMPORTANT pour injecter la croix
+      lockBodyScroll(true);
+      lucide.createIcons();
     }, menuAnimationDelay);
   };
-
   const closeMobileNav = () => {
     burgerBtn.classList.remove('open');
     mobileNav.classList.remove('show');
     setTimeout(() => {
       mobileNav.classList.add('hidden');
-      document.body.style.overflow = '';
+      lockBodyScroll(false);
     }, 300);
   };
-
   burgerBtn.addEventListener('click', () => {
     burgerBtn.classList.contains('open') ? closeMobileNav() : openMobileNav();
   });
-
   closeBtn?.addEventListener('click', closeMobileNav);
-
   document.querySelectorAll('#mobile-nav a').forEach(link => {
     link.addEventListener('click', closeMobileNav);
   });
 
-  // === Logos Marquee ===
+  // === Carrousel Logos infini ===
   const marquee = document.getElementById('marquee-track');
   if (marquee) {
-    const logoCount = marquee.children.length;
-    const speed = 0.6;
-
-    for (let i = 0; i < logoCount; i++) {
-      marquee.appendChild(marquee.children[i].cloneNode(true));
-    }
-
-    let px = 0;
-    let paused = false;
-
-    const animate = () => {
-      if (!paused) {
-        px -= speed;
-        if (Math.abs(px) >= marquee.scrollWidth / 2) {
-          px = 0;
-        }
-        marquee.style.transform = `translateX(${px}px)`;
-      }
-      requestAnimationFrame(animate);
-    };
-
-    marquee.parentElement.addEventListener('mouseenter', () => paused = true);
-    marquee.parentElement.addEventListener('mouseleave', () => paused = false);
-    animate();
+    marquee.innerHTML += marquee.innerHTML; // duplication simple pour effet infini CSS
   }
 
-  // === Compteur animé pour les chiffres (activation uniquement quand visible) ===
+  // === Compteur animé pour les chiffres ===
   function animateCounter(counter, target, duration = 1500) {
     const start = 0;
     const increment = target / (duration / 16);
@@ -162,7 +133,6 @@ window.addEventListener('scroll', () => {
     }
     update();
   }
-
   function initCountersWhenVisible() {
     const counters = document.querySelectorAll('.counter');
     if ('IntersectionObserver' in window) {
@@ -173,18 +143,13 @@ window.addEventListener('scroll', () => {
             if (!isNaN(target)) {
               animateCounter(entry.target, target);
               entry.target.dataset.animated = "true";
-              obs.unobserve(entry.target); // plus besoin d'observer après animation
+              obs.unobserve(entry.target);
             }
           }
         });
-      }, {
-        threshold: 0.4 // Commence quand 40% du chiffre est visible
-      });
-      counters.forEach(counter => {
-        observer.observe(counter);
-      });
+      }, { threshold: 0.4 });
+      counters.forEach(counter => { observer.observe(counter); });
     } else {
-      // Fallback pour vieux navigateurs : lance direct
       counters.forEach(counter => {
         const target = parseInt(counter.dataset.target, 10);
         if (!isNaN(target)) {
@@ -194,7 +159,6 @@ window.addEventListener('scroll', () => {
       });
     }
   }
-
   initCountersWhenVisible();
 
   // === Hero Section Animation (staggered) ===

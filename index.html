@@ -22,562 +22,524 @@
   </head>
 
   <body class="bg-black text-white min-h-screen font-sans">
-    <!-- NAVIGATION -->
-  <header class="w-full flex justify-center pt-5 pb-2 z-50 fixed top-0 left-0 bg-transparent">
-    <div class="w-full max-w-6xl flex items-center px-6 py-3 rounded-3xl glass-card shadow-2xl">
-      <!-- LOGO -->
-      <a href="#hero" aria-label="Remonter en haut">
-        <img src="images/Logo.png" alt="Logo Marc Da Silva" class="h-10 w-10 rounded-full" />
-      </a>
+<!-- HEADER (NAVIGATION) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-transparent pt-5 pb-2">
+  <div class="w-full max-w-6xl mx-auto flex items-center px-6 py-3 rounded-3xl glass-card shadow-2xl">
+    <!-- LOGO -->
+    <a href="#hero" aria-label="Remonter en haut">
+      <img src="images/Logo.png" alt="Logo Marc Da Silva" class="h-10 w-10 rounded-full" />
+    </a>
 
-      <!-- NAV DESKTOP -->
-      <nav class="hidden lg:flex flex-1 justify-center gap-10 text-base font-semibold items-center text-white/90" aria-label="Navigation principale">
-        <a href="#experiences" class="hover:text-teal-400 transition">Expériences</a>
-        <a href="#formations" class="hover:text-teal-400 transition">Formations</a>
-        <a href="#certifications" class="hover:text-teal-400 transition">Certifications</a>
-        <a href="#competences" class="hover:text-teal-400 transition">Compétences</a>
-        <a href="#interet" class="hover:text-teal-400 transition">Intérêt</a>
-        <a href="#contact" class="hover:text-teal-400 transition">Contact</a>
-        <a href="articles/article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-base shadow-lg hover:bg-teal-400 transition" target="_blank" rel="noopener noreferrer">Articles</a>
-      </nav>
-      
-      <!-- BURGER -->
-      <div class="flex-1 lg:hidden"></div>
-      <button id="burger-btn"
-        class="lg:hidden flex flex-col justify-center items-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 transition relative"
-        aria-label="Menu">
-        <span class="burger-bar-2 bar-top absolute left-0 right-0"></span>
-        <span class="burger-bar-2 bar-bottom absolute left-0 right-0"></span>
-      </button>
-    </div>
-
-    <!-- NAV MOBILE -->
-    <nav id="mobile-nav"
-      class="fixed inset-0 min-h-screen w-screen bg-black z-50 flex flex-col items-center justify-start text-xl font-semibold text-white hidden overflow-y-auto pt-20 pb-12 px-4"
-      aria-label="Navigation mobile">
-
-      <!-- CROIX FERMETURE -->
-      <button id="close-nav"
-        class="absolute top-6 right-6 p-2 z-[9999] text-white hover:bg-white/10 transition"
-        aria-label="Fermer le menu">
-        <i data-lucide="x" class="w-8 h-8"></i>
-      </button>
-
-      <!-- Liens -->
-      <div class="flex flex-col gap-6 items-center w-full mt-12">
-        <a href="#hero" class="hover:text-teal-400 transition">À propos</a>
-        <a href="#experiences" class="hover:text-teal-400 transition">Expériences</a>
-        <a href="#formations" class="hover:text-teal-400 transition">Formations</a>
-        <a href="#certifications" class="hover:text-teal-400 transition">Certifications</a>
-        <a href="#competences" class="hover:text-teal-400 transition">Compétences</a>
-        <a href="#interet" class="hover:text-teal-400 transition">Intérêt</a>
-        <a href="#contact" class="hover:text-teal-400 transition">Contact</a>
-        <a href="articles/article-index.html"
-          class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition"
-          target="_blank" rel="noopener noreferrer">
-          Articles
-        </a>
-      </div>
+    <!-- NAV DESKTOP -->
+    <nav class="hidden lg:flex flex-1 justify-center gap-10 text-base font-semibold items-center text-white/90" aria-label="Navigation principale">
+      <a href="#experiences" class="hover:text-teal-400 transition">Expériences</a>
+      <a href="#formations" class="hover:text-teal-400 transition">Formations</a>
+      <a href="#certifications" class="hover:text-teal-400 transition">Certifications</a>
+      <a href="#competences" class="hover:text-teal-400 transition">Compétences</a>
+      <a href="#interet" class="hover:text-teal-400 transition">Intérêt</a>
+      <a href="#contact" class="hover:text-teal-400 transition">Contact</a>
+      <a href="articles/article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-base shadow-lg hover:bg-teal-400 transition" target="_blank" rel="noopener noreferrer">Articles</a>
     </nav>
-    </header>
+    
+    <!-- Burger menu MOBILE -->
+    <div class="flex-1 lg:hidden"></div>
+    <button id="burger-btn"
+      class="lg:hidden flex flex-col justify-center items-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 transition relative"
+      aria-label="Menu">
+      <span class="burger-bar-2 bar-top absolute left-0 right-0"></span>
+      <span class="burger-bar-2 bar-bottom absolute left-0 right-0"></span>
+    </button>
+  </div>
 
-    <!-- HERO -->
-    <section id="hero" class="pt-[160px] sm:pt-[130px] md:pt-[140px] pb-10 sm:pb-20 md:pb-32 px-4 fade section-anim flex flex-col justify-center">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-center gap-0 px-2 sm:px-4">
-        <div class="md:w-1/2 flex justify-center items-center mb-0 md:mb-0">
-          <img src="images/Logo.png" alt="Logo Marc Da Silva" id="hero-logo"
-            class="rounded-3xl shadow-xl max-w-[120px] md:max-w-[300px] object-contain opacity-100 scale-100"
-            style="margin-bottom:0 !important; padding-bottom:0 !important;" />
+  <!-- NAV MOBILE -->
+  <nav id="mobile-nav"
+    class="fixed inset-0 min-h-screen w-screen bg-black z-50 flex flex-col items-center justify-start text-xl font-semibold text-white hidden overflow-y-auto pt-20 pb-12 px-4"
+    aria-label="Navigation mobile">
+    <!-- Fermeture -->
+    <button id="close-nav"
+      class="absolute top-6 right-6 p-2 z-[9999] text-white hover:bg-white/10 transition"
+      aria-label="Fermer le menu">
+      <i data-lucide="x" class="w-8 h-8"></i>
+    </button>
+    <!-- Liens Mobile -->
+    <div class="flex flex-col gap-6 items-center w-full mt-12">
+      <a href="#hero" class="hover:text-teal-400 transition">À propos</a>
+      <a href="#experiences" class="hover:text-teal-400 transition">Expériences</a>
+      <a href="#formations" class="hover:text-teal-400 transition">Formations</a>
+      <a href="#certifications" class="hover:text-teal-400 transition">Certifications</a>
+      <a href="#competences" class="hover:text-teal-400 transition">Compétences</a>
+      <a href="#interet" class="hover:text-teal-400 transition">Intérêt</a>
+      <a href="#contact" class="hover:text-teal-400 transition">Contact</a>
+      <a href="articles/article-index.html"
+        class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition"
+        target="_blank" rel="noopener noreferrer">
+        Articles
+      </a>
+    </div>
+  </nav>
+</header>
+
+
+<!-- HERO -->
+<section id="hero" class="pt-[160px] sm:pt-[140px] md:pt-[200px] pb-20 px-4 fade section-anim">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-2 sm:px-4">
+    <!-- Logo -->
+    <div class="md:w-1/2 flex justify-center items-center">
+      <img src="images/Logo.png" alt="Logo Marc Da Silva" id="hero-logo"
+        class="rounded-3xl shadow-xl max-w-[120px] md:max-w-[300px] object-contain opacity-100 scale-100" />
+    </div>
+    <!-- Texte & actions -->
+    <div class="md:w-1/2 flex flex-col justify-center">
+      <span id="hero-txt1" class="uppercase text-teal-400 font-medium tracking-wider text-sm mb-6 opacity-0 translate-y-4 transition-all duration-500">À propos</span>
+      <h1 id="hero-txt2" class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-left opacity-0 translate-y-4 transition-all duration-700">
+        Un accompagnement IT <br>qui met l'humain & le résultat au centre
+      </h1>
+      <hr id="hero-txt3" class="border-white/20 mb-6 w-16 opacity-0 translate-y-4 transition-all duration-700">
+      <p id="hero-txt4" class="text-base sm:text-lg md:text-xl text-white/90 mb-5 leading-relaxed opacity-0 translate-y-4 transition-all duration-700">
+        <strong>Consultant IT & Chef de Projet,</strong> j’aide les entreprises à sécuriser, moderniser et piloter leur transformation digitale.<br>
+        Passionné de technologie, je traduis les enjeux SI en solutions concrètes, avec un focus sur la pédagogie, la conformité et la réussite collective.
+      </p>
+      <p id="hero-txt5" class="text-sm sm:text-md text-white/70 mb-8 opacity-0 translate-y-4 transition-all duration-700">
+        Pilotage de projet IT, conduite du changement, gestion d'équipe et support utilisateurs : j’apporte une vision 360° sur l'ensemble d'un SI/Workplace.
+      </p>
+      <div id="hero-txt6" class="flex flex-col md:flex-row gap-4 opacity-0 translate-y-4 transition-all duration-700">
+        <a href="#contact" class="inline-block bg-teal-500 hover:bg-teal-400 px-10 py-4 rounded-xl font-semibold text-black text-lg shadow-lg transition">Me contacter</a>
+        <a href="images/Dossier de compétences - Marc Da Silva 2025.pdf" download class="inline-block border-2 border-teal-400 text-teal-400 font-bold rounded-xl px-10 py-4 text-lg hover:bg-teal-400 hover:text-black transition shadow-lg">Télécharger mon dossier</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPERIENCES -->
+<section id="experiences" class="py-32 px-4 fade section-anim border-t border-white/10">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center fade">
+      Expériences professionnelles
+    </h2>
+    <div class="grid md:grid-cols-2 gap-12">
+
+<!-- CARD 1 : Asigma -->
+<div class="flex flex-col p-10 rounded-3xl glass-card card-hover text-left fade">
+  <div class="flex items-center gap-3 mb-6">
+    <span class="icon glass-icon rounded-full p-3">
+      <i data-lucide="server-cog" class="w-8 h-8 text-teal-300 drop-shadow-glow"></i>
+    </span>
+    <div>
+      <h3 class="text-2xl font-semibold glass-title">Consultant IT</h3>
+      <span class="text-white/60 text-lg">Asigma - Rainbow Partners, Neuilly-sur-Seine</span>
+    </div>
+  </div>
+  <div class="mb-4 text-base text-teal-300">Mars 2025 – Juin 2025</div>
+  <p class="mb-3 text-white/90 font-medium">En bref : Administration sys, sécurité et conformité IT.</p>
+  <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
+    <li>
+      <i data-lucide="bar-chart-2" class="w-6 h-6 text-teal-300 inline mr-2"></i>
+      Conformité des postes : 
+      <span class="counter" data-target="75">75</span> % ➔ 
+      <span class="counter" data-target="98">98</span> % (automation Intune, Winget, scripts)
+    </li>
+    <li>
+      <i data-lucide="shield-check" class="w-6 h-6 text-teal-300 inline mr-2"></i>
+      +<span class="counter" data-target="9">9</span> % sécurité endpoints (MDE, MFA, ASR, DLP), 
+      <span class="counter" data-target="15">15</span> recommandations validées
+    </li>
+    <li>
+      <i data-lucide="file-lock" class="w-6 h-6 text-teal-300 inline mr-2"></i>
+      Protection avancée 
+      <span class="counter" data-target="100">100</span>Go de données sensibles, 
+      +<span class="counter" data-target="70">70</span>% contrôle d’accès
+    </li>
+    <li>
+      <i data-lucide="users" class="w-6 h-6 text-teal-300 inline mr-2"></i>
+      <span class="counter" data-target="100">100</span>+ utilisateurs formés sécurité/MFA, documentation complète, conformité RGPD/ISO
+    </li>
+  </ul>
+  <div class="mt-2 text-white/60 text-sm">
+    Valeur ajoutée : Standardisation, sécurité renforcée, accompagnement, documentation process.<br>
+    <span class="italic">Soft skills : pédagogie, esprit d’équipe, rigueur, agilité, documentation.</span>
+  </div>
+</div>
+
+
+<!-- CARD 2 : AXA -->
+<div class="flex flex-col p-10 rounded-3xl glass-card card-hover text-left fade">
+  <div class="flex items-center gap-3 mb-6">
+    <span class="icon glass-icon rounded-full p-3">
+      <i data-lucide="Kanban" class="w-8 h-8 text-blue-300 drop-shadow-glow"></i>
+    </span>
+    <div>
+      <h3 class="text-2xl font-semibold glass-title">Chef de projet IT Workplace</h3>
+      <span class="text-white/60 text-lg">AXA Group Operations, Paris</span>
+    </div>
+  </div>
+  <div class="mb-4 text-base text-blue-300">Sept 2023 – Oct 2024</div>
+  <p class="mb-3 text-white/90 font-medium">En bref : Pilotage projets internationaux Windows 11, Teams, push solution eSIM, optimisation Sharepoint.</p>
+  <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
+    <li><i data-lucide="monitor-up" class="w-6 h-6 text-blue-300 inline mr-2"></i>Migration Windows 11 : 2 500 collaborateurs, 95 % dans les délais, 37 machines remplacées</li>
+    <li><i data-lucide="users-2" class="w-6 h-6 text-blue-300 inline mr-2"></i>Teams : 8 000 users, 100 % migration en 8 entités, roadmap & suivi Excel/PowerBI</li>
+    <li><i data-lucide="credit-card" class="w-6 h-6 text-blue-300 inline mr-2"></i>eSIM : -30x délais, +10 000 € d’économies, guides utilisateurs FR/EN</li>
+    <li><i data-lucide="activity" class="w-6 h-6 text-blue-300 inline mr-2"></i>+25 % d’engagement interne (SharePoint, articles, guides onboarding)</li>
+  </ul>
+  <div class="mt-2 text-white/60 text-sm">Valeur ajoutée : Organisation, ROI, communication, pilotage conduite du changement.<br>
+    <span class="italic">Soft skills : coordination, synthèse, gestion d’équipe, orientation résultat.</span>
+  </div>
+</div>
+
+<!-- CARD 3 : CRET Ingénieur -->
+<div class="flex flex-col p-10 rounded-3xl glass-card card-hover text-left fade">
+  <div class="flex items-center gap-3 mb-6">
+    <span class="icon glass-icon rounded-full p-3">
+      <i data-lucide="network" class="w-8 h-8 text-yellow-300 drop-shadow-glow"></i>
+    </span>
+    <div>
+      <h3 class="text-2xl font-semibold glass-title">Ingénieur Réseaux & Télécoms</h3>
+      <span class="text-white/60 text-lg">CRET, Saint-Denis</span>
+    </div>
+  </div>
+  <div class="mb-4 text-base text-yellow-300">Sept 2021 - Août 2023</div>
+  <p class="mb-3 text-white/90 font-medium">En bref : Modernisation WAN/VoIP, infra hôtels/labos/cabinets, cloud et support IT intégral.</p>
+  <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
+    <li><i data-lucide="wifi" class="w-6 h-6 text-yellow-300 inline mr-2"></i>Refonte WAN hôtel : +60 % couverture, 90 % satisfaction, 0 interruption</li>
+    <li><i data-lucide="phone-forwarded" class="w-6 h-6 text-yellow-300 inline mr-2"></i>Migration VoIP (70 labos), -40 % interruptions, +25 % satisfaction user</li>
+    <li><i data-lucide="cloud" class="w-6 h-6 text-yellow-300 inline mr-2"></i>Déploiement cloud/IT médical : 100 % dispo, zéro incident, guides utilisateurs</li>
+  </ul>
+  <div class="mt-2 text-white/60 text-sm">Valeur ajoutée : gestion multi-projets, accompagnement utilisateurs, anticipation risques.<br>
+    <span class="italic">Soft skills : adaptabilité, pédagogie, gestion de crise.</span>
+  </div>
+</div>
+
+<!-- CARD 4 : CRET Technicien -->
+<div class="flex flex-col p-10 rounded-3xl glass-card card-hover text-left fade">
+  <div class="flex items-center gap-3 mb-6">
+    <span class="icon glass-icon rounded-full p-3">
+      <i data-lucide="laptop" class="w-8 h-8 text-gray-300 drop-shadow-glow"></i>
+    </span>
+    <div>
+      <h3 class="text-2xl font-semibold glass-title">Technicien Systèmes & Réseaux</h3>
+      <span class="text-white/60 text-lg">CRET, Saint-Denis</span>
+    </div>
+  </div>
+  <div class="mb-4 text-base text-gray-300">Sept 2020 - Août 2021</div>
+  <p class="mb-3 text-white/90 font-medium">En bref : Digitalisation, support IT, maintenance, formation, gestion incidents.</p>
+  <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
+    <li><i data-lucide="folder-input" class="w-6 h-6 text-gray-300 inline mr-2"></i>Numérisation 100% dossiers clients, +40 % productivité</li>
+    <li><i data-lucide="headset" class="w-6 h-6 text-gray-300 inline mr-2"></i>Déploiement softphone : +99 % dispo lignes, -30 % attente</li>
+    <li><i data-lucide="wrench" class="w-6 h-6 text-gray-300 inline mr-2"></i>Maintenance proactive, doc technique, support N1/N2, incidents anticipés</li>
+  </ul>
+  <div class="mt-2 text-white/60 text-sm">Valeur ajoutée : digitalisation, réactivité, documentation technique.<br>
+    <span class="italic">Soft skills : autonomie, pédagogie, curiosité, fiabilité.</span>
+  </div>
+</div>
+</div>
+</div>
+      
+<!-- Carrousel centré, fluide, aligné -->
+<div class="mt-20">
+  <div class="overflow-hidden rounded-3xl glass-card card-hover shadow-xl transition-all duration-300 mx-auto" style="max-width:1150px;">
+    <div id="marquee-track" class="flex gap-10 py-6">
+      <!-- Les logos principaux, chacun UNE SEULE FOIS -->
+      <div class="flex flex-col items-center min-w-[130px]">
+        <div class="flex items-center justify-center h-16 w-full flex-grow">
+          <a href="https://www.asigma.fr/" target="_blank" rel="noopener" aria-label="Asigma - Employeur" class="logo-link block">
+            <img src="images/asigma.png" alt="Logo Asigma" class="h-16 w-32 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+          </a>
         </div>
-        <div class="md:w-1/2 flex flex-col justify-center" style="margin-top:0 !important; padding-top:0 !important;">
-          <span id="hero-txt1" class="uppercase text-teal-400 font-medium tracking-wider text-sm mb-6 opacity-0 translate-y-4 transition-all duration-500">À propos</span>
-          <h2 id="hero-txt2" class="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-left md:text-left text-balance opacity-0 translate-y-4 transition-all duration-700">Un accompagnement IT <br>qui met l'humain & le résultat au centre</h2>
-          <hr id="hero-txt3" class="border-white/20 mb-6 w-16 opacity-0 translate-y-4 transition-all duration-700">
-          <p id="hero-txt4" class="text-base sm:text-lg md:text-xl text-white/90 mb-5 leading-relaxed opacity-0 translate-y-4 transition-all duration-700">
-            <strong>Consultant IT & Chef de Projet,</strong> j’aide les entreprises à sécuriser, moderniser et piloter leur transformation digitale.<br>
-            Passionné de technologie, je traduis les enjeux SI en solutions concrètes, avec un focus sur la pédagogie, la conformité et la réussite collective.
-          </p>
-          <p id="hero-txt5" class="text-sm sm:text-md text-white/70 mb-8 opacity-0 translate-y-4 transition-all duration-700">Pilotage de projet IT, conduite du changement, gestion d'équipe et support utilisateurs : j’apporte une vision 360° sur l'ensemble d'un SI/Workplace.</p>
-          <div id="hero-txt6" class="flex flex-col md:flex-row gap-4 opacity-0 translate-y-4 transition-all duration-700">
-            <a href="#contact" class="inline-block bg-teal-500 hover:bg-teal-400 px-10 py-4 rounded-xl font-semibold text-black text-lg shadow-lg transition">Me contacter</a>
-            <a href="images/Dossier de compétences - Marc Da Silva 2025.pdf" download class="inline-block border-2 border-teal-400 text-teal-400 font-bold rounded-xl px-10 py-4 text-lg hover:bg-teal-400 hover:text-black transition shadow-lg">Télécharger mon dossier</a>
-          </div>
+        <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[130px]">
+        <div class="flex items-center justify-center h-16 w-full flex-grow">
+          <a href="https://www.axa.com/" target="_blank" rel="noopener" aria-label="AXA - Employeur" class="logo-link block">
+            <img src="images/axa.png" alt="Logo AXA" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+          </a>
+        </div>
+        <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[130px]">
+        <div class="flex items-center justify-center h-16 w-full flex-grow">
+          <a href="https://www.cret.fr/" target="_blank" rel="noopener" aria-label="CRET - Employeur" class="logo-link block">
+            <img src="images/cret.png" alt="Logo CRET" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+          </a>
+        </div>
+        <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[130px]">
+        <div class="flex items-center justify-center h-16 w-full flex-grow">
+          <a href="https://www.biogroup.fr/" target="_blank" rel="noopener" aria-label="Biogroup - Client final" class="logo-link block">
+            <img src="images/biogroup.png" alt="Logo Biogroup" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+          </a>
+        </div>
+        <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[130px]">
+        <div class="flex items-center justify-center h-16 w-full flex-grow">
+          <a href="https://www.mcdonalds.fr/" target="_blank" rel="noopener" aria-label="McDonald's - Client final" class="logo-link block">
+            <img src="images/mcdo.png" alt="Logo McDonald's" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+          </a>
+        </div>
+        <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FORMATIONS -->
+<section id="formations" class="py-32 px-4 fade section-anim">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center fade">Formations</h2>
+    <div class="grid md:grid-cols-3 gap-12">
+
+      <!-- Card 1 -->
+      <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
+        <div class="icon glass-icon mb-5 rounded-full p-4">
+          <i data-lucide="graduation-cap" class="w-10 h-10 text-indigo-300 drop-shadow-glow"></i>
+        </div>
+        <h3 class="text-xl font-semibold glass-title mb-2">3il Ingénieur</h3>
+        <p class="text-lg text-white/80 mb-2">Master Réseaux, Infra & Sécurité</p>
+        <div class="flex flex-col gap-2 mt-auto">
+          <span class="level-badge">Mention Bien</span>
+          <span class="text-indigo-300">2022 – 2024</span>
         </div>
       </div>
-    </section>
 
-    <!-- EXPERIENCES -->
-    <section id="experiences" class="py-24 sm:py-28 md:py-32 px-2 sm:px-4 fade section-anim border-t border-white/10 overflow-hidden">
-      <div class="max-w-6xl mx-auto px-0 sm:px-4">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-16 md:mb-20 tracking-tight text-center fade">
-          Expériences professionnelles
-        </h2>
-        <div class="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
+      <!-- Card 2 -->
+      <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
+        <div class="icon glass-icon mb-5 rounded-full p-4">
+          <i data-lucide="graduation-cap" class="w-10 h-10 text-blue-300 drop-shadow-glow"></i>
+        </div>
+        <h3 class="text-xl font-semibold glass-title mb-2">3il Ingénieur</h3>
+        <p class="text-lg text-white/80 mb-2">Bachelor Conception Système Information</p>
+        <div class="flex flex-col gap-2 mt-auto">
+          <span class="level-badge">Mention Bien</span>
+          <span class="text-blue-300">2021 – 2022</span>
+        </div>
+      </div>
 
-    <!-- CARD 1 : Asigma -->
-    <div class="flex flex-col p-10 rounded-3xl glass-card card-hover fade text-left fade">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="icon glass-icon rounded-full p-3">
-          <i data-lucide="server-cog" class="w-8 h-8 text-teal-300 drop-shadow-glow"></i>
-        </span>
+      <!-- Card 3 -->
+      <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
+        <div class="icon glass-icon mb-5 rounded-full p-4">
+          <i data-lucide="graduation-cap" class="w-10 h-10 text-teal-300 drop-shadow-glow"></i>
+        </div>
+        <h3 class="text-xl font-semibold glass-title mb-2">Ort Montreuil</h3>
+        <p class="text-lg text-white/80 mb-2">BTS Services Informatiques aux Organisations option SiSR</p>
+        <div class="flex flex-col gap-2 mt-auto">
+          <span class="text-teal-300">2019 – 2021</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="py-32 px-4 fade section-anim">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center fade">Certifications & Distinctions</h2>
+    <div class="grid md:grid-cols-3 gap-12">
+
+      <!-- Card 1 -->
+      <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
+        <div class="icon glass-icon mb-5 rounded-full p-4">
+          <i data-lucide="award" class="w-10 h-10 text-green-300 drop-shadow-glow"></i>
+        </div>
+        <h3 class="text-xl font-semibold glass-title mb-2">IBM</h3>
+        <p class="text-lg text-white/80 mb-2">Fondamental IA | Agile Fundamentals</p>
+        <div class="flex flex-col gap-2 mt-auto">
+          <span class="text-green-300">2024</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
+        <div class="icon glass-icon mb-5 rounded-full p-4">
+          <i data-lucide="award" class="w-10 h-10 text-blue-300 drop-shadow-glow"></i>
+        </div>
+        <h3 class="text-xl font-semibold glass-title mb-2">Microsoft</h3>
+        <p class="text-lg text-white/80 mb-2">Se préparer au métier de chef de projet</p>
+        <div class="flex flex-col gap-2 mt-auto">
+          <span class="text-blue-300">2023</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
+        <div class="icon glass-icon mb-5 rounded-full p-4">
+          <i data-lucide="award" class="w-10 h-10 text-yellow-300 drop-shadow-glow"></i>
+        </div>
+        <h3 class="text-xl font-semibold glass-title mb-2">Cisco</h3>
+        <p class="text-lg text-white/80 mb-2">Essentiel de la Cybersécurité | Ethical Hacker</p>
+        <div class="flex flex-col gap-2 mt-auto">
+          <span class="text-yellow-300">2023</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- COMPÉTENCES -->
+<section id="competences" class="py-32 px-4 fade section-anim">
+  <div class="max-w-6xl mx-auto space-y-16">
+    <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center fade">Compétences</h2>
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <!-- Card 1 -->
+      <div class="flex flex-col justify-between text-center p-8 rounded-3xl glass-card card-hover fade h-full">
         <div>
-          <h3 class="text-2xl font-semibold glass-title">Consultant IT</h3>
-          <span class="text-white/60 text-lg">Asigma - Rainbow Partners, Neuilly-sur-Seine</span>
+          <div class="icon glass-icon mb-4 rounded-full p-3">
+            <i data-lucide="settings" class="w-8 h-8 text-blue-400 drop-shadow-glow"></i>
+          </div>
+          <h3 class="text-xl font-semibold glass-title mb-2">Gestion de projet IT</h3>
+          <ul class="text-lg text-white/80 space-y-1 list-none">
+            <li>Agile, Scrum, Kanban, Waterfall, Cycle en V <span class="level-badge">Expert</span></li>
+            <li>Changement, Animation, Reporting, KPIs <span class="level-badge">Avancé</span></li>
+            <li>Leadership, Coordination, Pédagogie <span class="level-badge">Avancé</span></li>
+          </ul>
         </div>
       </div>
-      <div class="mb-4 text-base text-teal-300">Mars 2025 – Juin 2025</div>
-      <p class="mb-3 text-white/90 font-medium">En bref : Administration sys, sécurité et conformité IT.</p>
-      <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
-        <li>
-          <i data-lucide="bar-chart-2" class="w-6 h-6 text-teal-300 inline mr-2"></i>
-          Conformité des postes : 
-          <span class="counter" data-target="75">75</span> % ➔ 
-          <span class="counter" data-target="98">98</span> % (automation Intune, Winget, scripts)
-        </li>
-        <li>
-          <i data-lucide="shield-check" class="w-6 h-6 text-teal-300 inline mr-2"></i>
-          +<span class="counter" data-target="9">9</span> % sécurité endpoints (MDE, MFA, ASR, DLP), 
-          <span class="counter" data-target="15">15</span> recommandations validées
-        </li>
-        <li>
-          <i data-lucide="file-lock" class="w-6 h-6 text-teal-300 inline mr-2"></i>
-          Protection avancée 
-          <span class="counter" data-target="100">100</span>Go de données sensibles, 
-          +<span class="counter" data-target="70">70</span>% contrôle d’accès
-        </li>
-        <li>
-          <i data-lucide="users" class="w-6 h-6 text-teal-300 inline mr-2"></i>
-          <span class="counter" data-target="100">100</span>+ utilisateurs formés sécurité/MFA, documentation complète, conformité RGPD/ISO
-        </li>
-      </ul>
-      <div class="mt-2 text-white/60 text-sm">
-        Valeur ajoutée : Standardisation, sécurité renforcée, accompagnement, documentation process.<br>
-        <span class="italic">Soft skills : pédagogie, esprit d’équipe, rigueur, agilité, documentation.</span>
+
+      <!-- Card 2 -->
+      <div class="flex flex-col justify-between text-center p-8 rounded-3xl glass-card card-hover fade h-full">
+        <div>
+          <div class="icon glass-icon mb-4 rounded-full p-3">
+            <i data-lucide="cpu" class="w-8 h-8 text-green-400 drop-shadow-glow"></i>
+          </div>
+          <h3 class="text-xl font-semibold glass-title mb-2">Techniques / Outils</h3>
+          <ul class="text-lg text-white/80 space-y-1 list-none">
+            <li>M365, Intune, Ms Project, Power Platform (bi, Automate, Pages), Jira, Confluence, Notion <span class="level-badge">Expert</span></li>
+            <li>Docker, VMWare, Linux, Windows, VoIP <span class="level-badge">Avancé</span></li>
+            <li>Sécurité, Cloud, VoIP, IA <span class="level-badge">Avancé</span></li>
+          </ul>
+        </div>
       </div>
     </div>
 
-
-          <!-- CARD 2 : AXA -->
-          <div class="flex flex-col p-10 rounded-3xl glass-card card-hover fade text-left fade">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="icon glass-icon rounded-full p-3">
-                <i data-lucide="Kanban" class="w-8 h-8 text-blue-300 drop-shadow-glow"></i>
-              </span>
-              <div>
-                <h3 class="text-2xl font-semibold glass-title">Chef de projet IT Workplace</h3>
-                <span class="text-white/60 text-lg">AXA Group Operations, Paris</span>
-              </div>
-            </div>
-            <div class="mb-4 text-base text-blue-300">Sept 2023 – Oct 2024</div>
-            <p class="mb-3 text-white/90 font-medium">En bref : Pilotage projets internationaux Windows 11, Teams, push solution eSIM, optimisation Sharepoint.</p>
-            <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
-              <li><i data-lucide="monitor-up" class="w-6 h-6 text-blue-300 inline mr-2"></i>Migration Windows 11 : 2 500 collaborateurs, 95 % dans les délais, 37 machines remplacées</li>
-              <li><i data-lucide="users-2" class="w-6 h-6 text-blue-300 inline mr-2"></i>Teams : 8 000 users, 100 % migration en 8 entités, roadmap & suivi Excel/PowerBI</li>
-              <li><i data-lucide="credit-card" class="w-6 h-6 text-blue-300 inline mr-2"></i>eSIM : -30x délais, +10 000 € d’économies, guides utilisateurs FR/EN</li>
-              <li><i data-lucide="activity" class="w-6 h-6 text-blue-300 inline mr-2"></i>+25 % d’engagement interne (SharePoint, articles, guides onboarding)</li>
-            </ul>
-            <div class="mt-2 text-white/60 text-sm">Valeur ajoutée : Organisation, ROI, communication, pilotage conduite du changement.<br>
-              <span class="italic">Soft skills : coordination, synthèse, gestion d’équipe, orientation résultat.</span>
-            </div>
-          </div>
-
-          <!-- CARD 3 : CRET Ingénieur -->
-          <div class="flex flex-col p-10 rounded-3xl glass-card card-hover fade text-left fade">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="icon glass-icon rounded-full p-3">
-                <i data-lucide="network" class="w-8 h-8 text-yellow-300 drop-shadow-glow"></i>
-              </span>
-              <div>
-                <h3 class="text-2xl font-semibold glass-title">Ingénieur Réseaux & Télécoms</h3>
-                <span class="text-white/60 text-lg">CRET, Saint-Denis</span>
-              </div>
-            </div>
-            <div class="mb-4 text-base text-yellow-300">Sept 2021 - Août 2023</div>
-            <p class="mb-3 text-white/90 font-medium">En bref : Modernisation WAN/VoIP, infra hôtels/labos/cabinets, cloud et support IT intégral.</p>
-            <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
-              <li><i data-lucide="wifi" class="w-6 h-6 text-yellow-300 inline mr-2"></i>Refonte WAN hôtel : +60 % couverture, 90 % satisfaction, 0 interruption</li>
-              <li><i data-lucide="phone-forwarded" class="w-6 h-6 text-yellow-300 inline mr-2"></i>Migration VoIP (70 labos), -40 % interruptions, +25 % satisfaction user</li>
-              <li><i data-lucide="cloud" class="w-6 h-6 text-yellow-300 inline mr-2"></i>Déploiement cloud/IT médical : 100 % dispo, zéro incident, guides utilisateurs</li>
-            </ul>
-            <div class="mt-2 text-white/60 text-sm">Valeur ajoutée : gestion multi-projets, accompagnement utilisateurs, anticipation risques.<br>
-              <span class="italic">Soft skills : adaptabilité, pédagogie, gestion de crise.</span>
-            </div>
-          </div>
-
-          <!-- CARD 4 : CRET Technicien -->
-          <div class="flex flex-col p-10 rounded-3xl glass-card card-hover text-left fade">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="icon glass-icon rounded-full p-3">
-                <i data-lucide="laptop" class="w-8 h-8 text-gray-300 drop-shadow-glow"></i>
-              </span>
-              <div>
-                <h3 class="text-2xl font-semibold glass-title">Technicien Systèmes & Réseaux</h3>
-                <span class="text-white/60 text-lg">CRET, Saint-Denis</span>
-              </div>
-            </div>
-            <div class="mb-4 text-base text-gray-300">Sept 2020 - Août 2021</div>
-            <p class="mb-3 text-white/90 font-medium">En bref : Digitalisation, support IT, maintenance, formation, gestion incidents.</p>
-            <ul class="text-lg text-white/90 space-y-2 list-none mb-2">
-              <li><i data-lucide="folder-input" class="w-6 h-6 text-gray-300 inline mr-2"></i>Numérisation 100% dossiers clients, +40 % productivité</li>
-              <li><i data-lucide="headset" class="w-6 h-6 text-gray-300 inline mr-2"></i>Déploiement softphone : +99 % dispo lignes, -30 % attente</li>
-              <li><i data-lucide="wrench" class="w-6 h-6 text-gray-300 inline mr-2"></i>Maintenance proactive, doc technique, support N1/N2, incidents anticipés</li>
-            </ul>
-            <div class="mt-2 text-white/60 text-sm">Valeur ajoutée : digitalisation, réactivité, documentation technique.<br>
-              <span class="italic">Soft skills : autonomie, pédagogie, curiosité, fiabilité.</span>
-            </div>
-          </div>
-
+    <!-- Soft Skills -->
+    <div class="flex flex-col justify-between text-center p-8 rounded-3xl glass-card card-hover fade mx-auto w-full md:w-2/3 h-full">
+      <div>
+        <div class="icon glass-icon mb-4 rounded-full p-3">
+          <i data-lucide="users" class="w-8 h-8 text-purple-400 drop-shadow-glow"></i>
         </div>
+        <h3 class="text-xl font-semibold glass-title mb-2">Soft Skills</h3>
+        <ul class="text-lg text-white/80 space-y-1 list-none">
+          <li>Communication, Leadership <span class="level-badge">Expert</span></li>
+          <li>Esprit d’équipe, Adaptabilité, Analyse <span class="level-badge">Expert</span></li>
+          <li>Pédagogie, Organisation, Force de proposition <span class="level-badge">Avancé</span></li>
+        </ul>
       </div>
+    </div>
+
+    <!-- Langues -->
+    <div class="flex flex-col justify-between text-center p-8 rounded-3xl glass-card card-hover fade mx-auto w-full md:w-2/3 h-full">
+      <div>
+        <div class="icon glass-icon mb-4 rounded-full p-3">
+          <i data-lucide="languages" class="w-8 h-8 text-yellow-400 drop-shadow-glow"></i>
+        </div>
+        <h3 class="text-xl font-semibold glass-title mb-2">Langues</h3>
+        <ul class="text-lg text-white/80 space-y-1 list-none">
+          <li><span class="fi fi-fr mr-2 align-middle"></span>Français <span class="level-badge">Natif</span></li>
+          <li><span class="fi fi-gb mr-2 align-middle"></span>Anglais (TOEIC 790) <span class="level-badge">Intermédiaire supérieur</span></li>
+          <li><span class="fi fi-es mr-2 align-middle"></span>Espagnol <span class="level-badge">Intermédiaire</span></li>
+          <li><span class="fi fi-pt mr-2 align-middle"></span>Portugais <span class="level-badge">Débutant</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- INTERETS -->
+<section id="interet" class="py-32 px-4 fade section-anim">
+  <div class="max-w-4xl mx-auto flex flex-col items-center">
+    <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center fade">Centres d’intérêt</h2>
+    <div class="text-teal-400 text-base font-medium mb-10 text-center tracking-widest">Le quotidien</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
       
-      <!-- Carrousel centré, fluide, aligné -->
-      <div class="mt-16 flex justify-center w-full">
-      <div class="overflow-hidden rounded-3xl glass-card card-hover shadow-xl transition-all duration-300" style="max-width:1150px; width:100%;">
-          <div id="marquee-track" class="flex gap-10 items-end justify-center whitespace-nowrap py-6 px-2 transition-all duration-300 animate-marquee">
-            <!-- Les 5 logos principaux -->
-            <div class="flex flex-col items-center min-w-[130px]">
-              <div class="flex items-center justify-center h-16 w-full flex-grow">
-                <a href="https://www.asigma.fr/" target="_blank" rel="noopener" aria-label="Asigma - Employeur" class="logo-link block">
-                  <img src="images/asigma.png" alt="Logo Asigma" class="h-16 w-32 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
-                </a>
-              </div>
-              <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
-            </div>
-            <div class="flex flex-col items-center min-w-[130px]">
-              <div class="flex items-center justify-center h-16 w-full flex-grow">
-                <a href="https://www.axa.com/" target="_blank" rel="noopener" aria-label="AXA - Employeur" class="logo-link block">
-                  <img src="images/axa.png" alt="Logo AXA" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
-                </a>
-              </div>
-              <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
-            </div>
-            <div class="flex flex-col items-center min-w-[130px]">
-              <div class="flex items-center justify-center h-16 w-full flex-grow">
-                <a href="https://www.cret.fr/" target="_blank" rel="noopener" aria-label="CRET - Employeur" class="logo-link block">
-                  <img src="images/cret.png" alt="Logo CRET" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
-                </a>
-              </div>
-              <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
-            </div>
-            <div class="flex flex-col items-center min-w-[130px]">
-              <div class="flex items-center justify-center h-16 w-full flex-grow">
-                <a href="https://www.biogroup.fr/" target="_blank" rel="noopener" aria-label="Biogroup - Client final" class="logo-link block">
-                  <img src="images/biogroup.png" alt="Logo Biogroup" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
-                </a>
-              </div>
-              <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
-            </div>
-            <div class="flex flex-col items-center min-w-[130px]">
-              <div class="flex items-center justify-center h-16 w-full flex-grow">
-                <a href="https://www.mcdonalds.fr/" target="_blank" rel="noopener" aria-label="McDonald's - Client final" class="logo-link block">
-                  <img src="images/mcdo.png" alt="Logo McDonald's" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
-                </a>
-              </div>
-              <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
-            </div>
-            
-            <!-- Les 5 logos dupliqués pour l'infinite scroll -->
-            <div class="flex flex-col items-center min-w-[130px]">
-              <div class="flex items-center justify-center h-16 w-full flex-grow">
-                <a href="https://www.asigma.fr/" target="_blank" rel="noopener" aria-label="Asigma - Employeur" class="logo-link block">
-                  <img src="images/asigma.png" alt="Logo Asigma" class="h-16 w-32 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
-                </a>
-              </div>
-              <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
-            </div>
-            <div class="flex flex-col items-center min-w-[130px]">
-              <div class="flex items-center justify-center h-16 w-full flex-grow">
-                <a href="https://www.axa.com/" target="_blank" rel="noopener" aria-label="AXA - Employeur" class="logo-link block">
-                  <img src="images/axa.png" alt="Logo AXA" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
-                </a>
-              </div>
-              <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
-            </div>
-            <div class="flex flex-col items-center min-w-[130px]">
-              <div class="flex items-center justify-center h-16 w-full flex-grow">
-                <a href="https://www.cret.fr/" target="_blank" rel="noopener" aria-label="CRET - Employeur" class="logo-link block">
-                  <img src="images/cret.png" alt="Logo CRET" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
-                </a>
-              </div>
-              <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
-            </div>
-            <div class="flex flex-col items-center min-w-[130px]">
-              <div class="flex items-center justify-center h-16 w-full flex-grow">
-                <a href="https://www.biogroup.fr/" target="_blank" rel="noopener" aria-label="Biogroup - Client final" class="logo-link block">
-                  <img src="images/biogroup.png" alt="Logo Biogroup" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
-                </a>
-              </div>
-              <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
-            </div>
-            <div class="flex flex-col items-center min-w-[130px]">
-              <div class="flex items-center justify-center h-16 w-full flex-grow">
-                <a href="https://www.mcdonalds.fr/" target="_blank" rel="noopener" aria-label="McDonald's - Client final" class="logo-link block">
-                  <img src="images/mcdo.png" alt="Logo McDonald's" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
-                </a>
-              </div>
-              <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
-            </div>
-          </div>
+      <!-- Card 1 -->
+      <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
+        <i data-lucide="server" class="w-8 h-8 text-blue-400 mb-2"></i>
+        <div class="text-lg font-bold text-white mb-1">Informatique</div>
+        <div class="text-white/80 text-base">Systèmes & Réseaux</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
+        <i data-lucide="zap" class="w-8 h-8 text-yellow-400 mb-2"></i>
+        <div class="text-lg font-bold text-white mb-1">Nouvelles technologies</div>
+        <div class="text-white/80 text-base">IA, automatisation</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
+        <i data-lucide="dollar-sign" class="w-8 h-8 text-green-400 mb-2"></i>
+        <div class="text-lg font-bold text-white mb-1">Finance</div>
+        <div class="text-white/80 text-base">Investissement, veille marchés</div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
+        <i data-lucide="trophy" class="w-8 h-8 text-yellow-400 mb-2"></i>
+        <div class="text-lg font-bold text-white mb-1">Sport</div>
+        <div class="text-white/80 text-base">
+          Football (FC PORTO <span class="inline-block align-middle">🔵⚪</span>)
         </div>
       </div>
-    </section>
 
-    <!-- FORMATIONS -->
-    <section id="formations" class="py-16 sm:py-24 md:py-32 px-4 fade section-anim">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-16 md:mb-20 tracking-tight text-center fade">Formations</h2>
-        <div class="grid md:grid-cols-3 gap-8 sm:gap-12 md:gap-14">
+      <!-- Card 5 -->
+      <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
+        <i data-lucide="gamepad-2" class="w-8 h-8 text-purple-400 mb-2"></i>
+        <div class="text-lg font-bold text-white mb-1">E-sport</div>
+        <div class="text-white/80 text-base">Karmine Corp (KCORP)</div>
+      </div>
 
-          <!-- Card 1 -->
-          <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
-            <div class="icon glass-icon mb-5 rounded-full p-4">
-              <i data-lucide="graduation-cap" class="w-10 h-10 text-indigo-300 drop-shadow-glow"></i>
-            </div>
-            <h3 class="text-xl font-semibold glass-title mb-2">3il Ingénieur</h3>
-            <p class="text-lg text-white/80 mb-2">Master Réseaux, Infra & Sécurité</p>
-            <div class="flex flex-col gap-2 mt-auto">
-              <span class="level-badge">Mention Bien</span>
-              <span class="text-indigo-300">2022 – 2024</span>
-            </div>
-          </div>
+      <!-- Card 6 -->
+      <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
+        <i data-lucide="joystick" class="w-8 h-8 text-pink-400 mb-2"></i>
+        <div class="text-lg font-bold text-white mb-1">Jeux vidéo</div>
+        <div class="text-white/80 text-base">Final Fantasy VII</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <!-- Card 2 -->
-          <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
-            <div class="icon glass-icon mb-5 rounded-full p-4">
-              <i data-lucide="graduation-cap" class="w-10 h-10 text-blue-300 drop-shadow-glow"></i>
-            </div>
-            <h3 class="text-xl font-semibold glass-title mb-2">3il Ingénieur</h3>
-            <p class="text-lg text-white/80 mb-2">Bachelor Conception Système Information</p>
-            <div class="flex flex-col gap-2 mt-auto">
-              <span class="level-badge">Mention Bien</span>
-              <span class="text-blue-300">2021 – 2022</span>
-            </div>
-          </div>
 
-          <!-- Card 3 -->
-          <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
-            <div class="icon glass-icon mb-5 rounded-full p-4">
-              <i data-lucide="graduation-cap" class="w-10 h-10 text-teal-300 drop-shadow-glow"></i>
-            </div>
-            <h3 class="text-xl font-semibold glass-title mb-2">Ort Montreuil</h3>
-            <p class="text-lg text-white/80 mb-2">BTS Services Informatiques aux Organisations option SiSR</p>
-            <div class="flex flex-col gap-2 mt-auto">
-              <span class="text-teal-300">2019 – 2021</span>
-            </div>
-          </div>
-
+<!-- CONTACT --> 
+<section id="contact" class="py-32 px-4 section-anim">
+  <div class="max-w-3xl mx-auto w-full px-2 sm:px-8">
+    <div class="glass-card card-hover rounded-3xl p-12 shadow border border-white/10 flex flex-col justify-center items-center gap-8 fade w-full min-h-[380px]">
+      <h2 class="text-4xl md:text-5xl font-bold mb-8 text-center fade glass-title">
+        Contact
+      </h2>
+      <p class="text-white/70 text-center text-lg md:text-xl leading-relaxed font-medium w-full">
+        Je réponds sous 24 h.<br>
+        Ouvert à toute demande de mission (CDI), conseil ou sur des sujets technologiques.<br>
+        <span class="text-teal-400 font-semibold block mt-4">
+          Contactez-moi directement par mail ou sur LinkedIn.
+        </span>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-6 w-full justify-center items-center">
+        <div class="flex items-center gap-4 text-lg md:text-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            data-lucide="mail" class="lucide lucide-mail w-7 h-7 text-teal-400"></svg>
+          <a href="mailto:dsf.marc@gmail.com?subject=Contact%20via%20le%20portfolio%20Marc%20Da%20Silva"
+            class="underline text-teal-400 hover:text-teal-300 font-semibold">
+            dsf.marc@gmail.com
+          </a>
+        </div>
+        <div class="flex items-center gap-4 text-lg md:text-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            data-lucide="linkedin" class="lucide lucide-linkedin w-7 h-7 text-teal-400"></svg>
+          <a href="https://www.linkedin.com/in/marc-da-silva-f4u/"
+            class="underline text-teal-400 hover:text-teal-300 font-semibold"
+            target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
         </div>
       </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="py-16 sm:py-24 md:py-32 px-4 fade section-anim">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-16 md:mb-20 tracking-tight text-center fade">Certifications & Distinctions</h2>
-        <div class="grid md:grid-cols-3 gap-8 sm:gap-12 md:gap-14">
-
-          <!-- Card 1 -->
-          <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
-            <div class="icon glass-icon mb-5 rounded-full p-4">
-              <i data-lucide="award" class="w-10 h-10 text-green-300 drop-shadow-glow"></i>
-            </div>
-            <h3 class="text-xl font-semibold glass-title mb-2">IBM</h3>
-            <p class="text-lg text-white/80 mb-2">Fondamental IA | Agile Fundamentals</p>
-            <div class="flex flex-col gap-2 mt-auto">
-              <span class="text-green-300">2024</span>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
-            <div class="icon glass-icon mb-5 rounded-full p-4">
-              <i data-lucide="award" class="w-10 h-10 text-blue-300 drop-shadow-glow"></i>
-            </div>
-            <h3 class="text-xl font-semibold glass-title mb-2">Microsoft</h3>
-            <p class="text-lg text-white/80 mb-2">Se préparer au métier de chef de projet</p>
-            <div class="flex flex-col gap-2 mt-auto">
-              <span class="text-blue-300">2023</span>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="flex flex-col items-center text-center p-8 rounded-3xl glass-card card-hover fade h-full">
-            <div class="icon glass-icon mb-5 rounded-full p-4">
-              <i data-lucide="award" class="w-10 h-10 text-yellow-300 drop-shadow-glow"></i>
-            </div>
-            <h3 class="text-xl font-semibold glass-title mb-2">Cisco</h3>
-            <p class="text-lg text-white/80 mb-2">Essentiel de la Cybersécurité | Ethical Hacker</p>
-            <div class="flex flex-col gap-2 mt-auto">
-              <span class="text-yellow-300">2023</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- COMPÉTENCES -->
-    <section id="competences" class="py-16 sm:py-24 md:py-32 px-4 fade section-anim">
-      <div class="max-w-6xl mx-auto space-y-16 sm:space-y-20">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-16 md:mb-20 tracking-tight text-center fade">Compétences</h2>
-        <div class="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-14">
-
-          <!-- Card 1 -->
-          <div class="flex flex-col justify-between text-center p-8 rounded-3xl glass-card card-hover fade h-full">
-            <div>
-              <div class="icon glass-icon mb-4 rounded-full p-3">
-                <i data-lucide="settings" class="w-8 h-8 text-blue-400 drop-shadow-glow"></i>
-              </div>
-              <h3 class="text-xl font-semibold glass-title mb-2">Gestion de projet IT</h3>
-              <ul class="text-lg text-white/80 space-y-1 list-none">
-                <li>Agile, Scrum, Kanban, Waterfall, Cycle en V <span class="level-badge">Expert</span></li>
-                <li>Changement, Animation, Reporting, KPIs <span class="level-badge">Avancé</span></li>
-                <li>Leadership, Coordination, Pédagogie <span class="level-badge">Avancé</span></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="flex flex-col justify-between text-center p-8 rounded-3xl glass-card card-hover fade h-full">
-            <div>
-              <div class="icon glass-icon mb-4 rounded-full p-3">
-                <i data-lucide="cpu" class="w-8 h-8 text-green-400 drop-shadow-glow"></i>
-              </div>
-              <h3 class="text-xl font-semibold glass-title mb-2">Techniques / Outils</h3>
-              <ul class="text-lg text-white/80 space-y-1 list-none">
-                <li>M365, Intune, Ms Project, Power Platform (bi, Automate, Pages), Jira, Confluence, Notion <span class="level-badge">Expert</span></li>
-                <li>Docker, VMWare, Linux, Windows, VoIP <span class="level-badge">Avancé</span></li>
-                <li>Sécurité, Cloud, VoIP, IA <span class="level-badge">Avancé</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Soft Skills -->
-        <div class="flex flex-col justify-between text-center p-8 rounded-3xl glass-card card-hover fade mx-auto w-full md:w-2/3 h-full">
-          <div>
-            <div class="icon glass-icon mb-4 rounded-full p-3">
-              <i data-lucide="users" class="w-8 h-8 text-purple-400 drop-shadow-glow"></i>
-            </div>
-            <h3 class="text-xl font-semibold glass-title mb-2">Soft Skills</h3>
-            <ul class="text-lg text-white/80 space-y-1 list-none">
-              <li>Communication, Leadership <span class="level-badge">Expert</span></li>
-              <li>Esprit d’équipe, Adaptabilité, Analyse <span class="level-badge">Expert</span></li>
-              <li>Pédagogie, Organisation, Force de proposition <span class="level-badge">Avancé</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Langues -->
-        <div class="flex flex-col justify-between text-center p-8 rounded-3xl glass-card card-hover fade mx-auto w-full md:w-2/3 h-full">
-          <div>
-            <div class="icon glass-icon mb-4 rounded-full p-3">
-              <i data-lucide="languages" class="w-8 h-8 text-yellow-400 drop-shadow-glow"></i>
-            </div>
-            <h3 class="text-xl font-semibold glass-title mb-2">Langues</h3>
-            <ul class="text-lg text-white/80 space-y-1 list-none">
-              <li><span class="fi fi-fr mr-2 align-middle"></span>Français <span class="level-badge">Natif</span></li>
-              <li><span class="fi fi-gb mr-2 align-middle"></span>Anglais (TOEIC 790) <span class="level-badge">Intermédiaire supérieur</span></li>
-              <li><span class="fi fi-es mr-2 align-middle"></span>Espagnol <span class="level-badge">Intermédiaire</span></li>
-              <li><span class="fi fi-pt mr-2 align-middle"></span>Portugais <span class="level-badge">Débutant</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- INTERETS -->
-    <section id="interet" class="py-16 sm:py-24 md:py-32 px-4 fade section-anim">
-      <div class="max-w-4xl mx-auto flex flex-col items-center">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-14 md:mb-20 tracking-tight text-center fade">
-          Centres d’intérêt
-        </h2>
-        <div class="text-teal-400 text-base font-medium mb-6 sm:mb-8 md:mb-10 text-center tracking-widest">
-          Le quotidien
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
-          <!-- Card 1 -->
-          <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
-            <i data-lucide="server" class="w-8 h-8 text-blue-400 mb-2"></i>
-            <div class="text-lg font-bold text-white mb-1">Informatique</div>
-            <div class="text-white/80 text-base">Systèmes & Réseaux</div>
-          </div>
-          <!-- Card 2 -->
-          <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
-            <i data-lucide="zap" class="w-8 h-8 text-yellow-400 mb-2"></i>
-            <div class="text-lg font-bold text-white mb-1">Nouvelles technologies</div>
-            <div class="text-white/80 text-base">IA, automatisation</div>
-          </div>
-          <!-- Card 3 -->
-          <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
-            <i data-lucide="dollar-sign" class="w-8 h-8 text-green-400 mb-2"></i>
-            <div class="text-lg font-bold text-white mb-1">Finance</div>
-            <div class="text-white/80 text-base">Investissement, veille marchés</div>
-          </div>
-          <!-- Card 4 -->
-          <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
-            <i data-lucide="trophy" class="w-8 h-8 text-yellow-400 mb-2"></i>
-            <div class="text-lg font-bold text-white mb-1">Sport</div>
-            <div class="text-white/80 text-base">
-              Football (FC PORTO <span class="inline-block align-middle">🔵⚪</span>)
-            </div>
-          </div>
-          <!-- Card 5 -->
-          <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
-            <i data-lucide="gamepad-2" class="w-8 h-8 text-purple-400 mb-2"></i>
-            <div class="text-lg font-bold text-white mb-1">E-sport</div>
-            <div class="text-white/80 text-base">Karmine Corp (KCORP)</div>
-          </div>
-          <!-- Card 6 -->
-          <div class="glass-card card-hover fade flex flex-col items-center text-center p-8 rounded-3xl h-full">
-            <i data-lucide="joystick" class="w-8 h-8 text-pink-400 mb-2"></i>
-            <div class="text-lg font-bold text-white mb-1">Jeux vidéo</div>
-            <div class="text-white/80 text-base">Final Fantasy VII</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- CONTACT --> 
-    <section id="contact" class="min-h-[60vh] py-16 sm:py-24 md:py-32 px-4 section-anim">
-      <div class="max-w-3xl mx-auto w-full px-2 sm:px-8">
-        <div class="glass-card card-hover rounded-3xl p-8 sm:p-14 shadow border border-white/10 flex flex-col justify-center items-center gap-8 fade w-full min-h-[380px]">
-          <h2 class="text-4xl sm:text-5xl font-bold mb-8 tracking-tight text-center fade glass-title">
-            Contact
-          </h2>
-          <p class="text-white/70 text-center text-lg sm:text-xl leading-relaxed font-medium w-full">
-            Je réponds sous 24 h.<br>
-            Ouvert à toute demande de mission (CDI), conseil ou sur des sujets technologiques.<br>
-            <span class="text-teal-400 font-semibold block mt-4">
-              Contactez-moi directement par mail ou sur LinkedIn.
-            </span>
-          </p>
-          <div class="flex flex-col sm:flex-row gap-6 w-full justify-center items-center">
-            <div class="flex items-center gap-4 text-lg sm:text-xl">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                data-lucide="mail" class="lucide lucide-mail w-7 h-7 text-teal-400"></svg>
-              <a href="mailto:dsf.marc@gmail.com?subject=Contact%20via%20le%20portfolio%20Marc%20Da%20Silva"
-                class="underline text-teal-400 transition-all duration-200 hover:text-teal-300 hover:-translate-y-1 hover:underline decoration-2 underline-offset-4 link-glow font-semibold">
-                dsf.marc@gmail.com
-              </a>
-            </div>
-            <div class="flex items-center gap-4 text-lg sm:text-xl">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                data-lucide="linkedin" class="lucide lucide-linkedin w-7 h-7 text-teal-400"></svg>
-              <a href="https://www.linkedin.com/in/marc-da-silva-f4u/"
-                class="underline text-teal-400 transition-all duration-200 hover:text-teal-300 hover:-translate-y-1 hover:underline decoration-2 underline-offset-4 link-glow font-semibold"
-                target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>
 
 
   <footer class="py-12 text-center text-white/40 text-base mt-20" style="background: transparent;">
