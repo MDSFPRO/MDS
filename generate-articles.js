@@ -92,7 +92,7 @@ fs.readdirSync("./articles/conseil").filter(f => f.endsWith(".md")).forEach(file
       category: front.category || "Conseil IT",
       summary: front.summary || "",
       image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
-      slug: slugFromFilename("Conseil", file)
+      slug: slugFromFilename("conseil", file)
     });
   } catch (e) {
     console.log("Erreur de frontmatter (conseil):", file, e.message);
