@@ -1,13 +1,14 @@
 const pathParts = window.location.pathname.split('/');
-const slug = pathParts.slice(-2).join('/').replace('.html', ''); // ex: 'conseil/2025-06-la-resistance-au-changement-it'
+const rawSlug = pathParts.slice(-2).join('/').replace('.html', '');
+const slug = decodeURIComponent(rawSlug);
 
-// Slugify tout, dossier inclus :
 const slugify = s =>
-  s
+  (s || "")
     .toLowerCase()
-    .replace(/^\/+/, '')         // enlève un slash éventuel au début
-    .replace(/\.html$/, '')      // enlève .html si jamais
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // enlève accents
+    .replace(/^\/+/, '')
+    .replace(/\.html?$/, '')
+    .replace(/\s+/g, '-')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 const currentSlug = slugify(slug);
 
@@ -15,12 +16,10 @@ fetch('../../articles/articles.json')
   .then(res => res.json())
   .then(articles => {
     articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    // DEBUG : affiche vraiment tout pour vérifier !
+    // Debug :
     console.log('slug courant:', currentSlug);
     console.log('slugs JSON:', articles.map(a => slugify(a.slug)));
 
-    // La comparaison 100% fiable sur tout le chemin
     const suggestions = articles
       .filter(a => slugify(a.slug) !== currentSlug)
       .slice(0, 3);
@@ -49,3 +48,4 @@ fetch('../../articles/articles.json')
     }
     console.error("Erreur suggestions articles :", e);
   });
+
