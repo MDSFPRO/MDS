@@ -16,6 +16,22 @@ function extractFrontmatter(mdPath) {
   return yaml.load(match[1]);
 }
 
+// Suppression des .html orphelins (si le .md n'existe plus)
+function cleanOrphanHtml(dir) {
+  const htmlFiles = fs.readdirSync(dir).filter(f => f.endsWith(".html"));
+  htmlFiles.forEach(htmlFile => {
+    const mdFile = htmlFile.replace(/\.html$/, ".md");
+    if (!fs.existsSync(path.join(dir, mdFile))) {
+      fs.unlinkSync(path.join(dir, htmlFile));
+      console.log(`Suppression de l'HTML orphelin : ${path.join(dir, htmlFile)}`);
+    }
+  });
+}
+
+// Nettoyage avant génération
+cleanOrphanHtml("./articles/conseil");
+cleanOrphanHtml("./articles/actu");
+
 // Génération d'un article HTML à partir d'un .md
 function generateHtml(mdPath, templatePath, destDir) {
   const mdText = fs.readFileSync(mdPath, "utf-8");
@@ -35,7 +51,7 @@ function generateHtml(mdPath, templatePath, destDir) {
   document.getElementById("meta-desc").setAttribute('content', front.summary || "");
   document.getElementById("article-title").textContent = front.title || "";
   document.getElementById("article-date").textContent = front.date
-    ? (typeof front.date === "string" ? front.date.split('T')[0] : new Date(front.date).toISOString().split('T')[0])
+    ? (typeof front.date === "string" ? front.date.slice(0, 10) : new Date(front.date).toISOString().slice(0, 10))
     : "";
   document.getElementById("article-summary").textContent = front.summary || "";
   document.getElementById("article-image").src = front.image ? `/MDS/${front.image.replace(/^\/|MDS\//, "")}` : "/MDS/images/articles/default.jpg";
@@ -88,8 +104,11 @@ fs.readdirSync("./articles/conseil").filter(f => f.endsWith(".md")).forEach(file
     const front = extractFrontmatter(`./articles/conseil/${file}`);
     articles.push({
       title: front.title || "",
-      // ⚡️ Ici on garde la date complète (avec l'heure)
-      date: (typeof front.date === "string" ? front.date : new Date(front.date).toISOString()) || "",
+      // Date complète (YYYY-MM-DDTHH:mm) pour un tri précis mais lisible
+      date: (typeof front.date === "string"
+        ? front.date.slice(0,16)
+        : new Date(front.date).toISOString().slice(0,16)
+      ) || "",
       category: front.category || "Conseil IT",
       summary: front.summary || "",
       image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
@@ -106,8 +125,10 @@ fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file =>
     const front = extractFrontmatter(`./articles/actu/${file}`);
     articles.push({
       title: front.title || "",
-      // ⚡️ Idem ici, date complète (avec l'heure)
-      date: (typeof front.date === "string" ? front.date : new Date(front.date).toISOString()) || "",
+      date: (typeof front.date === "string"
+        ? front.date.slice(0,16)
+        : new Date(front.date).toISOString().slice(0,16)
+      ) || "",
       category: front.category || "Actualité",
       summary: front.summary || "",
       image: (front.image || "images/articles/default.jpg").replace(/^\/?MDS\//, ""),
@@ -118,7 +139,7 @@ fs.readdirSync("./articles/actu").filter(f => f.endsWith(".md")).forEach(file =>
   }
 });
 
-// Trie par date décroissante (fonctionne maintenant à la seconde près)
+// Trie par date décroissante (fonctionne maintenant à la minute près)
 articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 // Génère le fichier articles.json
