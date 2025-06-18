@@ -12,7 +12,7 @@ const slugify = s =>
 
 const currentSlug = slugify(slug);
 
-fetch('../../articles/articles.json')
+fetch('../../articles/articles.json?v=' + Date.now())
   .then(res => res.json())
   .then(articles => {
     articles.sort((a, b) => new Date(b.date) - new Date(a.date));
