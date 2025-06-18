@@ -1,6 +1,6 @@
 ---
 title: Steph la blg
-summary: tt
+summary: ttt
 date: 2025-06-18T13:52:00.000Z
 image: /images/articles/workplace.png
 category: Actualité
