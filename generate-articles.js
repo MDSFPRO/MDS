@@ -28,7 +28,7 @@ function cleanOrphanHtml(dir) {
   });
 }
 
-// Nettoyage avant génération
+// Nettoyage AVANT génération
 cleanOrphanHtml("./articles/conseil");
 cleanOrphanHtml("./articles/actu");
 
@@ -147,4 +147,3 @@ fs.writeFileSync("./articles/articles.json", JSON.stringify(articles, null, 2), 
 
 // Pour debug : affiche la taille finale du tableau JSON généré
 console.log("Nombre d'articles dans le JSON :", articles.length);
-
