@@ -1,23 +1,15 @@
 [
   {
     "title": "Intégration de IA dans les process métiers",
-    "date": "2025-06-18",
+    "date": "2025-06-18T12:26:00.000Z",
     "category": "Conseil IT",
     "summary": "Intégration ia mais faut faire attention avec les données",
     "image": "/images/articles/intégration-ia.png",
     "slug": "conseil/2025-06-intégration-de-ia-dans-les-process-métiers"
   },
   {
-    "title": "La résistance au changement IT te",
-    "date": "2025-06-18",
-    "category": "Conseil IT",
-    "summary": "Blabla changement environnement IT ",
-    "image": "/images/articles/workplace.png",
-    "slug": "conseil/2025-06-la-résistance-au-changement-it"
-  },
-  {
     "title": "Codex enfin sur GPT Plus",
-    "date": "2025-06-18",
+    "date": "2025-06-18T12:02:00.000Z",
     "category": "Actualité",
     "summary": "Codex acheter par OpenAI pour concurrencer Cursor.",
     "image": "/images/articles/Codex-OpenAI.png",
@@ -25,10 +17,18 @@
   },
   {
     "title": "Les agents téléphonique automatisé",
-    "date": "2025-06-18",
+    "date": "2025-06-18T11:52:00.000Z",
     "category": "Actualité",
     "summary": "L'ia qui remplace les secrétaires pour la prise de rdv",
     "image": "/images/articles/agent-automatisé-phone.png",
     "slug": "actu/2025-06-les-agents-téléphonique-automatisé"
+  },
+  {
+    "title": "La résistance au changement IT te",
+    "date": "2025-06-18T11:22:00.000Z",
+    "category": "Conseil IT",
+    "summary": "Blabla changement environnement IT ",
+    "image": "/images/articles/workplace.png",
+    "slug": "conseil/2025-06-la-résistance-au-changement-it"
   }
 ]
