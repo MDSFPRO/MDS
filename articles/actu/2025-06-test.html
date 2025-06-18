@@ -3,7 +3,7 @@
   <title id="page-title">Test – Marc Da Silva</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" id="meta-desc" content="Testest">
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="/MDS/css/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="icon" type="image/png" href="/MDS/images/favicon.png">
@@ -11,20 +11,20 @@
 </head>
 <body class="bg-black text-white min-h-screen font-sans">
 
-  <!-- HEADER -->
+  <!-- HEADER (identique au portail article) -->
   <header class="w-full flex justify-center pt-5 pb-2 z-50 fixed top-0 left-0 bg-transparent">
     <div class="w-full max-w-6xl flex items-center px-6 py-3 rounded-3xl glass-card shadow-2xl">
-      <a href="../../index.html#hero" aria-label="Retour à l'accueil">
-        <img src="../../images/Logo.png" alt="Logo Marc Da Silva" class="h-10 w-10 rounded-full">
+      <a href="/MDS/index.html#hero" aria-label="Retour à l'accueil">
+        <img src="/MDS/images/Logo.png" alt="Logo Marc Da Silva" class="h-10 w-10 rounded-full">
       </a>
       <nav class="hidden lg:flex flex-1 justify-center gap-10 text-base font-semibold items-center text-white/90" aria-label="Navigation principale">
-        <a href="../../index.html#experiences" class="hover:text-teal-400 transition">Expériences</a>
-        <a href="../../index.html#formations" class="hover:text-teal-400 transition">Formations</a>
-        <a href="../../index.html#certifications" class="hover:text-teal-400 transition">Certifications</a>
-        <a href="../../index.html#competences" class="hover:text-teal-400 transition">Compétences</a>
-        <a href="../../index.html#interet" class="hover:text-teal-400 transition">Intérêt</a>
-        <a href="../../index.html#contact" class="hover:text-teal-400 transition">Contact</a>
-        <a href="../article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-base shadow-lg hover:bg-teal-400 transition">Articles</a>
+        <a href="/MDS/index.html#experiences" class="hover:text-teal-400 transition">Expériences</a>
+        <a href="/MDS/index.html#formations" class="hover:text-teal-400 transition">Formations</a>
+        <a href="/MDS/index.html#certifications" class="hover:text-teal-400 transition">Certifications</a>
+        <a href="/MDS/index.html#competences" class="hover:text-teal-400 transition">Compétences</a>
+        <a href="/MDS/index.html#interet" class="hover:text-teal-400 transition">Intérêt</a>
+        <a href="/MDS/index.html#contact" class="hover:text-teal-400 transition">Contact</a>
+        <a href="/MDS/articles/article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-base shadow-lg hover:bg-teal-400 transition">Articles</a>
       </nav>
       <div class="flex-1 lg:hidden"></div>
       <button id="burger-btn" class="lg:hidden flex flex-col justify-center items-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 transition relative" aria-label="Menu">
@@ -32,20 +32,20 @@
         <span class="burger-bar-2 bar-bottom absolute left-0 right-0"></span>
       </button>
     </div>
-    <!-- NAV MOBILE : inchangé -->
+    <!-- NAV MOBILE -->
     <nav id="mobile-nav" class="fixed inset-0 min-h-screen w-screen bg-black z-50 flex flex-col items-center justify-start text-xl font-semibold text-white hidden overflow-y-auto pt-20 pb-12 px-4" aria-label="Navigation mobile">
       <button id="close-nav" class="absolute top-6 right-6 p-2 z-[9999] text-white hover:bg-white/10 transition" aria-label="Fermer le menu">
         <i data-lucide="x" class="w-8 h-8"></i>
       </button>
       <div class="flex flex-col gap-6 items-center w-full mt-12">
-        <a href="../../index.html#hero" class="hover:text-teal-400 transition">À propos</a>
-        <a href="../../index.html#experiences" class="hover:text-teal-400 transition">Expériences</a>
-        <a href="../../index.html#formations" class="hover:text-teal-400 transition">Formations</a>
-        <a href="../../index.html#certifications" class="hover:text-teal-400 transition">Certifications</a>
-        <a href="../../index.html#competences" class="hover:text-teal-400 transition">Compétences</a>
-        <a href="../../index.html#interet" class="hover:text-teal-400 transition">Intérêt</a>
-        <a href="../../index.html#contact" class="hover:text-teal-400 transition">Contact</a>
-        <a href="../article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition" target="_blank" rel="noopener noreferrer">
+        <a href="/MDS/index.html#hero" class="hover:text-teal-400 transition">À propos</a>
+        <a href="/MDS/index.html#experiences" class="hover:text-teal-400 transition">Expériences</a>
+        <a href="/MDS/index.html#formations" class="hover:text-teal-400 transition">Formations</a>
+        <a href="/MDS/index.html#certifications" class="hover:text-teal-400 transition">Certifications</a>
+        <a href="/MDS/index.html#competences" class="hover:text-teal-400 transition">Compétences</a>
+        <a href="/MDS/index.html#interet" class="hover:text-teal-400 transition">Intérêt</a>
+        <a href="/MDS/index.html#contact" class="hover:text-teal-400 transition">Contact</a>
+        <a href="/MDS/articles/article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition" target="_blank" rel="noopener noreferrer">
           Articles
         </a>
       </div>
@@ -65,16 +65,12 @@
     </div>
   </section>
 
-  <!-- Auteur LinkedIn sous l'image -->
+  <!-- Auteur SOUS l’image, AVANT le résumé (PAS de bouton LinkedIn ici !) -->
   <div class="flex items-center gap-3 mb-6 fade">
-    <img src="../../images/Logo.png" alt="Marc Da Silva" class="w-10 h-10 rounded-full border border-white/10 shadow">
+    <img src="/MDS/images/Logo.png" alt="Auteur Marc Da Silva" class="w-10 h-10 rounded-full border border-white/10 shadow">
     <div>
       <span class="block font-semibold text-base text-white/90">Marc Da Silva</span>
       <span class="block text-xs text-white/60">Consultant IT &amp; Veille technologique</span>
-      <a href="https://www.linkedin.com/in/marc-da-silva-f4u/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#0094f5] text-white px-4 py-2 rounded-xl font-semibold shadow transition text-sm mt-2">
-        <i data-lucide="linkedin" class="w-5 h-5"></i>
-        Me suivre sur LinkedIn
-      </a>
     </div>
   </div>
 
@@ -83,7 +79,7 @@
     <p id="article-summary" class="text-lg text-white/80 leading-relaxed font-semibold">Testest</p>
   </section>
 
-  <!-- Contenu principal -->
+  <!-- Contenu principal (markdown) -->
   <article id="article-body" class="fade space-y-8"><h2>Résumé</h2>
 <p>waouh un test</p>
 <h2>Contexte</h2>
@@ -92,8 +88,22 @@
 <p>[Développe ici l’actualité : faits, analyse, citations, images...]</p>
 </article>
 
+  <!-- Auteur LinkedIn en BAS avant “découvrir aussi” -->
+  <section class="flex items-center gap-5 mt-14 mb-8 fade">
+    <img src="/MDS/images/Logo.png" alt="Marc Da Silva" class="w-12 h-12 rounded-full glass-card border border-white/10">
+    <div>
+      <span class="block text-base text-white/90 font-semibold">Marc Da Silva</span>
+      <span class="block text-xs text-white/50 mb-1">Consultant IT &amp; Veille technologique</span>
+      <!-- Bouton LinkedIn -->
+      <a href="https://www.linkedin.com/in/marc-da-silva-f4u/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#0094f5] text-white px-4 py-2 rounded-xl font-semibold shadow transition text-sm mt-2">
+        <i data-lucide="linkedin" class="w-5 h-5"></i>
+        Me suivre sur LinkedIn
+      </a>
+    </div>
+  </section>
+
   <!-- Suggestions d’articles -->
- <section class="mt-20 mb-8 fade">
+  <section class="mt-20 mb-8 fade">
     <h2 class="text-2xl font-bold mb-8 text-white">Découvrir aussi</h2>
     <div id="last-articles" class="grid gap-7 sm:grid-cols-3"></div>
   </section>
@@ -104,8 +114,16 @@
   <span class="text-xs text-white/20">Site personnel. Aucun cookie ni tracking.</span>
 </footer>
 
-<script src="../../js/main.js" defer=""></script>
-<script src="../../js/articles-suggestions.js" defer=""></script>
+<script src="/MDS/js/main.js" defer=""></script>
+<script src="/MDS/js/articles-suggestions.js" defer=""></script>
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.fade').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 120);
+    });
+    lucide.createIcons();
+  }, 200);
+</script>
 
 
 </body></html>
