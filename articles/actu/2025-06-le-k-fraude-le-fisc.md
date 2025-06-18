@@ -2,7 +2,7 @@
 title: le K fraude le fisc
 summary: zaea
 date: 2025-06-18T16:23:00.000Z
-image: /images/articles/workplace.png
+image: /images/articles/workplace.webp
 category: Actualité
 ---
 ## Rés

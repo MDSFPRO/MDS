@@ -2,7 +2,7 @@
 title: Codex enfin sur GPT Plus
 summary: Codex acheter par OpenAI pour concurrencer Cursor.
 date: 2025-06-18T12:02:00.000Z
-image: /images/articles/Codex-OpenAI.png
+image: /images/articles/Codex-OpenAI.webp
 category: Actualité
 ---
 ## Résumé

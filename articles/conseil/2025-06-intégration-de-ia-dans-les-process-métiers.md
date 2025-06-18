@@ -2,7 +2,7 @@
 title: Intégration de IA dans les process métiers
 summary: Intégration ia mais faut faire attention avec les données
 date: 2025-06-18T12:26:00.000Z
-image: /images/articles/intégration-ia.png
+image: /images/articles/intégration-ia.webp
 category: Conseil IT
 ---
 ## Introduction
