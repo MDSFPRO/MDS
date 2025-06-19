@@ -68,26 +68,34 @@ html, body {
 
 /* --- MODIF CLS HERO --- */
 #hero.section-anim {
-  min-height: 560px; /* adapte selon le design */
-}
-@media (max-width: 640px) {
-  #hero.section-anim {
-    min-height: 440px;
-  }
+  min-height: 560px;
+  position: relative;
+  overflow: hidden;
 }
 #hero.section-anim::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 320px; /* adapte à la hauteur du décor */
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
-  opacity: 0;
+  opacity: 0; /* Toujours là, juste transparent */
   pointer-events: none;
-  transition: opacity 0.4s;
   z-index: 1;
+  /* PAS de transition sur opacity ici */
+  will-change: transform, opacity;
+  transform: translateX(-100%); /* Position de départ FIXE */
 }
+.section-anim.active::before {
+  animation: light-sweep 1.2s ease forwards;
+}
+@keyframes light-sweep {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
 /* --- FIN MODIF CLS HERO --- */
 
 .section-anim::before {
