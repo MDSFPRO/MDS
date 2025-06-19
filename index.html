@@ -12,10 +12,12 @@
     <meta property="og:type" content="website" />
     <link rel="icon" href="images/favicon.webp" />
 
+
+    <link rel="preconnect" href="https://unpkg.com">
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.518.0"></script>
     <!-- Flag Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css"/>
     <link rel="stylesheet" href="css/style.css"> 
@@ -28,7 +30,7 @@
   <div class="w-full max-w-6xl mx-auto flex items-center px-6 py-3 rounded-3xl glass-card shadow-2xl">
     <!-- LOGO -->
     <a href="#hero" aria-label="Remonter en haut">
-      <img src="images/Logo.webp" alt="Logo Marc Da Silva" class="h-10 w-10 rounded-full" />
+      <img src="/images/Logo.webp" alt="Logo Marc Da Silva" class="h-10 w-10 rounded-full" width="40" height="40" />
     </a>
 
     <!-- NAV DESKTOP -->
@@ -637,12 +639,8 @@ J’ai déjà accompagné la migration de plusieurs milliers d’utilisateurs, a
 </footer>
 
 
-<!-- Tailwind CDN (à migrer vers build local dès que possible) -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Lucide Icons (toujours en defer) -->
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<!-- Tes JS -->
 <script src="js/main.js" defer></script>
+<script src="https://unpkg.com/lucide@latest" defer></script>
 
 </body>
 </html>
