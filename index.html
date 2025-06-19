@@ -86,8 +86,7 @@
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-2 sm:px-4">
     <!-- Logo -->
     <div class="md:w-1/2 flex justify-center items-center">
-      <img src="images/Logo.webp" alt="Logo Marc Da Silva" id="hero-logo"
-        class="rounded-3xl shadow-xl max-w-[120px] md:max-w-[300px] object-contain opacity-100 scale-100" />
+      <img src="images/Logo.webp" alt="Logo Marc Da Silva" id="hero-logo" width="1024" height="382" class="rounded-3xl shadow-xl max-w-[120px] md:max-w-[300px] object-contain opacity-100 scale-100" />
     </div>
     <!-- Texte & actions -->
     <div class="md:w-1/2 flex flex-col justify-center">
@@ -314,7 +313,7 @@ J’ai déjà accompagné la migration de plusieurs milliers d’utilisateurs, a
 
         <div class="flex items-center justify-center h-16 w-full flex-grow">
           <a href="https://www.asigma.fr/" target="_blank" rel="noopener" aria-label="Asigma - Employeur" class="logo-link block">
-            <img src="images/asigma.webp" alt="Logo Asigma" class="h-16 w-32 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            <img src="images/asigma.webp" alt="Logo Asigma" width="294" height="91" class="h-16 w-32 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
           </a>
         </div>
         <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
@@ -323,7 +322,7 @@ J’ai déjà accompagné la migration de plusieurs milliers d’utilisateurs, a
 
         <div class="flex items-center justify-center h-16 w-full flex-grow">
           <a href="https://www.axa.com/" target="_blank" rel="noopener" aria-label="AXA - Employeur" class="logo-link block">
-            <img src="images/axa.webp" alt="Logo AXA" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            <img src="images/axa.webp" alt="Logo AXA" width="473" height="472" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
           </a>
         </div>
         <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
@@ -332,7 +331,7 @@ J’ai déjà accompagné la migration de plusieurs milliers d’utilisateurs, a
 
         <div class="flex items-center justify-center h-16 w-full flex-grow">
           <a href="https://www.cret.fr/" target="_blank" rel="noopener" aria-label="CRET - Employeur" class="logo-link block">
-            <img src="images/cret.webp" alt="Logo CRET" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            <img src="images/cret.webp" alt="Logo CRET" width="469" height="507" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
           </a>
         </div>
         <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70">Employeur</span>
@@ -341,7 +340,7 @@ J’ai déjà accompagné la migration de plusieurs milliers d’utilisateurs, a
 
         <div class="flex items-center justify-center h-16 w-full flex-grow">
           <a href="https://www.biogroup.fr/" target="_blank" rel="noopener" aria-label="Biogroup - Client final" class="logo-link block">
-            <img src="images/biogroup.webp" alt="Logo Biogroup" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            <img src="images/biogroup.webp" alt="Logo Biogroup" width="300" height="244" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
           </a>
         </div>
         <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
@@ -350,7 +349,7 @@ J’ai déjà accompagné la migration de plusieurs milliers d’utilisateurs, a
 
         <div class="flex items-center justify-center h-16 w-full flex-grow">
           <a href="https://www.mcdonalds.fr/" target="_blank" rel="noopener" aria-label="McDonald's - Client final" class="logo-link block">
-            <img src="images/mcdo.webp" alt="Logo McDonald's" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
+            <img src="images/mcdo.webp" alt="Logo McDonald's" width="664" height="664" class="h-16 w-16 object-contain mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300 shadow-xl rounded-xl" />
           </a>
         </div>
         <span class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300">Client final (via CRET)</span>
@@ -638,8 +637,12 @@ J’ai déjà accompagné la migration de plusieurs milliers d’utilisateurs, a
 </footer>
 
 
+<!-- Tailwind CDN (à migrer vers build local dès que possible) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Lucide Icons (toujours en defer) -->
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<!-- Tes JS -->
 <script src="js/main.js" defer></script>
-
 
 </body>
 </html>

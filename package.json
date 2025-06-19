@@ -1,9 +1,0 @@
-{
-  "name": "md-to-html-generator",
-  "version": "1.0.0",
-  "dependencies": {
-    "js-yaml": "^4.1.0",
-    "marked": "^10.0.0",
-    "jsdom": "^24.0.0"
-  }
-}

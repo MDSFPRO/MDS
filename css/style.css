@@ -62,10 +62,8 @@ html, body {
 
 /* === Section scroll active === */
 .section-anim {
+  min-height: 600px; /* à ajuster selon ton besoin */
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 0 rgba(0,0,0,0);
-  transition: box-shadow 0.8s, transform 0.6s, background 1s;
 }
 
 /* --- MODIF CLS HERO --- */
