@@ -25,10 +25,10 @@ Aujourd’hui, avec **Gemini CLI**, Google conclut cette montée en puissance 
 Jusqu’ici, travailler avec l’IA en ligne de commande rimait souvent avec limitations : accès restreint, quotas serrés, solutions propriétaires ou coûteuses. OpenAI, avec Codex, avait ouvert la voie, mais son modèle est désormais payant. Anthropic (Claude CLI) joue aussi la carte premium, réservant ses meilleures fonctionnalités à une élite d’abonnés ou d’entreprises.
 
 Google, avec **Gemini CLI**, prend le contre-pied total :
-– Open-source sous licence Apache 2.0
-– 100 % gratuit (dans la limite de quotas très généreux)
-– Compatible Linux, macOS et Windows
-– Intégration directe de la dernière génération de modèles Gemini
+- Open-source sous licence Apache 2.0
+- 100 % gratuit (dans la limite de quotas très généreux)
+- Compatible Linux, macOS et Windows
+- Intégration directe de la dernière génération de modèles Gemini
 
 Ce choix stratégique n’est pas anodin : Google veut séduire la masse des développeurs, makers, data scientists, mais aussi les étudiants, freelances et curieux qui veulent explorer l’IA sans barrière à l’entrée.
 
