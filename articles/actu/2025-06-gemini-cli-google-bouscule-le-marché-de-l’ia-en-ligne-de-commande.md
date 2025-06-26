@@ -10,14 +10,6 @@ date: 2025-06-26T15:48:00.000Z
 image: /images/articles/a_digital_illustration_of_a_laptop_with_google_gem.webp
 category: Actualité
 ---
-# Gemini CLI : Google bouscule le marché de l’IA en ligne de commande
-
-*Publié le 26 juin 2025 par Marc Da Silva*
-
----
-
-L’écosystème de l’intelligence artificielle vient de connaître un tournant majeur. Avec le lancement de **Gemini CLI**, Google fait entrer l’IA générative dans une nouvelle ère : celle de l’accessibilité totale, de la puissance décuplée et de l’ouverture. Cet outil open-source, entièrement gratuit dans sa version de base, redistribue les cartes face à des concurrents désormais bien installés… et payants.
-
 ## De Bard à Gemini : la traversée du désert de Google en IA
 
 Google a été pris de court par l’explosion de ChatGPT en fin 2022. En mars 2023, l’entreprise a lancé **Bard**, basé sur LaMDA, pour réagir – mais des erreurs factuelles (comme une confusion au sujet du JWST) et des performances moindres ont immédiatement entaché l’image du produit.
@@ -105,4 +97,4 @@ Gemini CLI marque une rupture.
 Pour la première fois, chacun peut intégrer une IA de pointe, multimodale, extensible et ouverte, dans ses workflows, ses scripts, ses projets… sans débourser un centime.
 Si tu n’as jamais testé l’IA en ligne de commande, c’est le moment : Gemini CLI s’impose comme le nouvel outil incontournable pour tous ceux qui veulent repousser les limites de la productivité et de la créativité technique.
 
-*Pour aller plus loin : [Documentation officielle Gemini CLI](https://github.com/google-gemini/gemini-cli)*
+*Pour aller plus loin : https://github.com/google-gemini/gemini-cli
