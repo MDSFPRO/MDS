@@ -20,6 +20,8 @@ En février 2024, Bard est rebaptisé **Gemini**, signe d’une stratégie de co
 
 Aujourd’hui, avec **Gemini CLI**, Google conclut cette montée en puissance : un outil CLI gratuit, open-source, multimodal, symbolisant son retour en force dans la course à l’IA. Ce lancement n’est pas un hasard, mais l’aboutissement d’un virage stratégique entamé avec Bard.
 
+---
+
 ## Une révolution dans le terminal
 
 Jusqu’ici, travailler avec l’IA en ligne de commande rimait souvent avec limitations : accès restreint, quotas serrés, solutions propriétaires ou coûteuses. OpenAI, avec Codex, avait ouvert la voie, mais son modèle est désormais payant. Anthropic (Claude CLI) joue aussi la carte premium, réservant ses meilleures fonctionnalités à une élite d’abonnés ou d’entreprises.
@@ -32,6 +34,8 @@ Google, avec **Gemini CLI**, prend le contre-pied total :
 
 Ce choix stratégique n’est pas anodin : Google veut séduire la masse des développeurs, makers, data scientists, mais aussi les étudiants, freelances et curieux qui veulent explorer l’IA sans barrière à l’entrée.
 
+---
+
 ## Sous le capot : puissance et polyvalence
 
 Ce qui distingue **Gemini CLI** de ses concurrents n’est pas uniquement son prix ou son ouverture. Techniquement, l’outil frappe fort :
@@ -40,6 +44,8 @@ Ce qui distingue **Gemini CLI** de ses concurrents n’est pas uniquement son pr
 * **Intelligence multimodale** : Gemini CLI ne se limite pas au texte : il intègre nativement la génération d’images (avec Imagen), la génération vidéo (Veo), et peut traiter plusieurs formats d’entrées et de sorties. Idéal pour automatiser une veille, documenter un projet ou illustrer des rapports.
 * **Extensibilité avancée** : grâce au protocole Model Context Protocol (MCP) et à la possibilité de définir des outils ou instructions personnalisées via des fichiers `GEMINI.md`, l’outil s’adapte à tous les workflows.
 * **Outils intégrés** : accès direct à Google Search, statistiques, gestion de la mémoire, scripts d’automatisation… Le terminal devient un cockpit IA.
+
+---
 
 ## Comparatif : Gemini CLI vs la concurrence
 
@@ -51,6 +57,8 @@ Aucune autre solution ne propose aujourd’hui ce cocktail d’ouverture, de pui
 * **OpenAI Codex CLI** : Non open-source, payant, quota 0, 128 000 de contexte, multimodal limité, non extensible
 * **Claude CLI** : Non open-source, payant, quota 0, 200 000 de contexte, multimodal limité, non extensible
 
+---
+
 ## Cas d’usages concrets
 
 L’arrivée de Gemini CLI ouvre la voie à de nouveaux usages professionnels et techniques, sans aucune barrière à l’entrée :
@@ -59,6 +67,8 @@ L’arrivée de Gemini CLI ouvre la voie à de nouveaux usages professionnels et
 * **DevOps/Sysadmin** : automatisation de scripts, recherche rapide de solutions à des problèmes serveurs, monitoring intelligent.
 * **Créateur de contenu** : génération d’illustrations et vidéos pour documentations ou présentations, relecture et amélioration de textes.
 * **Data scientist** : synthèse de données, génération de visualisations, rédaction automatique de rapports.
+
+---
 
 ## Comment l’installer et démarrer ?
 
@@ -80,16 +90,22 @@ gemini code "Optimise ce script shell pour la performance"
 gemini image "Génère une image d’un data center futuriste"
 ```
 
+---
+
 ## Limites et points de vigilance
 
 * Quota gratuit généreux mais limité (1 000 requêtes/jour). Les usages très intensifs (entreprises, plateformes) devront passer par une offre payante ou AI Studio.
 * Compte Google requis : comme souvent avec les outils Google, pas d’anonymat total.
 * Évolutivité rapide : l’outil est jeune, certaines API ou options peuvent évoluer d’une version à l’autre.
 
+---
+
 ## Pourquoi c’est un game-changer ?
 
 Google envoie un signal fort : la puissance de l’IA générative n’est plus réservée aux entreprises dotées de moyens considérables. En proposant Gemini CLI en open-source, l’entreprise place la barre très haut en termes d’accessibilité et d’innovation.
 Cela va forcer l’ensemble du marché (OpenAI, Anthropic, etc.) à revoir leur politique d’accès, au bénéfice direct des utilisateurs.
+
+---
 
 ## Conclusion
 
