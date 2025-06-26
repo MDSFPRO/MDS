@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lastScrollY = window.scrollY;
   });
 
-  // === Animations .fade stagger ===
+  // === Fade stagger animation setup ===
   document.querySelectorAll('.section-anim').forEach(section => {
     section.querySelectorAll('.fade').forEach((el, i) => {
       el.style.transitionDelay = (i * 80) + 'ms';
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkAndAnimate();
   });
 
-  // === Scroll Animations classiques ===
+  // === Animations classiques ===
   const handleFade = () => {
     document.querySelectorAll('.fade').forEach(el => {
       const rect = el.getBoundingClientRect();
@@ -63,23 +63,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   };
+
+  // --- CORRECTION : fade forcé au load pour éviter écran noir ---
+  handleFade();
+  handleActiveSection();
   window.addEventListener('scroll', () => {
     handleFade();
     handleActiveSection();
   });
-  handleFade();
-  handleActiveSection();
-  
-// Remplace toute la fonction par :
-function lockBodyScroll(lock) {
-  if (lock) {
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-    document.documentElement.style.overflow = '';
+  window.addEventListener('load', handleFade);
+  document.addEventListener('DOMContentLoaded', handleFade);
+
+  // === Body scroll lock utilitaire ===
+  function lockBodyScroll(lock) {
+    if (lock) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
   }
-}
 
   // === Burger Menu ===
   const burgerBtn = document.getElementById('burger-btn');
