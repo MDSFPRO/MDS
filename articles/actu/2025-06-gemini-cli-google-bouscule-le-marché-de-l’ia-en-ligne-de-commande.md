@@ -10,7 +10,7 @@ date: 2025-06-26T15:48:00.000Z
 image: /images/articles/a_digital_illustration_of_a_laptop_with_google_gem.webp
 category: Actualité
 ---
-## De Bard à Gemini : la traversée du désert de Google en IA
+# De Bard à Gemini : la traversée du désert de Google en IA
 
 Google a été pris de court par l’explosion de ChatGPT en fin 2022. En mars 2023, l’entreprise a lancé **Bard**, basé sur LaMDA, pour réagir – mais des erreurs factuelles (comme une confusion au sujet du JWST) et des performances moindres ont immédiatement entaché l’image du produit.
 
@@ -20,19 +20,20 @@ En février 2024, Bard est rebaptisé **Gemini**, signe d’une stratégie de co
 
 Aujourd’hui, avec **Gemini CLI**, Google conclut cette montée en puissance : un outil CLI gratuit, open-source, multimodal, symbolisant son retour en force dans la course à l’IA. Ce lancement n’est pas un hasard, mais l’aboutissement d’un virage stratégique entamé avec Bard.
 
-## Une révolution dans le terminal
+# Une révolution dans le terminal
 
 Jusqu’ici, travailler avec l’IA en ligne de commande rimait souvent avec limitations : accès restreint, quotas serrés, solutions propriétaires ou coûteuses. OpenAI, avec Codex, avait ouvert la voie, mais son modèle est désormais payant. Anthropic (Claude CLI) joue aussi la carte premium, réservant ses meilleures fonctionnalités à une élite d’abonnés ou d’entreprises.
 
 Google, avec **Gemini CLI**, prend le contre-pied total :
-– Open-source sous licence Apache 2.0
-– 100 % gratuit (dans la limite de quotas très généreux)
-– Compatible Linux, macOS et Windows
-– Intégration directe de la dernière génération de modèles Gemini
+
+* Open-source sous licence Apache 2.0
+* 100 % gratuit (dans la limite de quotas très généreux)
+* Compatible Linux, macOS et Windows
+* Intégration directe de la dernière génération de modèles Gemini
 
 Ce choix stratégique n’est pas anodin : Google veut séduire la masse des développeurs, makers, data scientists, mais aussi les étudiants, freelances et curieux qui veulent explorer l’IA sans barrière à l’entrée.
 
-## Sous le capot : puissance et polyvalence
+# Sous le capot : puissance et polyvalence
 
 Ce qui distingue **Gemini CLI** de ses concurrents n’est pas uniquement son prix ou son ouverture. Techniquement, l’outil frappe fort :
 
@@ -41,7 +42,7 @@ Ce qui distingue **Gemini CLI** de ses concurrents n’est pas uniquement son pr
 * **Extensibilité avancée** : grâce au protocole Model Context Protocol (MCP) et à la possibilité de définir des outils ou instructions personnalisées via des fichiers `GEMINI.md`, l’outil s’adapte à tous les workflows.
 * **Outils intégrés** : accès direct à Google Search, statistiques, gestion de la mémoire, scripts d’automatisation… Le terminal devient un cockpit IA.
 
-## Comparatif : Gemini CLI vs la concurrence
+# Comparatif : Gemini CLI vs la concurrence
 
 Aucune autre solution ne propose aujourd’hui ce cocktail d’ouverture, de puissance et de générosité.
 
@@ -51,7 +52,7 @@ Aucune autre solution ne propose aujourd’hui ce cocktail d’ouverture, de pui
 * **OpenAI Codex CLI** : Non open-source, payant, quota 0, 128 000 de contexte, multimodal limité, non extensible
 * **Claude CLI** : Non open-source, payant, quota 0, 200 000 de contexte, multimodal limité, non extensible
 
-## Cas d’usages concrets
+# Cas d’usages concrets
 
 L’arrivée de Gemini CLI ouvre la voie à de nouveaux usages professionnels et techniques, sans aucune barrière à l’entrée :
 
@@ -60,7 +61,7 @@ L’arrivée de Gemini CLI ouvre la voie à de nouveaux usages professionnels et
 * **Créateur de contenu** : génération d’illustrations et vidéos pour documentations ou présentations, relecture et amélioration de textes.
 * **Data scientist** : synthèse de données, génération de visualisations, rédaction automatique de rapports.
 
-## Comment l’installer et démarrer ?
+# Comment l’installer et démarrer ?
 
 Rien de plus simple :
 
@@ -80,18 +81,18 @@ gemini code "Optimise ce script shell pour la performance"
 gemini image "Génère une image d’un data center futuriste"
 ```
 
-## Limites et points de vigilance
+# Limites et points de vigilance
 
 * Quota gratuit généreux mais limité (1 000 requêtes/jour). Les usages très intensifs (entreprises, plateformes) devront passer par une offre payante ou AI Studio.
 * Compte Google requis : comme souvent avec les outils Google, pas d’anonymat total.
 * Évolutivité rapide : l’outil est jeune, certaines API ou options peuvent évoluer d’une version à l’autre.
 
-## Pourquoi c’est un game-changer ?
+# Pourquoi c’est un game-changer ?
 
 Google envoie un signal fort : la puissance de l’IA générative n’est plus réservée aux entreprises dotées de moyens considérables. En proposant Gemini CLI en open-source, l’entreprise place la barre très haut en termes d’accessibilité et d’innovation.
 Cela va forcer l’ensemble du marché (OpenAI, Anthropic, etc.) à revoir leur politique d’accès, au bénéfice direct des utilisateurs.
 
-## Conclusion
+# Conclusion
 
 Gemini CLI marque une rupture.
 Pour la première fois, chacun peut intégrer une IA de pointe, multimodale, extensible et ouverte, dans ses workflows, ses scripts, ses projets… sans débourser un centime.
