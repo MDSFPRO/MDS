@@ -69,50 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   handleFade();
   handleActiveSection();
-
-#article-body h1 {
-  font-size: 2.25rem; /* ~36px */
-  font-weight: 800;
-  margin-top: 2.2em;
-  margin-bottom: 0.7em;
-  line-height: 1.1;
-}
-
-#article-body h2 {
-  font-size: 1.65rem; /* ~26px */
-  font-weight: 700;
-  margin-top: 2em;
-  margin-bottom: 0.6em;
-  line-height: 1.15;
-}
-
-#article-body h3 {
-  font-size: 1.2rem; /* ~19px */
-  font-weight: 600;
-  margin-top: 1.4em;
-  margin-bottom: 0.5em;
-  line-height: 1.18;
-}
-
-#article-body ul,
-#article-body ol {
-  padding-left: 1.4em;
-  margin-bottom: 1.3em;
-}
-
-#article-body ul li,
-#article-body ol li {
-  margin-bottom: 0.3em;
-  line-height: 1.6;
-}
-
-#article-body p {
-  margin-bottom: 1.3em;
-  font-size: 1.12rem;
-  line-height: 1.7;
-}
-
-
+  
 // Remplace toute la fonction par :
 function lockBodyScroll(lock) {
   if (lock) {
