@@ -307,3 +307,16 @@ img[alt^="McDonald"] {
   font-size: 1.12rem;
   line-height: 1.7;
 }
+
+#article-body ul {
+  list-style-type: disc;
+  padding-left: 1.7em;
+  margin-bottom: 1.3em;
+}
+
+#article-body ul li {
+  position: relative;
+  margin-bottom: 0.3em;
+  line-height: 1.6;
+  font-size: 1.08rem;
+}
