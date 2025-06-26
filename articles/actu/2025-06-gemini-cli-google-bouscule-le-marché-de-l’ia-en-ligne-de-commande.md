@@ -97,4 +97,4 @@ Gemini CLI marque une rupture.
 Pour la première fois, chacun peut intégrer une IA de pointe, multimodale, extensible et ouverte, dans ses workflows, ses scripts, ses projets… sans débourser un centime.
 Si tu n’as jamais testé l’IA en ligne de commande, c’est le moment : Gemini CLI s’impose comme le nouvel outil incontournable pour tous ceux qui veulent repousser les limites de la productivité et de la créativité technique.
 
-*Pour aller plus loin : https://github.com/google-gemini/gemini-cli
+*\*Pour aller plus loin : <https://github.com/google-gemini/gemini-cli>*
