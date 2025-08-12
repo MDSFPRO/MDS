@@ -1,5 +1,13 @@
 [
   {
+    "title": "Résistance au changement IT : comment la comprendre et la transformer en levier",
+    "date": "2025-08-12T11:15",
+    "category": "Conseil IT",
+    "summary": "Dans l’IT, la réussite d’un projet ne dépend pas seulement de la technologie, mais surtout de l’adhésion des utilisateurs. Comprendre et anticiper la résistance au changement est essentiel pour transformer un frein en levier de succès.",
+    "image": "/images/articles/workplace.webp",
+    "slug": "conseil/2025-06-la-résistance-au-changement-it"
+  },
+  {
     "title": "Gemini CLI : Google bouscule le marché de l’IA en ligne de commande",
     "date": "2025-06-26T15:48",
     "category": "Actualité",
@@ -22,13 +30,5 @@
     "summary": "Prochainement...",
     "image": "/images/articles/agent-automatisé-phone.webp",
     "slug": "actu/2025-06-les-agents-téléphonique-automatisé"
-  },
-  {
-    "title": "La résistance au changement IT",
-    "date": "2025-06-18T11:22",
-    "category": "Conseil IT",
-    "summary": "Prochainement...",
-    "image": "/images/articles/workplace.webp",
-    "slug": "conseil/2025-06-la-résistance-au-changement-it"
   }
 ]
