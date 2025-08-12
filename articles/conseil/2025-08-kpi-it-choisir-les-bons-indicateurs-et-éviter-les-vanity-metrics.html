@@ -1,0 +1,397 @@
+<!DOCTYPE html><html lang="fr"><head>
+  <meta charset="UTF-8">
+  <title id="page-title">KPI IT : choisir les bons indicateurs (et éviter les vanity metrics) – Marc Da Silva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" id="meta-desc" content="Mesurer moins, décider mieux : comment définir des KPI IT pertinents, éviter les pièges et transformer les chiffres en résultats.">
+  <link rel="stylesheet" href="/MDS/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" type="image/png" href="/MDS/images/favicon.webp">
+  <link rel="shortcut icon" href="/MDS/images/favicon.webp">
+</head>
+<body class="bg-black text-white min-h-screen font-sans">
+
+  <!-- HEADER (identique au portail article) -->
+  <header class="w-full flex justify-center pt-5 pb-2 z-50 fixed top-0 left-0 bg-transparent">
+    <div class="w-full max-w-6xl flex items-center px-6 py-3 rounded-3xl glass-card shadow-2xl">
+      <a href="/MDS/index.html#hero" aria-label="Retour à l'accueil">
+        <img src="/MDS/images/Logo.webp" alt="Logo Marc Da Silva" width="1024" height="382" class="h-10 w-10 rounded-full">
+      </a>
+
+      <!-- NAV DESKTOP (corrigée) -->
+      <nav class="hidden lg:flex flex-1 justify-center gap-8 text-base font-semibold items-end text-white/90" aria-label="Navigation principale">
+        <a href="/MDS/index.html#experiences" class="flex flex-col items-center gap-1 min-w-[70px] hover:text-teal-400 group transition">
+          <i data-lucide="briefcase" class="icon w-6 h-6 transition-transform transition-colors duration-200 group-hover:scale-110 group-hover:text-teal-400"></i>
+          <span class="text-xs font-semibold mt-1">Expériences</span>
+        </a>
+        <a href="/MDS/index.html#formations" class="flex flex-col items-center gap-1 min-w-[70px] hover:text-teal-400 group transition">
+          <i data-lucide="graduation-cap" class="icon w-6 h-6 transition-transform transition-colors duration-200 group-hover:scale-110 group-hover:text-teal-400"></i>
+          <span class="text-xs font-semibold mt-1">Formations</span>
+        </a>
+        <a href="/MDS/index.html#certifications" class="flex flex-col items-center gap-1 min-w-[70px] hover:text-teal-400 group transition">
+          <i data-lucide="award" class="icon w-6 h-6 transition-transform transition-colors duration-200 group-hover:scale-110 group-hover:text-teal-400"></i>
+          <span class="text-xs font-semibold mt-1">Certifications</span>
+        </a>
+        <a href="/MDS/index.html#competences" class="flex flex-col items-center gap-1 min-w-[70px] hover:text-teal-400 group transition">
+          <i data-lucide="sparkle" class="icon w-6 h-6 transition-transform transition-colors duration-200 group-hover:scale-110 group-hover:text-teal-400"></i>
+          <span class="text-xs font-semibold mt-1">Compétences</span>
+        </a>
+        <a href="/MDS/index.html#interet" class="flex flex-col items-center gap-1 min-w-[70px] hover:text-teal-400 group transition">
+          <i data-lucide="heart" class="icon w-6 h-6 transition-transform transition-colors duration-200 group-hover:scale-110 group-hover:text-teal-400"></i>
+          <span class="text-xs font-semibold mt-1">Intérêt</span>
+        </a>
+        <a href="/MDS/index.html#contact" class="flex flex-col items-center gap-1 min-w-[70px] hover:text-teal-400 group transition">
+          <i data-lucide="mail" class="icon w-6 h-6 transition-transform transition-colors duration-200 group-hover:scale-110 group-hover:text-teal-400"></i>
+          <span class="text-xs font-semibold mt-1">Contact</span>
+        </a>
+        <a href="/MDS/articles/article-index.html" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-1 min-w-[70px] bg-teal-500 px-3 py-1.5 rounded-xl font-semibold text-black text-xs shadow-lg hover:bg-teal-400 transition group">
+          <i data-lucide="newspaper" class="icon w-6 h-6 transition-transform transition-colors duration-200 group-hover:scale-110"></i>
+          <span class="font-semibold mt-1">Articles</span>
+        </a>
+      </nav>
+
+      <div class="flex-1 lg:hidden"></div>
+      <button id="burger-btn" class="lg:hidden flex flex-col justify-center items-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 transition relative" aria-label="Menu">
+        <span class="burger-bar-2 bar-top absolute left-0 right-0"></span>
+        <span class="burger-bar-2 bar-bottom absolute left-0 right-0"></span>
+      </button>
+    </div>
+
+    <!-- NAV MOBILE -->
+    <nav id="mobile-nav" class="fixed inset-0 min-h-screen w-screen bg-black z-50 flex flex-col items-center justify-start text-xl font-semibold text-white hidden overflow-y-auto pt-20 pb-12 px-4" aria-label="Navigation mobile">
+      <button id="close-nav" class="absolute top-6 right-6 p-2 z-[9999] text-white hover:bg-white/10 transition" aria-label="Fermer le menu">
+        <i data-lucide="x" class="w-8 h-8"></i>
+      </button>
+      <div class="flex flex-col gap-6 items-center w-full mt-12">
+        <a href="/MDS/index.html#hero" class="hover:text-teal-400 transition">À propos</a>
+        <a href="/MDS/index.html#experiences" class="hover:text-teal-400 transition">Expériences</a>
+        <a href="/MDS/index.html#formations" class="hover:text-teal-400 transition">Formations</a>
+        <a href="/MDS/index.html#certifications" class="hover:text-teal-400 transition">Certifications</a>
+        <a href="/MDS/index.html#competences" class="hover:text-teal-400 transition">Compétences</a>
+        <a href="/MDS/index.html#interet" class="hover:text-teal-400 transition">Intérêt</a>
+        <a href="/MDS/index.html#contact" class="hover:text-teal-400 transition">Contact</a>
+        <a href="/MDS/articles/article-index.html" class="bg-teal-500 px-6 py-2 rounded-xl font-semibold text-black text-lg shadow-lg hover:bg-teal-400 transition" target="_blank" rel="noopener noreferrer">
+          Articles
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-[160px] max-w-3xl mx-auto px-4">
+
+    <!-- Hero Image + Overlay + Badge + Titre + Date -->
+    <section class="relative mb-10 fade">
+      <img id="article-image" src="/MDS//images/articles/kpi-illustration.webp" alt="[Titre Conseil]" class="w-full h-64 object-cover rounded-2xl shadow-lg">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/100 rounded-2xl"></div>
+      <div class="absolute bottom-6 left-6">
+        <span class="bg-teal-400/90 text-black text-xs font-bold px-3 py-1 rounded-xl mr-3 shadow">Conseil IT</span>
+        <h1 id="article-title" class="text-3xl sm:text-4xl font-bold glass-title mt-2 text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">KPI IT : choisir les bons indicateurs (et éviter les vanity metrics)</h1>
+        <span id="article-date" class="text-white/70 text-xs">2025-08-06</span>
+      </div>
+    </section>
+
+    <!-- Auteur SOUS l’image, AVANT le résumé -->
+    <div class="flex items-center gap-3 mb-6 fade">
+      <img src="/MDS/images/Logo.webp" alt="Auteur Marc Da Silva" class="w-10 h-10 rounded-full border border-white/10 shadow">
+      <div>
+        <span class="block font-semibold text-base text-white/90">Marc Da Silva</span>
+        <span class="block text-xs text-white/60">Consultant IT &amp; Chef de projet</span>
+      </div>
+    </div>
+
+    <!-- Résumé (intro) -->
+    <section class="mb-10 fade">
+      <p id="article-summary" class="text-lg text-white/80 leading-relaxed font-semibold">Mesurer moins, décider mieux : comment définir des KPI IT pertinents, éviter les pièges et transformer les chiffres en résultats.</p>
+    </section>
+
+    <!-- Contenu principal (markdown) -->
+    <article id="article-body" class="fade space-y-8"><h1>Comprendre, sélectionner et transformer des indicateurs en leviers d’action</h1>
+<blockquote>
+<p><strong>« Lorsqu’une mesure devient un objectif, elle cesse d’être une bonne mesure. »</strong><br>— Marilyn Strathern (1997), formulation de la <a href="https://fr.wikipedia.org/wiki/Loi_de_Goodhart">loi de Goodhart</a></p>
+</blockquote>
+<p>On mesure beaucoup… mais pas toujours ce qui aide à décider. Un <strong>KPI</strong> (Key Performance Indicator) n’est pas une métrique de plus : c’est un <strong>indicateur clé, lié à un objectif</strong>, qui déclenche une <strong>décision</strong> ou une <strong>action</strong>. Bien choisis, quelques KPI suffisent à aligner sponsors, IT, sécurité et métiers — et à démontrer l’impact réel des projets.</p>
+<p>Pour une définition générale, voir <strong><a href="https://fr.wikipedia.org/wiki/Indicateur_cl%C3%A9_de_performance">KPI — Wikipédia</a></strong>. Distinguer les <strong>indicateurs “leading”</strong> (précurseurs) et <strong>“lagging”</strong> (résultats) aide à équilibrer pilotage et bilan : <strong><a href="https://en.wikipedia.org/wiki/Leading_and_lagging_indicators">Leading vs Lagging</a></strong>. Enfin, les critères <strong><a href="https://en.wikipedia.org/wiki/SMART_criteria">SMART</a></strong> aident à formuler une cible crédible.</p>
+<hr>
+<h2>Comprendre : KPI vs métrique</h2>
+<p>Une <strong>métrique</strong> décrit un phénomène (ex. “nombre de connexions”). Un <strong>KPI</strong> mesure un <strong>objectif prioritaire</strong> (“% d’utilisateurs actifs sur 3 cas d’usage clés”) et oriente une <strong>action</strong> (former, corriger, prioriser).<br>Un bon KPI est <strong>spécifique</strong>, <strong>mesurable automatiquement</strong>, <strong>actionnable</strong>, avec un <strong>propriétaire</strong>, une <strong>cible</strong> et une <strong>fréquence</strong> de revue.</p>
+<hr>
+<h2>Les erreurs fréquentes (à éviter)</h2>
+<ul>
+<li><strong>Vanity metrics</strong> : volumétrie qui ne change aucune décision (ex. “nb total d’ouvertures de Teams”).  </li>
+<li><strong>Trop d’indicateurs</strong> : 30 graphes sans owner ⇒ personne n’agit.  </li>
+<li><strong>Pas de cible / fréquence</strong> : indicateurs “orphelins”.  </li>
+<li><strong>Déconnectés des objectifs</strong> : pas liés à la roadmap, ni aux risques.  </li>
+<li><strong>Données fragiles</strong> : sources manuelles, définitions floues, formules non tracées.</li>
+</ul>
+<hr>
+<h2>Méthode de sélection (simple &amp; efficace)</h2>
+<ol>
+<li><strong>Clarifier 3–5 objectifs</strong> (ex. réduire les tickets, accélérer les mises à jour, sécuriser l’accès).  </li>
+<li><strong>Identifier les décideurs</strong> : qui consomme quoi et pour décider quoi (sponsor, IT Ops, sécurité, métiers) ?  </li>
+<li><strong>Lister les leviers</strong> : projets, politiques, remédiations possibles ; <strong>contraintes</strong> : données dispo, cadence.  </li>
+<li><strong>Proposer 2–3 KPI candidats</strong> par objectif (définition, source, formule).  </li>
+<li><strong>Scorer</strong> chaque KPI (0–2) : pertinence, mesurabilité, actionnabilité.  </li>
+<li><strong>Retenir 1 KPI principal + 1 auxiliaire</strong> par objectif ⇒ <strong>6–8 KPI max</strong>.</li>
+</ol>
+<h3>Scorecard de sélection (exemple)</h3>
+<table>
+<thead>
+<tr>
+<th>KPI candidat</th>
+<th align="right">Pertinence (0–2)</th>
+<th align="right">Mesurabilité (0–2)</th>
+<th align="right">Actionnabilité (0–2)</th>
+<th align="right">Score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>p95 temps de démarrage Windows</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right"><strong>6</strong></td>
+</tr>
+<tr>
+<td>% licences M365 inactives &gt; 30 j</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right"><strong>6</strong></td>
+</tr>
+<tr>
+<td>Nb total de connexions Teams</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">2</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>KPI Canvas (modèle réutilisable)</h2>
+<p>Formalise chaque KPI sur <strong>1 page</strong> : ça évite les malentendus et accélère l’exécution.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Contenu (exemple)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Objectif</strong></td>
+<td>Améliorer l’expérience poste au démarrage</td>
+</tr>
+<tr>
+<td><strong>KPI</strong></td>
+<td>p95 temps de démarrage ≤ 120 s (moyenne 30 j)</td>
+</tr>
+<tr>
+<td><strong>Formule</strong></td>
+<td>p95 (logon → appareil utilisable)</td>
+</tr>
+<tr>
+<td><strong>Source</strong></td>
+<td>Télémétrie poste / Endpoint analytics</td>
+</tr>
+<tr>
+<td><strong>Fréquence</strong></td>
+<td>Hebdomadaire (synthèse mensuelle exécutif)</td>
+</tr>
+<tr>
+<td><strong>Owner</strong></td>
+<td>Responsable Poste de Travail</td>
+</tr>
+<tr>
+<td><strong>Seuils</strong></td>
+<td>Vert ≤ 120 / Ambre 121–150 / Rouge &gt; 150</td>
+</tr>
+<tr>
+<td><strong>Actions</strong></td>
+<td>Remédiations démarrage, drivers/firmware, nettoyage services, audit GPO héritées</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Exemples d’indicateurs utiles (Workplace IT)</h2>
+<p><strong>Adoption &amp; collaboration.</strong> <em>% d’utilisateurs actifs</em> sur <strong>3 cas d’usage clés</strong> (messagerie, réunion, co-édition). S’il décroît : micro-learning ciblé, modèles d’espaces, coaching des managers.</p>
+<p><strong>DEX / poste de travail.</strong> <em>p95 temps de démarrage</em> et <em>% sessions “crash-free”</em>. En dérive : remédiations proactives (désactivation démarrage, nettoyage, drivers/firmware, correctifs applis).</p>
+<p><strong>Sécurité &amp; conformité.</strong> <em>% d’appareils conformes aux politiques critiques</em> (chiffrement, protection, accès conditionnel) et <em>% MFA effectif sur comptes à privilèges</em>. En rouge : correction ciblée et <strong>exceptions time-boxed</strong>.</p>
+<p><strong>Mises à jour &amp; déploiements.</strong> <em>% d’appareils sur le dernier correctif à J+14</em> et <em>taux de succès premier passage (Win32)</em>. En écart : anneaux &amp; deadlines, dépendances, traitement des erreurs récurrentes.</p>
+<p><strong>Coûts (FinOps).</strong> <em>% de licences M365 inactives &gt; 30 j</em>. Action : recouvrement/downgrade + revue mensuelle RH/managers.</p>
+<hr>
+<h2>Gouvernance des KPI</h2>
+<p>Sans rituel, pas d’impact. Installe un <strong>RACI</strong> simple, une <strong>cadence</strong> courte et un processus d’<strong>escalade</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Responsabilités</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Sponsor</strong></td>
+<td>Valide objectifs &amp; cibles, arbitre priorités</td>
+</tr>
+<tr>
+<td><strong>Owner KPI</strong></td>
+<td>Suit l’indicateur, déclenche les actions, rend compte</td>
+</tr>
+<tr>
+<td><strong>IT Ops / Sécu / Métiers</strong></td>
+<td>Mesure, exécute remédiations, fournit contexte</td>
+</tr>
+<tr>
+<td><strong>PMO / Consultant</strong></td>
+<td>Tient le data dictionary, anime la revue, consolide le dashboard</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Hebdo (30 min)</strong> : top 3 écarts → <strong>actions</strong>, <strong>owner</strong>, <strong>date</strong>.  </li>
+<li><strong>Mensuel</strong> : synthèse exécutive (tendances 90 j, risques, arbitrages).  </li>
+<li><strong>Data dictionary</strong> versionné : définition, source, formule, fréquence, seuils.</li>
+</ul>
+<hr>
+<h2>Plan de mise en œuvre (exemple)</h2>
+<table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Livrable / action</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>J1–J3</td>
+<td>Cadrage objectifs &amp; parties prenantes</td>
+<td>Interviews, périmètre, sources de données</td>
+</tr>
+<tr>
+<td>J4–J5</td>
+<td>Propositions + scorecard</td>
+<td>2–3 KPI candidats / objectif, scoring 0–2</td>
+</tr>
+<tr>
+<td>J6</td>
+<td>Sélection finale</td>
+<td>6–8 KPI max, cibles &amp; seuils</td>
+</tr>
+<tr>
+<td>J7–J8</td>
+<td>KPI Canvas + data dictionary</td>
+<td>1 page / KPI + dictionnaire</td>
+</tr>
+<tr>
+<td>J9</td>
+<td>Dashboard v1</td>
+<td>Vue exécutive + opérationnelle</td>
+</tr>
+<tr>
+<td>J10</td>
+<td>Lancement du rituel</td>
+<td>Réunion hebdo, premières actions</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Gestion des risques (extrait)</h2>
+<table>
+<thead>
+<tr>
+<th>Risque</th>
+<th>Prob.</th>
+<th>Impact</th>
+<th>Mitigation</th>
+<th>Plan de secours</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vanity metrics</td>
+<td>Moy.</td>
+<td>Élevé</td>
+<td>Méthode de sélection + scorecard</td>
+<td>Revue externe des KPI</td>
+</tr>
+<tr>
+<td>Données incomplètes / instables</td>
+<td>Moy.</td>
+<td>Élevé</td>
+<td>Sources automatisées, définitions tracées</td>
+<td>Ajuster la formule / changer la source</td>
+</tr>
+<tr>
+<td>KPI sans owner</td>
+<td>Élevée</td>
+<td>Élevé</td>
+<td>RACI clair + sponsor actif</td>
+<td>Revue mensuelle sponsor</td>
+</tr>
+<tr>
+<td>Sur-pilotage (trop d’indicateurs)</td>
+<td>Élevée</td>
+<td>Moyen</td>
+<td>6–8 KPI max, nettoyage trimestriel</td>
+<td>“Stop list” et archivage</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>FAQ – Objections fréquentes</h2>
+<ul>
+<li><strong>“On va mesurer trop de choses.”</strong> → Non : <strong>6–8 KPI max</strong>, chacun relié à un objectif et à un owner.  </li>
+<li><strong>“On n’a pas les données.”</strong> → Commencer par des <strong>sources automatiques</strong> existantes ; documenter les limites ; améliorer ensuite.  </li>
+<li><strong>“Ça prend du temps.”</strong> → <strong>Rituel hebdo de 30 min</strong> centré sur 3 écarts ; le gain vient des décisions plus rapides.</li>
+</ul>
+<hr>
+<h2>Exemple concret</h2>
+<p><strong>Sans cadre KPI</strong> : beaucoup de graphiques, peu d’actions ; les tickets augmentent, l’adoption stagne, les arbitrages dérivent au ressenti.<br><strong>Avec cadre KPI</strong> : 6 indicateurs clairs, data dictionary, revue hebdo ; en 8 semaines, <strong>p95 démarrage −25 %</strong>, <strong>tickets “how-to” −18 %</strong>, <strong>licences inactives −60 %</strong> ; décisions sponsorisées et traçables.</p>
+<hr>
+<h2>En résumé</h2>
+<ul>
+<li><strong>Peu de KPI, mais bons</strong> : liés aux objectifs, mesurés automatiquement, actionnables.  </li>
+<li><strong>Gouvernance</strong> : owner, cible, fréquence, revue courte, décisions tracées.  </li>
+<li><strong>Valeur</strong> : arbitrer, prioriser, démontrer l’impact.</li>
+</ul>
+<p>Besoin d’un cadrage rapide ou d’un tableau de bord orienté résultats ? <strong>Contacte-moi</strong> : <a href="/MDS/index.html#contact">/MDS/index.html#contact</a>.</p>
+<hr>
+<h2>Références</h2>
+<ul>
+<li><strong>Définition des KPI</strong> : <a href="https://fr.wikipedia.org/wiki/Indicateur_cl%C3%A9_de_performance">Wikipédia — Indicateur clé de performance (fr)</a> ; <a href="https://en.wikipedia.org/wiki/Key_performance_indicator">Wikipedia — Key performance indicator (en)</a>  </li>
+<li><strong>Leading vs Lagging</strong> : <a href="https://en.wikipedia.org/wiki/Leading_and_lagging_indicators">Wikipedia — Leading and lagging indicators</a>  </li>
+<li><strong>Formulation SMART</strong> : <a href="https://en.wikipedia.org/wiki/SMART_criteria">Wikipedia — SMART criteria</a></li>
+</ul>
+</article>
+
+    <!-- Auteur LinkedIn en BAS avant “découvrir aussi” -->
+    <section class="flex items-center gap-5 mt-14 mb-8 fade">
+      <img src="/MDS/images/Logo.webp" alt="Marc Da Silva" class="w-12 h-12 rounded-full glass-card border border-white/10">
+      <div>
+        <span class="block text-base text-white/90 font-semibold">Marc Da Silva</span>
+        <span class="block text-xs text-white/50 mb-1">Consultant IT &amp; Chef de projet</span>
+        <a href="https://www.linkedin.com/in/marc-da-silva-f4u/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#0094f5] text-white px-4 py-2 rounded-xl font-semibold shadow transition text-sm mt-2">
+          <i data-lucide="linkedin" class="w-5 h-5"></i>
+          Me suivre sur LinkedIn
+        </a>
+      </div>
+    </section>
+
+    <!-- Suggestions d’articles -->
+    <section class="mt-20 mb-8 fade">
+      <h2 class="text-2xl font-bold mb-8 text-white">Découvrir aussi</h2>
+      <div id="last-articles" class="grid gap-7 sm:grid-cols-3"></div>
+    </section>
+  </main>
+
+  <footer class="py-12 text-center text-white/40 text-base bg-black mt-20">
+    © 2025 Marc Da Silva. Portfolio.<br>
+    <span class="text-xs text-white/20">Ce site ne collecte aucune donnée, ne dépose aucun cookie, et ne réalise aucun suivi statistique.</span>
+  </footer>
+
+  <script src="/MDS/js/main.js" defer=""></script>
+  <script src="/MDS/js/articles-suggestions.js" defer=""></script>
+  <script>
+    setTimeout(() => {
+      document.querySelectorAll('.fade').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 120);
+      });
+      lucide.createIcons();
+    }, 200);
+  </script>
+
+
+</body></html>
