@@ -11,9 +11,6 @@ category: Conseil IT
 ---
 <h1>Résistance au changement IT : comprendre, anticiper et transformer un obstacle en levier</h1>
 
-
-
-
 <blockquote>
 
 <p><strong>« People don’t resist change. They resist being changed. »</strong><br>
@@ -22,21 +19,11 @@ category: Conseil IT
 
 </blockquote>
 
-
-
-
 <p>Dans le monde de l’IT, on parle souvent de technologie, rarement de psychologie. Pourtant, c’est bien l’humain qui décide du succès ou de l’échec d’un projet.</p>
-
-
-
 
 <p>Que ce soit pour une migration Windows, le déploiement d’un nouvel outil collaboratif, ou le renforcement des règles de cybersécurité, un phénomène revient invariablement : <strong>la résistance au changement</strong>.</p>
 
-
-
-
-<p>Et ce constat est loin d’être anecdotique. Selon <a href="https://www.mckinsey.com/capabilities/transformation/our-insights/common-pitfalls-in-transformations-a-conversation-with-jon-garcia" target="_blank">McKinsey</a> et le <a href="https://www.ft.com/partnercontent/teamviewer/70-per-cent-of-transformation-projects-fail-and-everyones-ignoring-the-same-fix.html" target="_blank">Financial Times (citant Gartner)</a>, près de 70 % des projets de transformation échouent ou n’atteignent pas leurs objectifs.</p>
-
+<p>Et ce constat est loin d’être anecdotique. Selon <a href="https://www.mckinsey.com/capabilities/transformation/our-insights/common-pitfalls-in-transformations-a-conversation-with-jon-garcia" target="_blank" rel="noopener">McKinsey</a> et le <a href="https://www.ft.com/partnercontent/teamviewer/70-per-cent-of-transformation-projects-fail-and-everyones-ignoring-the-same-fix.html" target="_blank" rel="noopener">Financial Times (citant Gartner)</a>, près de 70 % des projets de transformation échouent ou n’atteignent pas leurs objectifs.</p>
 
 
 
@@ -46,19 +33,17 @@ category: Conseil IT
 
 
 
-
 <h3>1. Facteurs humains</h3>
 
 <ul>
 
-<li><strong>Peur de l’inconnu</strong> : l’utilisateur craint de perdre ses repères, de ne pas réussir à maîtriser les nouveaux outils.</li>
+  <li><strong>Peur de l’inconnu</strong> : l’utilisateur craint de perdre ses repères, de ne pas réussir à maîtriser les nouveaux outils.</li>
 
-<li><strong>Crainte pour la productivité</strong> : un logiciel inconnu, c’est souvent perçu comme un ralentissement.</li>
+  <li><strong>Crainte pour la productivité</strong> : un logiciel inconnu, c’est souvent perçu comme un ralentissement.</li>
 
-<li><strong>Sentiment de perte de contrôle</strong> : “avant je savais tout faire, maintenant je dois demander”.</li>
+  <li><strong>Sentiment de perte de contrôle</strong> : “avant je savais tout faire, maintenant je dois demander”.</li>
 
 </ul>
-
 
 
 
@@ -66,12 +51,11 @@ category: Conseil IT
 
 <ul>
 
-<li><strong>Manque de communication</strong> : le changement arrive “par surprise”, sans explication claire du pourquoi.</li>
+  <li><strong>Manque de communication</strong> : le changement arrive “par surprise”, sans explication claire du pourquoi.</li>
 
-<li><strong>Absence d’implication</strong> : les utilisateurs découvrent le projet à la fin, quand tout est déjà décidé.</li>
+  <li><strong>Absence d’implication</strong> : les utilisateurs découvrent le projet à la fin, quand tout est déjà décidé.</li>
 
 </ul>
-
 
 
 
@@ -79,19 +63,17 @@ category: Conseil IT
 
 <ul>
 
-<li><strong>Complexité perçue</strong> : interface jugée moins intuitive, procédures alourdies.</li>
+  <li><strong>Complexité perçue</strong> : interface jugée moins intuitive, procédures alourdies.</li>
 
-<li><strong>Formation inadaptée</strong> : sessions trop longues, trop théoriques, ou pas adaptées au métier.</li>
+  <li><strong>Formation inadaptée</strong> : sessions trop longues, trop théoriques, ou pas adaptées au métier.</li>
 
 </ul>
 
 
 
-
 <h2>Le cycle de résistance au changement</h2>
 
-
-![Cycle de résistance au changement IT : annonce, résistance, exploration, adoption partielle, adoption totale.](/images/articles/cycle-resistance-adoption.png "Cycle de résistance au changement IT")
+<p><img src="images/articles/cycle-resistance-adoption.png" alt="Cycle de résistance au changement IT : annonce, résistance, exploration, adoption partielle, adoption totale." loading="lazy"></p>
 
 
 
@@ -99,13 +81,13 @@ category: Conseil IT
 
 <ul>
 
-<li><strong>Adoption lente</strong> : les utilisateurs repoussent l’utilisation des nouveaux outils ou continuent d’employer les anciens systèmes.</li>
+  <li><strong>Adoption lente</strong> : les utilisateurs repoussent l’utilisation des nouveaux outils ou continuent d’employer les anciens systèmes.</li>
 
-<li><strong>Baisse de productivité</strong> : temps perdu à chercher comment faire, frustration qui s’installe.</li>
+  <li><strong>Baisse de productivité</strong> : temps perdu à chercher comment faire, frustration qui s’installe.</li>
 
-<li><strong>Tensions internes</strong> : sentiment que le projet est “imposé” et déconnexion entre direction et terrain.</li>
+  <li><strong>Tensions internes</strong> : sentiment que le projet est “imposé” et déconnexion entre direction et terrain.</li>
 
-<li><strong>Effet domino</strong> : un échec fragilise la confiance pour les projets suivants.</li>
+  <li><strong>Effet domino</strong> : un échec fragilise la confiance pour les projets suivants.</li>
 
 </ul>
 
@@ -119,11 +101,11 @@ category: Conseil IT
 
 <ul>
 
-<li>Anticiper : annoncer le projet en amont pour éviter l’effet de surprise.</li>
+  <li>Anticiper : annoncer le projet en amont pour éviter l’effet de surprise.</li>
 
-<li>Contextualiser : expliquer pourquoi ce changement est nécessaire (sécurité, performance, conformité…).</li>
+  <li>Contextualiser : expliquer pourquoi ce changement est nécessaire (sécurité, performance, conformité…).</li>
 
-<li>Être honnête : reconnaître les éventuelles difficultés de transition.</li>
+  <li>Être honnête : reconnaître les éventuelles difficultés de transition.</li>
 
 </ul>
 
@@ -135,11 +117,11 @@ category: Conseil IT
 
 <ul>
 
-<li>Organiser des ateliers de co-conception.</li>
+  <li>Organiser des ateliers de co-conception.</li>
 
-<li>Sélectionner un panel d’utilisateurs “ambassadeurs”.</li>
+  <li>Sélectionner un panel d’utilisateurs “ambassadeurs”.</li>
 
-<li>Valoriser leurs contributions.</li>
+  <li>Valoriser leurs contributions.</li>
 
 </ul>
 
@@ -151,11 +133,11 @@ category: Conseil IT
 
 <ul>
 
-<li>Adapter le format : tutoriels courts, ateliers pratiques, documentation illustrée.</li>
+  <li>Adapter le format : tutoriels courts, ateliers pratiques, documentation illustrée.</li>
 
-<li>Segmenter le contenu : différencier selon les métiers.</li>
+  <li>Segmenter le contenu : différencier selon les métiers.</li>
 
-<li>Proposer du “juste-à-temps” : ressources disponibles au moment du besoin.</li>
+  <li>Proposer du “juste-à-temps” : ressources disponibles au moment du besoin.</li>
 
 </ul>
 
@@ -167,7 +149,7 @@ category: Conseil IT
 
 <ul>
 
-<li>Gains concrets visibles rapidement.</li>
+  <li>Gains concrets visibles rapidement.</li>
 
 </ul>
 
@@ -179,15 +161,75 @@ category: Conseil IT
 
 <ul>
 
-<li>Support réactif et accessible.</li>
+  <li>Support réactif et accessible.</li>
 
-<li>Sessions de suivi post-lancement.</li>
+  <li>Sessions de suivi post-lancement.</li>
 
-<li>Ajustements selon les retours.</li>
+  <li>Ajustements selon les retours.</li>
 
 </ul>
 
 <p><em>Exemple</em> : canal de support dédié pendant 4 semaines après la mise en place d’Intune.</p>
+
+
+
+<h2>Méthodologies de conduite du changement</h2>
+
+<ul>
+
+  <li><strong>ADKAR (Prosci)</strong> : Awareness → Desire → Knowledge → Ability → Reinforcement.</li>
+
+  <li><strong>Kotter</strong> : créer l’urgence, fédérer, générer des victoires rapides, ancrer le changement.</li>
+
+  <li><strong>ITIL Change Enablement</strong> : évaluer l’impact, planifier, communiquer, valider.</li>
+
+</ul>
+
+
+
+<h2>Gestion des parties prenantes</h2>
+
+<ul>
+
+  <li><strong>Management intermédiaire</strong> : relais entre direction et terrain, clé de l’adhésion.</li>
+
+  <li><strong>Équipes support</strong> : dimensionner le support pour absorber le pic initial.</li>
+
+  <li><strong>Référents métier</strong> : traduire le changement en cas d’usage opérationnels.</li>
+
+</ul>
+
+
+
+<h2>Mesurer pour piloter : KPI d’adoption</h2>
+
+<ul>
+
+  <li><strong>Taux d’adoption</strong> : % d’utilisateurs actifs sur le nouvel outil.</li>
+
+  <li><strong>Tickets support</strong> : volume et typologie, avant/après déploiement.</li>
+
+  <li><strong>Temps moyen d’exécution</strong> : productivité sur tâches clés.</li>
+
+  <li><strong>Satisfaction utilisateur (NPS interne)</strong> : perception qualitative.</li>
+
+  <li><strong>Respect du planning</strong> : jalons tenus vs retard.</li>
+
+</ul>
+
+
+
+<h2>Capitaliser : retour d’expérience (RETEX)</h2>
+
+<ul>
+
+  <li>Collecter les points positifs et irritants.</li>
+
+  <li>Documenter les leçons apprises.</li>
+
+  <li>Réinjecter ces enseignements dans les projets suivants.</li>
+
+</ul>
 
 
 
@@ -197,13 +239,13 @@ category: Conseil IT
 
 <ul>
 
-<li>Anticipe les freins.</li>
+  <li>Anticipe les freins.</li>
 
-<li>Met en place une stratégie adaptée à la culture d’entreprise.</li>
+  <li>Met en place une stratégie adaptée à la culture d’entreprise.</li>
 
-<li>Mesure l’adoption avec des KPI précis.</li>
+  <li>Mesure l’adoption avec des KPI précis.</li>
 
-<li>Ajuste en continu.</li>
+  <li>Ajuste en continu.</li>
 
 </ul>
 
@@ -227,15 +269,15 @@ category: Conseil IT
 
 <ol>
 
-<li>Préparer (communication claire et anticipée).</li>
+  <li>Préparer (communication claire et anticipée).</li>
 
-<li>Impliquer (dès la conception).</li>
+  <li>Impliquer (dès la conception).</li>
 
-<li>Former (adapté aux profils).</li>
+  <li>Former (adapté aux profils).</li>
 
-<li>Accompagner (après le déploiement).</li>
+  <li>Accompagner (après le déploiement).</li>
 
-<li>Mesurer (adoption, satisfaction, performance).</li>
+  <li>Mesurer (adoption, satisfaction, performance).</li>
 
 </ol>
 
@@ -247,8 +289,8 @@ category: Conseil IT
 
 <ul>
 
-<li><a href="https://www.mckinsey.com/capabilities/transformation/our-insights/common-pitfalls-in-transformations-a-conversation-with-jon-garcia" target="_blank">McKinsey – Common pitfalls in transformations: A conversation with Jon Garcia</a></li>
+  <li><a href="https://www.mckinsey.com/capabilities/transformation/our-insights/common-pitfalls-in-transformations-a-conversation-with-jon-garcia" target="_blank" rel="noopener">McKinsey – Common pitfalls in transformations: A conversation with Jon Garcia</a></li>
 
-<li><a href="https://www.ft.com/partnercontent/teamviewer/70-per-cent-of-transformation-projects-fail-and-everyones-ignoring-the-same-fix.html" target="_blank">Financial Times – 70% of transformation projects fail (citing Gartner)</a></li>
+  <li><a href="https://www.ft.com/partnercontent/teamviewer/70-per-cent-of-transformation-projects-fail-and-everyones-ignoring-the-same-fix.html" target="_blank" rel="noopener">Financial Times – 70% of transformation projects fail (citant Gartner)</a></li>
 
 </ul>
